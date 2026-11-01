@@ -1,32 +1,2588 @@
-<!-- WIND -->
+<!DOCTYPE html>
+<html lang="en">
 
-<a
-    href="#wind"
-    class="
-        nw-hotspot
-        nw-hotspot-wind
-    "
-    data-name="Kingdom of Wind"
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>The Eight Kingdoms | Nirwest</title>
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+
+    width: 100%;
+
+    background: #070707;
+    color: #ffffff;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    overflow-x: hidden;
+}
+
+body {
+    min-height: 100vh;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.nw-nav {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    z-index: 1000;
+
+    height: 66px;
+
+    padding: 0 4vw;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(0,0,0,.96),
+            rgba(0,0,0,.72),
+            rgba(0,0,0,.08)
+        );
+
+    transition:
+        background .3s ease;
+}
+
+.nw-nav.scrolled {
+    background: rgba(7,7,7,.97);
+
+    border-bottom:
+        1px solid rgba(255,255,255,.06);
+}
+
+.nw-logo {
+    color: #ffffff;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 23px;
+    font-weight: bold;
+
+    letter-spacing: 4px;
+}
+
+.nw-logo span {
+    color: #c79850;
+}
+
+.nw-nav-links {
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+}
+
+.nw-nav-links a {
+    color:
+        rgba(255,255,255,.76);
+
+    font-size: 12px;
+
+    transition:
+        color .2s ease;
+}
+
+.nw-nav-links a:hover {
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.nw-intro {
+    padding:
+        115px 5vw 45px;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center top,
+            rgba(199,152,80,.10),
+            transparent 42%
+        ),
+        #070707;
+}
+
+.nw-kicker {
+    margin-bottom: 10px;
+
+    color: #c79850;
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+    letter-spacing: 6px;
+
+    text-transform: uppercase;
+}
+
+.nw-intro h1 {
+    margin: 0;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(
+            44px,
+            7vw,
+            90px
+        );
+
+    font-weight: normal;
+
+    line-height: 1;
+}
+
+.nw-intro p {
+    max-width: 760px;
+
+    margin:
+        20px auto 0;
+
+    color:
+        rgba(255,255,255,.67);
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   MAP SECTION
+========================================================= */
+
+.nw-map-section {
+    width: 100%;
+
+    padding:
+        0 3vw 45px;
+
+    background: #070707;
+}
+
+.nw-map-frame {
+    position: relative;
+
+    width: 100%;
+
+    max-width: 1800px;
+
+    margin: 0 auto;
+
+    aspect-ratio:
+        16 / 9;
+
+    overflow: hidden;
+
+    border:
+        1px solid rgba(199,152,80,.20);
+
+    border-radius: 10px;
+
+    background: #15100b;
+
+    box-shadow:
+        0 30px 90px
+        rgba(0,0,0,.65);
+}
+
+.nw-map-image {
+    position: absolute;
+
+    inset: 0;
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    background: #15100b;
+}
+
+
+/* =========================================================
+   CIRCULAR HOTSPOTS
+========================================================= */
+
+.nw-hotspot {
+    position: absolute;
+
+    z-index: 20;
+
+    width: 100px;
+    height: 100px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(199,152,80,0);
+
+    background:
+        rgba(0,0,0,0);
+
+    cursor: pointer;
+
+    transform:
+        translate(-50%,-50%);
+
+    transition:
+        background .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease,
+        transform .25s ease;
+}
+
+.nw-hotspot img {
+    width: 60px;
+    height: 60px;
+
+    object-fit: contain;
+
+    opacity: 0;
+
+    transform: scale(.72);
+
+    filter:
+        drop-shadow(
+            0 6px 12px
+            rgba(0,0,0,.75)
+        );
+
+    transition:
+        opacity .25s ease,
+        transform .25s ease,
+        filter .25s ease;
+}
+
+.nw-hotspot:hover,
+.nw-hotspot.active {
+    background:
+        radial-gradient(
+            circle,
+            rgba(199,152,80,.24),
+            rgba(0,0,0,.28)
+        );
+
+    border-color:
+        rgba(218,173,103,.95);
+
+    box-shadow:
+        0 0 28px
+        rgba(199,152,80,.40);
+
+    transform:
+        translate(-50%,-50%)
+        scale(1.10);
+
+    backdrop-filter:
+        blur(3px);
+}
+
+.nw-hotspot:hover img,
+.nw-hotspot.active img {
+    opacity: 1;
+
+    transform:
+        scale(1);
+
+    filter:
+        drop-shadow(
+            0 0 12px
+            rgba(199,152,80,.40)
+        );
+}
+
+
+/* =========================================================
+   HOTSPOT POSITIONS
+========================================================= */
+
+.nw-hotspot-ice {
+    left: 21%;
+    top: 19%;
+}
+
+.nw-hotspot-shadow {
+    left: 43%;
+    top: 19%;
+}
+
+.nw-hotspot-earth {
+    left: 25%;
+    top: 49%;
+}
+
+.nw-hotspot-wind {
+    left: 53%;
+    top: 45%;
+}
+
+.nw-hotspot-sun {
+    left: 38%;
+    top: 69%;
+}
+
+.nw-hotspot-fire {
+    left: 49%;
+    top: 70%;
+}
+
+.nw-hotspot-air {
+    left: 20%;
+    top: 75%;
+}
+
+.nw-hotspot-ocean {
+    left: 81%;
+    top: 69%;
+}
+
+
+/* =========================================================
+   HOVER LABEL
+========================================================= */
+
+.nw-map-label {
+    position: absolute;
+
+    left: 50%;
+    top: 28px;
+
+    transform:
+        translateX(-50%)
+        translateY(-8px);
+
+    z-index: 40;
+
+    min-width: 220px;
+
+    padding:
+        11px 17px;
+
+    border:
+        1px solid
+        rgba(199,152,80,.35);
+
+    border-radius: 5px;
+
+    background:
+        rgba(0,0,0,.78);
+
+    backdrop-filter:
+        blur(8px);
+
+    text-align: center;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    transition:
+        opacity .2s ease,
+        transform .2s ease;
+}
+
+.nw-map-label.visible {
+    opacity: 1;
+
+    transform:
+        translateX(-50%)
+        translateY(0);
+}
+
+.nw-map-label-small {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: #c79850;
+
+    font-size: 8px;
+
+    font-weight: bold;
+
+    letter-spacing: 3px;
+}
+
+.nw-map-label-name {
+    display: block;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size: 20px;
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   MAP CAPTION
+========================================================= */
+
+.nw-map-caption {
+    max-width: 1800px;
+
+    margin:
+        13px auto 0;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    color:
+        rgba(255,255,255,.38);
+
+    font-size: 11px;
+}
+
+.nw-map-caption strong {
+    color: #c79850;
+}
+
+
+/* =========================================================
+   EMBLEMS GRID
+========================================================= */
+
+.nw-quick-nav {
+    padding:
+        25px 4vw 70px;
+
+    background:
+        #070707;
+
+    scroll-margin-top:
+        66px;
+}
+
+.nw-quick-grid {
+    max-width:
+        1500px;
+
+    margin:
+        0 auto;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            4,
+            minmax(0,1fr)
+        );
+
+    gap:
+        16px;
+}
+
+.nw-quick-card {
+    position: relative;
+
+    min-height:
+        225px;
+
+    padding:
+        25px 18px 20px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    border-radius:
+        10px;
+
+    background:
+        radial-gradient(
+            circle at center top,
+            rgba(199,152,80,.05),
+            transparent 50%
+        ),
+        linear-gradient(
+            145deg,
+            #151515,
+            #090909
+        );
+
+    transition:
+        transform .3s ease,
+        border-color .3s ease,
+        background .3s ease,
+        box-shadow .3s ease;
+}
+
+.nw-quick-card:hover {
+    transform:
+        translateY(-7px);
+
+    border-color:
+        rgba(199,152,80,.58);
+
+    background:
+        radial-gradient(
+            circle at center top,
+            rgba(199,152,80,.11),
+            transparent 55%
+        ),
+        linear-gradient(
+            145deg,
+            #191713,
+            #090909
+        );
+
+    box-shadow:
+        0 18px 40px
+        rgba(0,0,0,.50);
+}
+
+.nw-kingdom-emblem {
+    width:
+        100px;
+
+    height:
+        100px;
+
+    margin-bottom:
+        17px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    transition:
+        transform .35s ease,
+        filter .35s ease;
+}
+
+.nw-kingdom-emblem img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit:
+        contain;
+
+    filter:
+        drop-shadow(
+            0 8px 14px
+            rgba(0,0,0,.60)
+        );
+}
+
+.nw-quick-card:hover
+.nw-kingdom-emblem {
+    transform:
+        scale(1.10);
+
+    filter:
+        drop-shadow(
+            0 0 14px
+            rgba(199,152,80,.25)
+        );
+}
+
+.nw-quick-card strong {
+    display: block;
+
+    margin-bottom:
+        5px;
+
+    color:
+        #ffffff;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        20px;
+
+    font-weight:
+        normal;
+}
+
+.nw-quick-card span {
+    color:
+        rgba(255,255,255,.46);
+
+    font-size:
+        11px;
+
+    line-height:
+        1.4;
+}
+
+
+/* =========================================================
+   KINGDOM SECTIONS
+========================================================= */
+
+.nw-kingdom {
+    position: relative;
+
+    min-height:
+        78vh;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(320px,.95fr)
+        minmax(0,1.05fr);
+
+    align-items:
+        center;
+
+    gap:
+        55px;
+
+    padding:
+        75px 5vw;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.06);
+
+    overflow:
+        hidden;
+
+    scroll-margin-top:
+        66px;
+}
+
+.nw-kingdom:nth-of-type(even) {
+    background:
+        linear-gradient(
+            135deg,
+            #0e0e0e,
+            #070707
+        );
+}
+
+.nw-kingdom:nth-of-type(odd) {
+    background:
+        #070707;
+}
+
+.nw-kingdom-image {
+    position: relative;
+}
+
+.nw-kingdom-image img {
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+
+    border-radius:
+        10px;
+
+    box-shadow:
+        0 25px 70px
+        rgba(0,0,0,.60);
+}
+
+.nw-kingdom-image::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius:
+        10px;
+
+    pointer-events:
+        none;
+
+    box-shadow:
+        inset 0 0 55px
+        rgba(0,0,0,.22);
+}
+
+.nw-kingdom-content {
+    max-width:
+        730px;
+}
+
+.nw-kingdom-number {
+    margin-bottom:
+        10px;
+
+    color:
+        #c79850;
+
+    font-size:
+        10px;
+
+    font-weight:
+        bold;
+
+    letter-spacing:
+        5px;
+}
+
+.nw-kingdom-heading {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        18px;
+
+    margin-bottom:
+        18px;
+}
+
+.nw-kingdom-small-emblem {
+    flex:
+        0 0 58px;
+
+    width:
+        58px;
+
+    height:
+        58px;
+}
+
+.nw-kingdom-small-emblem img {
+    width:
+        100%;
+
+    height:
+        100%;
+
+    object-fit:
+        contain;
+}
+
+.nw-kingdom-content h2 {
+    margin:
+        0;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        clamp(
+            35px,
+            5vw,
+            62px
+        );
+
+    font-weight:
+        normal;
+
+    line-height:
+        1.05;
+}
+
+.nw-kingdom-content p {
+    margin:
+        0 0 15px;
+
+    color:
+        rgba(255,255,255,.70);
+
+    font-size:
+        15px;
+
+    line-height:
+        1.75;
+}
+
+
+/* =========================================================
+   INFO
+========================================================= */
+
+.nw-info-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0,1fr)
+        );
+
+    gap:
+        10px;
+
+    margin-top:
+        25px;
+}
+
+.nw-info {
+    padding:
+        13px 15px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.07);
+
+    border-radius:
+        6px;
+
+    background:
+        rgba(255,255,255,.025);
+}
+
+.nw-info-label {
+    display:
+        block;
+
+    margin-bottom:
+        5px;
+
+    color:
+        #c79850;
+
+    font-size:
+        9px;
+
+    font-weight:
+        bold;
+
+    letter-spacing:
+        2px;
+}
+
+.nw-info-value {
+    color:
+        rgba(255,255,255,.70);
+
+    font-size:
+        12px;
+}
+
+.nw-back-map {
+    display:
+        inline-flex;
+
+    margin-top:
+        25px;
+
+    padding-bottom:
+        4px;
+
+    border-bottom:
+        1px solid
+        rgba(199,152,80,.45);
+
+    color:
+        #c79850;
+
+    font-size:
+        12px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.nw-footer {
+    padding:
+        55px 5vw 70px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.07);
+
+    color:
+        rgba(255,255,255,.35);
+
+    font-size:
+        12px;
+}
+
+.nw-footer-logo {
+    margin-bottom:
+        9px;
+
+    color:
+        white;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        22px;
+
+    letter-spacing:
+        4px;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media screen and (max-width:900px) {
+
+    .nw-nav-links {
+        display: none;
+    }
+
+    .nw-quick-grid {
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0,1fr)
+            );
+    }
+
+    .nw-kingdom {
+        min-height:
+            auto;
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            28px;
+
+        padding:
+            55px 4vw;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media screen and (max-width:700px) {
+
+    .nw-nav {
+        height:
+            58px;
+
+        padding:
+            0 16px;
+
+        background:
+            rgba(7,7,7,.95);
+    }
+
+    .nw-logo {
+        font-size:
+            18px;
+
+        letter-spacing:
+            2px;
+    }
+
+    .nw-intro {
+        padding:
+            95px 20px 35px;
+    }
+
+    .nw-intro p {
+        font-size:
+            13px;
+    }
+
+    .nw-map-section {
+        padding:
+            0 7px 25px;
+    }
+
+    .nw-map-frame {
+        border-radius:
+            5px;
+    }
+
+    .nw-hotspot {
+        width:
+            48px;
+
+        height:
+            48px;
+    }
+
+    .nw-hotspot img {
+        width:
+            31px;
+
+        height:
+            31px;
+    }
+
+    .nw-hotspot {
+        border-color:
+            rgba(199,152,80,.20);
+
+        background:
+            rgba(0,0,0,.10);
+    }
+
+    .nw-hotspot img {
+        opacity:
+            .35;
+
+        transform:
+            scale(.86);
+    }
+
+    .nw-hotspot:active,
+    .nw-hotspot.active {
+        border-color:
+            rgba(218,173,103,.95);
+
+        background:
+            rgba(199,152,80,.25);
+    }
+
+    .nw-hotspot:active img,
+    .nw-hotspot.active img {
+        opacity:
+            1;
+
+        transform:
+            scale(1);
+    }
+
+    .nw-map-label {
+        top:
+            7px;
+
+        min-width:
+            145px;
+
+        padding:
+            6px 9px;
+    }
+
+    .nw-map-label-small {
+        font-size:
+            6px;
+    }
+
+    .nw-map-label-name {
+        font-size:
+            13px;
+    }
+
+    .nw-map-caption {
+        padding:
+            0 5px;
+
+        font-size:
+            9px;
+    }
+
+    .nw-map-caption span:last-child {
+        display:
+            none;
+    }
+
+    .nw-quick-nav {
+        padding:
+            15px 12px 45px;
+
+        scroll-margin-top:
+            58px;
+    }
+
+    .nw-quick-grid {
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0,1fr)
+            );
+
+        gap:
+            10px;
+    }
+
+    .nw-quick-card {
+        min-height:
+            180px;
+
+        padding:
+            17px 8px 15px;
+    }
+
+    .nw-kingdom-emblem {
+        width:
+            72px;
+
+        height:
+            72px;
+
+        margin-bottom:
+            13px;
+    }
+
+    .nw-quick-card strong {
+        font-size:
+            15px;
+    }
+
+    .nw-quick-card span {
+        font-size:
+            9px;
+    }
+
+    .nw-kingdom {
+        scroll-margin-top:
+            58px;
+
+        padding:
+            45px 16px;
+    }
+
+    .nw-kingdom-heading {
+        gap:
+            12px;
+    }
+
+    .nw-kingdom-small-emblem {
+        flex-basis:
+            46px;
+
+        width:
+            46px;
+
+        height:
+            46px;
+    }
+
+    .nw-kingdom-content p {
+        font-size:
+            13px;
+    }
+
+    .nw-info-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+    .nw-footer {
+        padding:
+            40px 20px 60px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+
+<nav
+    class="nw-nav"
+    id="navbar"
 >
-    <img
-        src="acqua_argento.png"
-        alt=""
+
+    <a
+        href="index.html"
+        class="nw-logo"
     >
-</a>
+        NIRWEST<span>+</span>
+    </a>
 
 
-<!-- AIR -->
+    <div class="nw-nav-links">
 
-<a
-    href="#air"
-    class="
-        nw-hotspot
-        nw-hotspot-air
-    "
-    data-name="Kingdom of Air"
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="#map">
+            Map
+        </a>
+
+        <a href="#ice">
+            Ice
+        </a>
+
+        <a href="#shadow">
+            Shadow
+        </a>
+
+        <a href="#wind">
+            Wind
+        </a>
+
+        <a href="#earth">
+            Earth
+        </a>
+
+        <a href="#sun">
+            Sun
+        </a>
+
+        <a href="#fire">
+            Fire
+        </a>
+
+        <a href="#air">
+            Air
+        </a>
+
+        <a href="#ocean">
+            Ocean
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =========================================================
+     INTRO
+========================================================= -->
+
+<section class="nw-intro">
+
+    <div class="nw-kicker">
+        EXPLORE NIRWEST
+    </div>
+
+    <h1>
+        The Eight Kingdoms
+    </h1>
+
+    <p>
+        Explore the world of Nirwest through its eight great kingdoms.
+        Move across the map and discover each realm through its royal emblem.
+    </p>
+
+</section>
+
+
+
+<!-- =========================================================
+     INTERACTIVE MAP
+========================================================= -->
+
+<section
+    class="nw-map-section"
+    id="map"
 >
-    <img
-        src="aria_argento.png"
-        alt=""
-    >
-</a>
+
+    <div class="nw-map-frame">
+
+
+        <img
+            class="nw-map-image"
+            src="Mappa.png"
+            alt="Map of Nirwest"
+        >
+
+
+        <div
+            class="nw-map-label"
+            id="mapLabel"
+        >
+
+            <span class="nw-map-label-small">
+                EXPLORE
+            </span>
+
+            <span
+                class="nw-map-label-name"
+                id="mapLabelName"
+            >
+                Kingdom
+            </span>
+
+        </div>
+
+
+
+        <!-- ICE -->
+
+        <a
+            href="#ice"
+            class="
+                nw-hotspot
+                nw-hotspot-ice
+            "
+            data-name="Kingdom of Ice"
+        >
+            <img
+                src="ghiaccio_argento.png"
+                alt=""
+            >
+        </a>
+
+
+
+        <!-- SHADOW -->
+
+        <a
+            href="#shadow"
+            class="
+                nw-hotspot
+                nw-hotspot-shadow
+            "
+            data-name="Kingdom of Shadow"
+        >
+            <img
+                src="ombra_argento.png"
+                alt=""
+            >
+        </a>
+
+
+
+        <!-- EARTH -->
+
+        <a
+            href="#earth"
+            class="
+                nw-hotspot
+                nw-hotspot-earth
+            "
+            data-name="Kingdom of the Earth"
+        >
+            <img
+                src="natura_argento.png"
+                alt=""
+            >
+        </a>
+
+
+
+        <!-- WIND -->
+
+        <a
+            href="#wind"
+            class="
+                nw-hotspot
+                nw-hotspot-wind
+            "
+            data-name="Kingdom of Wind"
+        >
+            <img
+                src="acqua_argento.png"
+                alt=""
+            >
+        </a>
+
+
+
+        <!-- SUN -->
+
+        <a
+            href="#sun"
+            class="
+                nw-hotspot
+                nw-hotspot-sun
+            "
+            data-name="Kingdom of the Sun"
+        >
+            <img
+                src="sole_argento.png"
+                alt=""
+            >
+        </a>
+
+
+
+        <!-- FIRE -->
+
+        <a
+            href="#fire"
+            class="
+                nw-hotspot
+                nw-hotspot-fire
+            "
+            data-name="Kingdom of Fire"
+        >
+            <img
+                src="fuoco_argento.png"
+                alt=""
+            >
+        </a>
+
+
+
+        <!-- AIR -->
+
+        <a
+            href="#air"
+            class="
+                nw-hotspot
+                nw-hotspot-air
+            "
+            data-name="Kingdom of Air"
+        >
+            <img
+                src="aria_argento.png"
+                alt=""
+            >
+        </a>
+
+
+
+        <!-- OCEAN -->
+
+        <a
+            href="#ocean"
+            class="
+                nw-hotspot
+                nw-hotspot-ocean
+            "
+            data-name="Kingdom of the Ocean"
+        >
+            <img
+                src="fiume_argento.png"
+                alt=""
+            >
+        </a>
+
+
+    </div>
+
+
+    <div class="nw-map-caption">
+
+        <span>
+            <strong>Interactive map</strong>
+            — hover over a kingdom
+        </span>
+
+        <span>
+            Select a royal emblem to explore
+        </span>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     EMBLEMS GRID
+========================================================= -->
+
+<section
+    class="nw-quick-nav"
+    id="kingdoms"
+>
+
+    <div class="nw-quick-grid">
+
+
+        <a
+            href="#ice"
+            class="nw-quick-card"
+        >
+
+            <div class="nw-kingdom-emblem">
+                <img
+                    src="ghiaccio_argento.png"
+                    alt="Kingdom of Ice"
+                >
+            </div>
+
+            <strong>
+                Kingdom of Ice
+            </strong>
+
+            <span>
+                Northern frozen lands
+            </span>
+
+        </a>
+
+
+
+        <a
+            href="#shadow"
+            class="nw-quick-card"
+        >
+
+            <div class="nw-kingdom-emblem">
+                <img
+                    src="ombra_argento.png"
+                    alt="Kingdom of Shadow"
+                >
+            </div>
+
+            <strong>
+                Kingdom of Shadow
+            </strong>
+
+            <span>
+                Darkness beyond the mountains
+            </span>
+
+        </a>
+
+
+
+        <a
+            href="#wind"
+            class="nw-quick-card"
+        >
+
+            <div class="nw-kingdom-emblem">
+                <img
+                    src="acqua_argento.png"
+                    alt="Kingdom of Wind"
+                >
+            </div>
+
+            <strong>
+                Kingdom of Wind
+            </strong>
+
+            <span>
+                Valleys and open skies
+            </span>
+
+        </a>
+
+
+
+        <a
+            href="#earth"
+            class="nw-quick-card"
+        >
+
+            <div class="nw-kingdom-emblem">
+                <img
+                    src="natura_argento.png"
+                    alt="Kingdom of the Earth"
+                >
+            </div>
+
+            <strong>
+                Kingdom of the Earth
+            </strong>
+
+            <span>
+                Forests and ancient roots
+            </span>
+
+        </a>
+
+
+
+        <a
+            href="#sun"
+            class="nw-quick-card"
+        >
+
+            <div class="nw-kingdom-emblem">
+                <img
+                    src="sole_argento.png"
+                    alt="Kingdom of the Sun"
+                >
+            </div>
+
+            <strong>
+                Kingdom of the Sun
+            </strong>
+
+            <span>
+                Heart of the central lands
+            </span>
+
+        </a>
+
+
+
+        <a
+            href="#fire"
+            class="nw-quick-card"
+        >
+
+            <div class="nw-kingdom-emblem">
+                <img
+                    src="fuoco_argento.png"
+                    alt="Kingdom of Fire"
+                >
+            </div>
+
+            <strong>
+                Kingdom of Fire
+            </strong>
+
+            <span>
+                Flame and transformation
+            </span>
+
+        </a>
+
+
+
+        <a
+            href="#air"
+            class="nw-quick-card"
+        >
+
+            <div class="nw-kingdom-emblem">
+                <img
+                    src="aria_argento.png"
+                    alt="Kingdom of Air"
+                >
+            </div>
+
+            <strong>
+                Kingdom of Air
+            </strong>
+
+            <span>
+                Freedom and high lands
+            </span>
+
+        </a>
+
+
+
+        <a
+            href="#ocean"
+            class="nw-quick-card"
+        >
+
+            <div class="nw-kingdom-emblem">
+                <img
+                    src="fiume_argento.png"
+                    alt="Kingdom of the Ocean"
+                >
+            </div>
+
+            <strong>
+                Kingdom of the Ocean
+            </strong>
+
+            <span>
+                Eastern seas and horizons
+            </span>
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     ICE
+========================================================= -->
+
+<section
+    class="nw-kingdom"
+    id="ice"
+>
+
+    <div class="nw-kingdom-image">
+        <img
+            src="kingdom-ice.png"
+            alt="Kingdom of Ice"
+        >
+    </div>
+
+
+    <div class="nw-kingdom-content">
+
+        <div class="nw-kingdom-number">
+            KINGDOM I
+        </div>
+
+        <div class="nw-kingdom-heading">
+
+            <div class="nw-kingdom-small-emblem">
+                <img
+                    src="ghiaccio_argento.png"
+                    alt=""
+                >
+            </div>
+
+            <h2>
+                Kingdom of Ice
+            </h2>
+
+        </div>
+
+        <p>
+            The frozen northern kingdom of Nirwest rises among
+            immense mountain chains and lands shaped by snow,
+            silence and endurance.
+        </p>
+
+        <p>
+            Here the climate has forged both the landscape
+            and those who inhabit it.
+        </p>
+
+        <div class="nw-info-grid">
+
+            <div class="nw-info">
+                <span class="nw-info-label">
+                    REGION
+                </span>
+                <span class="nw-info-value">
+                    Northern Nirwest
+                </span>
+            </div>
+
+            <div class="nw-info">
+                <span class="nw-info-label">
+                    LANDMARK
+                </span>
+                <span class="nw-info-value">
+                    Frozen Mountains
+                </span>
+            </div>
+
+        </div>
+
+        <a
+            href="#map"
+            class="nw-back-map"
+        >
+            ↑ Back to map
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     SHADOW
+========================================================= -->
+
+<section
+    class="nw-kingdom"
+    id="shadow"
+>
+
+    <div class="nw-kingdom-image">
+        <img
+            src="kingdom-shadow.png"
+            alt="Kingdom of Shadow"
+        >
+    </div>
+
+
+    <div class="nw-kingdom-content">
+
+        <div class="nw-kingdom-number">
+            KINGDOM II
+        </div>
+
+        <div class="nw-kingdom-heading">
+
+            <div class="nw-kingdom-small-emblem">
+                <img
+                    src="ombra_argento.png"
+                    alt=""
+                >
+            </div>
+
+            <h2>
+                Kingdom of Shadow
+            </h2>
+
+        </div>
+
+        <p>
+            Beyond the northern mountain ranges lies one of
+            the most mysterious regions of Nirwest.
+        </p>
+
+        <p>
+            The Kingdom of Shadow is marked by secrecy,
+            isolation and forces hidden from much of the world.
+        </p>
+
+        <div class="nw-info-grid">
+
+            <div class="nw-info">
+                <span class="nw-info-label">
+                    REGION
+                </span>
+                <span class="nw-info-value">
+                    Northern Lands
+                </span>
+            </div>
+
+            <div class="nw-info">
+                <span class="nw-info-label">
+                    BORDER
+                </span>
+                <span class="nw-info-value">
+                    Celestial Walls
+                </span>
+            </div>
+
+        </div>
+
+        <a
+            href="#map"
+            class="nw-back-map"
+        >
+            ↑ Back to map
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     WIND
+========================================================= -->
+
+<section
+    class="nw-kingdom"
+    id="wind"
+>
+
+    <div class="nw-kingdom-image">
+        <img
+            src="kingdom-wind.png"
+            alt="Kingdom of Wind"
+        >
+    </div>
+
+
+    <div class="nw-kingdom-content">
+
+        <div class="nw-kingdom-number">
+            KINGDOM III
+        </div>
+
+        <div class="nw-kingdom-heading">
+
+            <div class="nw-kingdom-small-emblem">
+                <img
+                    src="acqua_argento.png"
+                    alt=""
+                >
+            </div>
+
+            <h2>
+                Kingdom of Wind
+            </h2>
+
+        </div>
+
+        <p>
+            The eastern valleys of Nirwest open toward vast skies,
+            mountain passes and constantly changing winds.
+        </p>
+
+        <p>
+            The Kingdom of Wind is a land shaped by movement,
+            distance and the freedom of the open horizon.
+        </p>
+
+        <div class="nw-info-grid">
+
+            <div class="nw-info">
+                <span class="nw-info-label">
+                    REGION
+                </span>
+                <span class="nw-info-value">
+                    Eastern Nirwest
+                </span>
+            </div>
+
+            <div class="nw-info">
+                <span class="nw-info-label">
+                    LANDMARK
+                </span>
+                <span class="nw-info-value">
+                    Sandy Valley
+                </span>
+            </div>
+
+        </div>
+
+        <a
+            href="#map"
+            class="nw-back-map"
+        >
+            ↑ Back to map
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     EARTH
+========================================================= -->
+
+<section
+    class="nw-kingdom"
+    id="earth"
+>
+
+    <div class="nw-kingdom-image">
+        <img
+            src="kingdom-earth.png"
+            alt="Kingdom of the Earth"
+        >
+    </div>
+
+
+    <div class="nw-kingdom-content">
+
+        <div class="nw-kingdom-number">
+            KINGDOM IV
+        </div>
+
+        <div class="nw-kingdom-heading">
+
+            <div class="nw-kingdom-small-emblem">
+                <img
+                    src="natura_argento.png"
+                    alt=""
+                >
+            </div>
+
+            <h2>
+                Kingdom of the Earth
+            </h2>
+
+        </div>
+
+        <p>
+            Forests, rivers and fertile valleys dominate
+            the western territories of this ancient kingdom.
+        </p>
+
+        <p>
+            The Kingdom of the Earth is deeply connected
+            to nature, stability and the oldest roots of Nirwest.
+        </p>
+
+        <div class="nw-info-grid">
+
+            <div class="nw-info">
+                <span class="nw-info-label">
+                    REGION
+                </span>
+                <span class="nw-info-value">
+                    Western Nirwest
+                </span>
+            </div>
+
+            <div class="nw-info">
+                <span class="nw-info-label">
+                    LANDMARK
+                </span>
+                <span class="nw-info-value">
+                    Valley of Waterfalls
+                </span>
+            </div>
+
+        </div>
+
+        <a
+            href="#map"
+            class="nw-back-map"
+        >
+            ↑ Back to map
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     SUN
+========================================================= -->
+
+<section
+    class="nw-kingdom"
+    id="sun"
+>
+
+    <div class="nw-kingdom-image">
+        <img
+            src="kingdom-sun.png"
+            alt="Kingdom of the Sun"
+        >
+    </div>
+
+
+    <div class="nw-kingdom-content">
+
+        <div class="nw-kingdom-number">
+            KINGDOM V
+        </div>
+
+        <div class="nw-kingdom-heading">
+
+            <div class="nw-kingdom-small-emblem">
+                <img
+                    src="sole_argento.png"
+                    alt=""
+                >
+            </div>
+
+            <h2>
+                Kingdom of the Sun
+            </h2>
+
+        </div>
+
+        <p>
+            Located near the heart of Nirwest, the Kingdom
+            of the Sun occupies a central position among
+            the great realms.
+        </p>
+
+        <p>
+            Its lands evoke light, order and balance
+            between the surrounding kingdoms.
+        </p>
+
+        <div class="nw-info-grid">
+
+            <div class="nw-info">
+                <span class="nw-info-label">
+                    REGION
+                </span>
+                <span class="nw-info-value">
+                    Central Nirwest
+                </span>
+            </div>
+
+            <div class="nw-info">
+                <span class="nw-info-label">
+                    BORDER
+                </span>
+                <span class="nw-info-value">
+                    Great South
+                </span>
+            </div>
+
+        </div>
+
+        <a
+            href="#map"
+            class="nw-back-map"
+        >
+            ↑ Back to map
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FIRE
+========================================================= -->
+
+<section
+    class="nw-kingdom"
+    id="fire"
+>
+
+    <div class="nw-kingdom-image">
+        <img
+            src="kingdom-fire.png"
+            alt="Kingdom of Fire"
+        >
+    </div>
+
+
+    <div class="nw-kingdom-content">
+
+        <div class="nw-kingdom-number">
+            KINGDOM VI
+        </div>
+
+        <div class="nw-kingdom-heading">
+
+            <div class="nw-kingdom-small-emblem">
+                <img
+                    src="fuoco_argento.png"
+                    alt=""
+                >
+            </div>
+
+            <h2>
+                Kingdom of Fire
+            </h2>
+
+        </div>
+
+        <p>
+            A realm associated with flame, destruction and
+            transformation, the Kingdom of Fire occupies
+            the southeastern lands.
+        </p>
+
+        <p>
+            Its landscape is surrounded by dangerous forests,
+            valleys and regions shaped by extreme forces.
+        </p>
+
+        <div class="nw-info-grid">
+
+            <div class="nw-info">
+                <span class="nw-info-label">
+                    REGION
+                </span>
+                <span class="nw-info-value">
+                    Southern Nirwest
+                </span>
+            </div>
+
+            <div class="nw-info">
+                <span class="nw-info-label">
+                    LANDMARK
+                </span>
+                <span class="nw-info-value">
+                    Carbon Valley
+                </span>
+            </div>
+
+        </div>
+
+        <a
+            href="#map"
+            class="nw-back-map"
+        >
+            ↑ Back to map
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     AIR
+========================================================= -->
+
+<section
+    class="nw-kingdom"
+    id="air"
+>
+
+    <div class="nw-kingdom-image">
+        <img
+            src="kingdom-air.png"
+            alt="Kingdom of Air"
+        >
+    </div>
+
+
+    <div class="nw-kingdom-content">
+
+        <div class="nw-kingdom-number">
+            KINGDOM VII
+        </div>
+
+        <div class="nw-kingdom-heading">
+
+            <div class="nw-kingdom-small-emblem">
+                <img
+                    src="aria_argento.png"
+                    alt=""
+                >
+            </div>
+
+            <h2>
+                Kingdom of Air
+            </h2>
+
+        </div>
+
+        <p>
+            Along the southwestern edge of Nirwest lies a realm
+            connected to open spaces, movement and elevation.
+        </p>
+
+        <p>
+            The Kingdom of Air stands apart from the central lands,
+            facing the outer borders of the known world.
+        </p>
+
+        <div class="nw-info-grid">
+
+            <div class="nw-info">
+                <span class="nw-info-label">
+                    REGION
+                </span>
+                <span class="nw-info-value">
+                    Southwest
+                </span>
+            </div>
+
+            <div class="nw-info">
+                <span class="nw-info-label">
+                    BORDER
+                </span>
+                <span class="nw-info-value">
+                    Great South
+                </span>
+            </div>
+
+        </div>
+
+        <a
+            href="#map"
+            class="nw-back-map"
+        >
+            ↑ Back to map
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     OCEAN
+========================================================= -->
+
+<section
+    class="nw-kingdom"
+    id="ocean"
+>
+
+    <div class="nw-kingdom-image">
+        <img
+            src="kingdom-ocean.png"
+            alt="Kingdom of the Ocean"
+        >
+    </div>
+
+
+    <div class="nw-kingdom-content">
+
+        <div class="nw-kingdom-number">
+            KINGDOM VIII
+        </div>
+
+        <div class="nw-kingdom-heading">
+
+            <div class="nw-kingdom-small-emblem">
+                <img
+                    src="fiume_argento.png"
+                    alt=""
+                >
+            </div>
+
+            <h2>
+                Kingdom of the Ocean
+            </h2>
+
+        </div>
+
+        <p>
+            Across the eastern sea lies the Kingdom of the Ocean,
+            separated from the western kingdoms by vast waters.
+        </p>
+
+        <p>
+            Its territory is tied to maritime routes,
+            distant islands and horizons that lead toward the unknown.
+        </p>
+
+        <div class="nw-info-grid">
+
+            <div class="nw-info">
+                <span class="nw-info-label">
+                    REGION
+                </span>
+                <span class="nw-info-value">
+                    Eastern Continent
+                </span>
+            </div>
+
+            <div class="nw-info">
+                <span class="nw-info-label">
+                    LANDMARK
+                </span>
+                <span class="nw-info-value">
+                    The Three Peaks
+                </span>
+            </div>
+
+        </div>
+
+        <a
+            href="#map"
+            class="nw-back-map"
+        >
+            ↑ Back to map
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="nw-footer">
+
+    <div class="nw-footer-logo">
+        NIRWEST
+    </div>
+
+    <div>
+        The Eight Kingdoms — Nirwest World Guide
+    </div>
+
+</footer>
+
+
+
+<script>
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+var navbar =
+    document.getElementById(
+        'navbar'
+    );
+
+window.addEventListener(
+    'scroll',
+    function() {
+
+        if (
+            window.scrollY > 40
+        ) {
+            navbar.classList.add(
+                'scrolled'
+            );
+        }
+
+        else {
+            navbar.classList.remove(
+                'scrolled'
+            );
+        }
+
+    }
+);
+
+
+/* =========================================================
+   MAP INTERACTION
+========================================================= */
+
+var hotspots =
+    document.querySelectorAll(
+        '.nw-hotspot'
+    );
+
+var mapLabel =
+    document.getElementById(
+        'mapLabel'
+    );
+
+var mapLabelName =
+    document.getElementById(
+        'mapLabelName'
+    );
+
+function clearHotspots() {
+
+    hotspots.forEach(
+        function(item) {
+            item.classList.remove(
+                'active'
+            );
+        }
+    );
+
+}
+
+function showHotspot(
+    hotspot
+) {
+
+    clearHotspots();
+
+    hotspot.classList.add(
+        'active'
+    );
+
+    var name =
+        hotspot.getAttribute(
+            'data-name'
+        );
+
+    mapLabelName.textContent =
+        name;
+
+    mapLabel.classList.add(
+        'visible'
+    );
+
+}
+
+function hideHotspot(
+    hotspot
+) {
+
+    hotspot.classList.remove(
+        'active'
+    );
+
+    mapLabel.classList.remove(
+        'visible'
+    );
+
+}
+
+hotspots.forEach(
+    function(hotspot) {
+
+        hotspot.addEventListener(
+            'mouseenter',
+            function() {
+                showHotspot(
+                    hotspot
+                );
+            }
+        );
+
+        hotspot.addEventListener(
+            'mouseleave',
+            function() {
+                hideHotspot(
+                    hotspot
+                );
+            }
+        );
+
+        hotspot.addEventListener(
+            'touchstart',
+            function() {
+                showHotspot(
+                    hotspot
+                );
+            },
+            {
+                passive: true
+            }
+        );
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>
