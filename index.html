@@ -4,14 +4,9 @@
 <head>
 
 <meta charset="UTF-8">
-
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Nirwest Chronicles</title>
-
 
 <style>
 
@@ -35,7 +30,6 @@ body {
     width: 100%;
 
     background: #070707;
-
     color: #ffffff;
 
     font-family:
@@ -67,6 +61,8 @@ button {
     left: 0;
     right: 0;
 
+    z-index: 1000;
+
     height: 68px;
 
     padding:
@@ -75,10 +71,7 @@ button {
     display: flex;
 
     align-items: center;
-
     justify-content: space-between;
-
-    z-index: 1000;
 
     background:
         linear-gradient(
@@ -92,12 +85,10 @@ button {
         background .3s ease;
 }
 
-
 .nw-nav.scrolled {
     background:
         rgba(7,7,7,.96);
 }
-
 
 .nw-logo {
     color: #ffffff;
@@ -109,18 +100,14 @@ button {
         serif;
 
     font-size: 24px;
-
     font-weight: bold;
 
     letter-spacing: 4px;
 }
 
-
 .nw-logo span {
-    color:
-        #c79850;
+    color: #c79850;
 }
-
 
 .nw-nav-links {
     display: flex;
@@ -130,25 +117,20 @@ button {
     gap: 24px;
 }
 
-
 .nw-nav-links a {
     color:
         rgba(255,255,255,.82);
 
-    text-decoration:
-        none;
+    text-decoration: none;
 
-    font-size:
-        13px;
+    font-size: 13px;
 
     transition:
         color .2s ease;
 }
 
-
 .nw-nav-links a:hover {
-    color:
-        #ffffff;
+    color: #ffffff;
 }
 
 
@@ -160,17 +142,14 @@ button {
     position: relative;
 
     width: 100vw;
-
     height: 100vh;
 
     min-height: 650px;
 
     overflow: hidden;
 
-    background:
-        #000;
+    background: #000;
 }
-
 
 .nw-hero-slide {
     position: absolute;
@@ -185,13 +164,11 @@ button {
         opacity .75s ease;
 }
 
-
 .nw-hero-slide.active {
     opacity: 1;
 
     pointer-events: auto;
 }
-
 
 .nw-hero-bg {
     position: absolute;
@@ -201,18 +178,12 @@ button {
     width: 100%;
     height: 100%;
 
-    background-size:
-        cover;
-
-    background-position:
-        center center;
+    background-size: cover;
+    background-position: center center;
 
     transform:
         scale(1.01);
 }
-
-
-/* DARK OVERLAY */
 
 .nw-hero-overlay {
     position: absolute;
@@ -237,9 +208,6 @@ button {
         );
 }
 
-
-/* HERO CONTENT */
-
 .nw-hero-content {
     position: relative;
 
@@ -255,34 +223,26 @@ button {
         0 5vw 12vh;
 }
 
-
 .nw-hero-inner {
     width:
         min(660px,85vw);
 }
 
-
 .nw-eyebrow {
     margin-bottom:
         12px;
 
-    color:
-        #c79850;
+    color: #c79850;
 
-    font-size:
-        11px;
+    font-size: 11px;
 
-    font-weight:
-        bold;
+    font-weight: bold;
 
-    letter-spacing:
-        6px;
+    letter-spacing: 6px;
 }
 
-
 .nw-hero-title {
-    margin:
-        0;
+    margin: 0;
 
     font-family:
         Georgia,
@@ -295,8 +255,7 @@ button {
             104px
         );
 
-    line-height:
-        .92;
+    line-height: .92;
 
     text-transform:
         uppercase;
@@ -306,13 +265,10 @@ button {
         rgba(0,0,0,.85);
 }
 
-
 .nw-hero-subtitle {
-    margin-top:
-        12px;
+    margin-top: 12px;
 
-    color:
-        #c79850;
+    color: #c79850;
 
     font-family:
         Georgia,
@@ -325,10 +281,8 @@ button {
             28px
         );
 
-    letter-spacing:
-        7px;
+    letter-spacing: 7px;
 }
-
 
 .nw-hero-meta {
     display: flex;
@@ -337,20 +291,16 @@ button {
 
     gap: 16px;
 
-    margin-top:
-        20px;
+    margin-top: 20px;
 
     color:
         rgba(255,255,255,.65);
 
-    font-size:
-        12px;
+    font-size: 12px;
 }
 
-
 .nw-hero-description {
-    max-width:
-        560px;
+    max-width: 560px;
 
     margin:
         20px 0 0;
@@ -358,15 +308,15 @@ button {
     color:
         rgba(255,255,255,.86);
 
-    font-size:
-        15px;
+    font-size: 15px;
 
-    line-height:
-        1.6;
+    line-height: 1.6;
 }
 
 
-/* BUTTONS */
+/* =========================================================
+   BUTTONS
+========================================================= */
 
 .nw-buttons {
     display: flex;
@@ -375,65 +325,49 @@ button {
 
     gap: 12px;
 
-    margin-top:
-        27px;
+    margin-top: 27px;
 }
-
 
 .nw-btn {
     display: inline-flex;
 
     align-items: center;
-
     justify-content: center;
 
-    min-height:
-        45px;
+    min-height: 45px;
 
     padding:
         0 21px;
 
     border: 0;
 
-    border-radius:
-        5px;
+    border-radius: 5px;
 
-    font-size:
-        14px;
+    font-size: 14px;
+    font-weight: bold;
 
-    font-weight:
-        bold;
+    text-decoration: none;
 
-    text-decoration:
-        none;
-
-    cursor:
-        pointer;
+    cursor: pointer;
 
     transition:
         transform .2s ease,
         background .2s ease;
 }
 
-
 .nw-btn:hover {
     transform:
         scale(1.04);
 }
 
-
 .nw-primary {
-    background:
-        #ffffff;
+    background: #ffffff;
 
-    color:
-        #090909;
+    color: #090909;
 }
 
-
 .nw-secondary {
-    color:
-        #ffffff;
+    color: #ffffff;
 
     background:
         rgba(110,110,110,.55);
@@ -443,118 +377,89 @@ button {
 }
 
 
-/* HERO ARROWS */
+/* =========================================================
+   HERO ARROWS
+========================================================= */
 
 .nw-hero-arrow {
-    position:
-        absolute;
+    position: absolute;
 
-    top:
-        50%;
+    top: 50%;
 
     transform:
         translateY(-50%);
 
-    width:
-        48px;
+    width: 48px;
+    height: 82px;
 
-    height:
-        82px;
+    padding: 0;
 
-    padding:
-        0;
-
-    border:
-        0;
+    border: 0;
 
     background:
         rgba(0,0,0,.44);
 
-    color:
-        white;
+    color: white;
 
-    font-size:
-        35px;
+    font-size: 35px;
 
-    cursor:
-        pointer;
+    cursor: pointer;
 
-    z-index:
-        20;
+    z-index: 20;
 
     transition:
         background .2s ease;
 }
-
 
 .nw-hero-arrow:hover {
     background:
         rgba(0,0,0,.80);
 }
 
-
 .nw-hero-left {
-    left:
-        0;
+    left: 0;
 }
-
 
 .nw-hero-right {
-    right:
-        0;
+    right: 0;
 }
 
 
-/* HERO DOTS */
+/* =========================================================
+   HERO DOTS
+========================================================= */
 
 .nw-hero-dots {
-    position:
-        absolute;
+    position: absolute;
 
-    z-index:
-        30;
+    z-index: 30;
 
-    left:
-        5vw;
+    left: 5vw;
+    bottom: 28px;
 
-    bottom:
-        28px;
+    display: flex;
 
-    display:
-        flex;
-
-    gap:
-        8px;
+    gap: 8px;
 }
 
-
 .nw-dot {
-    width:
-        9px;
+    width: 9px;
+    height: 9px;
 
-    height:
-        9px;
+    padding: 0;
 
-    padding:
-        0;
+    border: 0;
 
-    border:
-        0;
-
-    border-radius:
-        50%;
+    border-radius: 50%;
 
     background:
         rgba(255,255,255,.30);
 
-    cursor:
-        pointer;
+    cursor: pointer;
 }
 
-
 .nw-dot.active {
-    background:
-        #c79850;
+    background: #c79850;
 
     transform:
         scale(1.25);
@@ -562,63 +467,45 @@ button {
 
 
 /* =========================================================
-   GENERAL SECTIONS
+   GENERAL
 ========================================================= */
 
 main {
-    background:
-        #070707;
+    background: #070707;
 }
 
-
 .nw-section {
-    width:
-        100%;
+    width: 100%;
 
     padding:
         38px 0;
 }
 
-
 .nw-section-header {
-    display:
-        flex;
+    display: flex;
 
-    align-items:
-        flex-end;
+    align-items: flex-end;
+    justify-content: space-between;
 
-    justify-content:
-        space-between;
-
-    gap:
-        20px;
+    gap: 20px;
 
     padding:
         0 4vw 15px;
 }
 
-
 .nw-kicker {
-    margin-bottom:
-        7px;
+    margin-bottom: 7px;
 
-    color:
-        #c79850;
+    color: #c79850;
 
-    font-size:
-        10px;
+    font-size: 10px;
+    font-weight: bold;
 
-    font-weight:
-        bold;
-
-    letter-spacing:
-        5px;
+    letter-spacing: 5px;
 }
 
-
 .nw-section-title {
-    margin:
-        0;
+    margin: 0;
 
     font-family:
         Georgia,
@@ -631,131 +518,95 @@ main {
             40px
         );
 
-    font-weight:
-        normal;
+    font-weight: normal;
 }
-
 
 .nw-note {
     color:
         rgba(255,255,255,.40);
 
-    font-size:
-        11px;
+    font-size: 11px;
 }
 
 
 /* =========================================================
-   EPISODE ROW
+   EPISODES
 ========================================================= */
 
 .nw-row-container {
-    position:
-        relative;
+    position: relative;
 
-    width:
-        100%;
+    width: 100%;
 }
 
-
 .nw-row {
-    display:
-        flex;
+    display: flex;
 
-    gap:
-        16px;
+    gap: 16px;
 
-    width:
-        100%;
+    width: 100%;
 
     padding:
         8px 4vw 22px;
 
-    overflow-x:
-        auto;
+    overflow-x: auto;
+    overflow-y: visible;
 
-    overflow-y:
-        visible;
-
-    scroll-behavior:
-        smooth;
+    scroll-behavior: smooth;
 
     scroll-snap-type:
         x proximity;
 
-    scrollbar-width:
-        none;
+    scrollbar-width: none;
 
     -webkit-overflow-scrolling:
         touch;
 }
 
-
 .nw-row::-webkit-scrollbar {
-    display:
-        none;
+    display: none;
 }
 
-
-/* ROW ARROWS */
-
 .nw-row-arrow {
-    position:
-        absolute;
+    position: absolute;
 
-    top:
-        50%;
+    top: 50%;
 
     transform:
         translateY(-65%);
 
-    width:
-        44px;
+    width: 44px;
+    height: 90px;
 
-    height:
-        90px;
+    border: 0;
 
-    border:
-        0;
-
-    color:
-        white;
+    color: white;
 
     background:
         rgba(0,0,0,.52);
 
-    font-size:
-        33px;
+    font-size: 33px;
 
-    cursor:
-        pointer;
+    cursor: pointer;
 
-    z-index:
-        20;
+    z-index: 20;
 
-    opacity:
-        .65;
+    opacity: .65;
 }
 
-
 .nw-row-arrow:hover {
-    opacity:
-        1;
+    opacity: 1;
 
     background:
         rgba(0,0,0,.85);
 }
 
-
 .nw-row-left {
-    left:
-        0;
+    left: 0;
 }
 
-
 .nw-row-right {
-    right:
-        0;
+    right: 0;
 }
 
 
@@ -774,13 +625,11 @@ main {
     scroll-snap-align:
         start;
 
-    cursor:
-        pointer;
+    cursor: pointer;
 
     transition:
         transform .3s ease;
 }
-
 
 .nw-card:hover {
     transform:
@@ -788,62 +637,46 @@ main {
         scale(1.02);
 }
 
-
 .nw-card-image {
-    position:
-        relative;
+    position: relative;
 
-    width:
-        100%;
+    width: 100%;
 
     aspect-ratio:
         16 / 9;
 
-    overflow:
-        hidden;
+    overflow: hidden;
 
-    border-radius:
-        7px;
+    border-radius: 7px;
 
-    background:
-        #151515;
+    background: #151515;
 
     box-shadow:
         0 12px 28px
         rgba(0,0,0,.50);
 }
 
-
 .nw-card-image img {
-    display:
-        block;
+    display: block;
 
-    width:
-        100%;
+    width: 100%;
+    height: 100%;
 
-    height:
-        100%;
-
-    object-fit:
-        cover;
+    object-fit: cover;
 
     transition:
         transform .4s ease;
 }
-
 
 .nw-card:hover img {
     transform:
         scale(1.05);
 }
 
-
 .nw-card-overlay {
-    position:
-        absolute;
+    position: absolute;
 
-    inset:
-        0;
+    inset: 0;
 
     background:
         linear-gradient(
@@ -853,74 +686,51 @@ main {
         );
 }
 
-
 .nw-play {
-    position:
-        absolute;
+    position: absolute;
 
-    left:
-        50%;
-
-    top:
-        50%;
+    left: 50%;
+    top: 50%;
 
     transform:
         translate(-50%,-50%);
 
-    width:
-        55px;
+    width: 55px;
+    height: 55px;
 
-    height:
-        55px;
+    display: flex;
 
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
+    align-items: center;
+    justify-content: center;
 
     border:
         2px solid white;
 
-    border-radius:
-        50%;
+    border-radius: 50%;
 
     background:
         rgba(0,0,0,.58);
 
-    color:
-        white;
+    color: white;
 
-    font-size:
-        19px;
+    font-size: 19px;
 
-    opacity:
-        0;
+    opacity: 0;
 
     transition:
         opacity .2s ease;
 }
 
-
 .nw-card:hover
 .nw-play {
-    opacity:
-        1;
+    opacity: 1;
 }
 
-
 .nw-episode-number {
-    position:
-        absolute;
+    position: absolute;
 
-    left:
-        10px;
-
-    bottom:
-        10px;
+    left: 10px;
+    bottom: 10px;
 
     padding:
         5px 8px;
@@ -928,13 +738,10 @@ main {
     background:
         rgba(0,0,0,.82);
 
-    font-size:
-        10px;
+    font-size: 10px;
 
-    font-weight:
-        bold;
+    font-weight: bold;
 }
-
 
 .nw-card-title {
     margin:
@@ -944,62 +751,50 @@ main {
         Georgia,
         serif;
 
-    font-size:
-        20px;
+    font-size: 20px;
 }
 
-
 .nw-card-desc {
-    margin:
-        0;
+    margin: 0;
 
     color:
         rgba(255,255,255,.62);
 
-    font-size:
-        12px;
+    font-size: 12px;
 
-    line-height:
-        1.5;
+    line-height: 1.5;
 
     display:
         -webkit-box;
 
-    -webkit-line-clamp:
-        3;
+    -webkit-line-clamp: 3;
 
     -webkit-box-orient:
         vertical;
 
-    overflow:
-        hidden;
+    overflow: hidden;
 }
 
 
-/* COMING SOON */
+/* =========================================================
+   COMING SOON
+========================================================= */
 
 .nw-coming {
-    cursor:
-        default;
+    cursor: default;
 }
-
 
 .nw-coming:hover {
     transform:
         translateY(-7px);
 }
 
-
 .nw-coming
 .nw-card-image {
-    display:
-        flex;
+    display: flex;
 
-    align-items:
-        center;
-
-    justify-content:
-        center;
+    align-items: center;
+    justify-content: center;
 
     background:
         linear-gradient(
@@ -1013,24 +808,20 @@ main {
         rgba(255,255,255,.08);
 }
 
-
 .nw-coming-text {
     color:
         rgba(255,255,255,.35);
 
-    font-weight:
-        bold;
+    font-weight: bold;
 
-    letter-spacing:
-        3px;
+    letter-spacing: 3px;
 
-    text-transform:
-        uppercase;
+    text-transform: uppercase;
 }
 
 
 /* =========================================================
-   BOOK SECTION
+   BOOK
 ========================================================= */
 
 .nw-book-section {
@@ -1045,53 +836,38 @@ main {
         );
 }
 
-
 .nw-book {
-    max-width:
-        1300px;
+    max-width: 1300px;
 
-    margin:
-        0 auto;
+    margin: 0 auto;
 
-    display:
-        grid;
+    display: grid;
 
     grid-template-columns:
         minmax(280px,430px)
         minmax(0,1fr);
 
-    align-items:
-        center;
+    align-items: center;
 
-    gap:
-        60px;
+    gap: 60px;
 }
 
-
 .nw-book-image img {
-    display:
-        block;
+    display: block;
 
-    width:
-        100%;
+    width: 100%;
+    height: auto;
 
-    height:
-        auto;
-
-    border-radius:
-        8px;
+    border-radius: 8px;
 
     box-shadow:
         0 20px 60px
         rgba(0,0,0,.55);
 }
 
-
 .nw-book-content {
-    max-width:
-        720px;
+    max-width: 720px;
 }
-
 
 .nw-book-content h2 {
     margin:
@@ -1108,75 +884,99 @@ main {
             65px
         );
 
-    font-weight:
-        normal;
+    font-weight: normal;
 }
-
 
 .nw-book-content p {
     color:
         rgba(255,255,255,.72);
 
-    font-size:
-        15px;
+    font-size: 15px;
 
-    line-height:
-        1.75;
+    line-height: 1.75;
 }
 
 
 /* =========================================================
-   MAP SECTION
+   MAP
 ========================================================= */
 
 .nw-map {
-    position:
-        relative;
+    position: relative;
 
-    width:
-        100vw;
+    width: 100vw;
 
-    min-height:
-        75vh;
+    min-height: 82vh;
 
-    overflow:
-        hidden;
+    overflow: hidden;
+
+    background: #090806;
+}
+
+.nw-map::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 180px;
+
+    z-index: 3;
+
+    pointer-events: none;
 
     background:
-        #090806;
+        linear-gradient(
+            to bottom,
+            #070707,
+            transparent
+        );
 }
 
+.nw-map::after {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 5vw;
+    right: 5vw;
+
+    height: 1px;
+
+    z-index: 4;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(199,152,80,.75),
+            transparent
+        );
+}
 
 .nw-map-image {
-    position:
-        absolute;
+    position: absolute;
 
-    inset:
-        0;
+    inset: 0;
 
-    width:
-        100%;
+    width: 100%;
+    height: 100%;
 
-    height:
-        100%;
-
-    object-fit:
-        cover;
-
-    object-position:
-        center;
+    object-fit: cover;
+    object-position: center;
 
     filter:
-        brightness(.62);
+        brightness(.72);
 }
 
-
 .nw-map-overlay {
-    position:
-        absolute;
+    position: absolute;
 
-    inset:
-        0;
+    inset: 0;
 
     background:
 
@@ -1194,36 +994,25 @@ main {
         );
 }
 
-
 .nw-map-content {
-    position:
-        relative;
+    position: relative;
 
-    z-index:
-        5;
+    z-index: 5;
 
-    min-height:
-        75vh;
+    min-height: 82vh;
 
-    display:
-        flex;
+    display: flex;
 
-    flex-direction:
-        column;
+    flex-direction: column;
 
-    justify-content:
-        flex-end;
+    justify-content: flex-end;
+    align-items: flex-start;
 
-    align-items:
-        flex-start;
-
-    max-width:
-        650px;
+    max-width: 650px;
 
     padding:
-        0 5vw 10vh;
+        0 5vw 8vh;
 }
-
 
 .nw-map-content h2 {
     margin:
@@ -1240,10 +1029,8 @@ main {
             78px
         );
 
-    font-weight:
-        normal;
+    font-weight: normal;
 }
-
 
 .nw-map-content p {
     margin:
@@ -1252,11 +1039,138 @@ main {
     color:
         rgba(255,255,255,.78);
 
-    line-height:
-        1.65;
+    line-height: 1.65;
 
-    font-size:
-        15px;
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   VIDEO PLAYER MODAL
+========================================================= */
+
+.nw-video-modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 5000;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 24px;
+
+    background:
+        rgba(0,0,0,.92);
+
+    backdrop-filter:
+        blur(8px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity .25s ease,
+        visibility .25s ease;
+}
+
+.nw-video-modal.active {
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+.nw-video-shell {
+    position: relative;
+
+    width:
+        min(1200px,94vw);
+
+    aspect-ratio:
+        16 / 9;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        rgba(255,255,255,.12);
+
+    border-radius: 10px;
+
+    background: #000;
+
+    box-shadow:
+        0 25px 90px
+        rgba(0,0,0,.75);
+}
+
+.nw-video-shell iframe {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    border: 0;
+}
+
+.nw-video-close {
+    position: absolute;
+
+    top: 16px;
+    right: 18px;
+
+    z-index: 5100;
+
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid
+        rgba(255,255,255,.22);
+
+    border-radius: 50%;
+
+    background:
+        rgba(0,0,0,.72);
+
+    color: #ffffff;
+
+    font-size: 26px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        border-color .2s ease,
+        transform .2s ease;
+}
+
+.nw-video-close:hover {
+    background: #c79850;
+
+    border-color: #c79850;
+
+    transform:
+        scale(1.06);
+}
+
+body.nw-video-open {
+    overflow: hidden;
 }
 
 
@@ -1275,27 +1189,21 @@ main {
     color:
         rgba(255,255,255,.38);
 
-    font-size:
-        12px;
+    font-size: 12px;
 }
 
-
 .nw-footer-logo {
-    margin-bottom:
-        9px;
+    margin-bottom: 9px;
 
-    color:
-        white;
+    color: white;
 
     font-family:
         Georgia,
         serif;
 
-    font-size:
-        22px;
+    font-size: 22px;
 
-    letter-spacing:
-        4px;
+    letter-spacing: 4px;
 }
 
 
@@ -1306,8 +1214,7 @@ main {
 @media screen and (max-width:700px) {
 
     .nw-nav {
-        height:
-            58px;
+        height: 58px;
 
         padding:
             0 17px;
@@ -1316,51 +1223,36 @@ main {
             rgba(7,7,7,.92);
     }
 
-
     .nw-logo {
-        font-size:
-            18px;
+        font-size: 18px;
 
-        letter-spacing:
-            2px;
+        letter-spacing: 2px;
     }
-
 
     .nw-nav-links {
-        display:
-            none;
+        display: none;
     }
-
 
     .nw-hero {
-        height:
-            82vh;
+        height: 82vh;
 
-        min-height:
-            600px;
+        min-height: 600px;
     }
-
 
     .nw-hero-content {
         padding:
             0 20px 58px;
     }
 
-
     .nw-hero-inner {
-        width:
-            100%;
+        width: 100%;
     }
-
 
     .nw-eyebrow {
-        font-size:
-            9px;
+        font-size: 9px;
 
-        letter-spacing:
-            4px;
+        letter-spacing: 4px;
     }
-
 
     .nw-hero-title {
         font-size:
@@ -1371,183 +1263,154 @@ main {
             );
     }
 
-
     .nw-hero-subtitle {
-        font-size:
-            14px;
+        font-size: 14px;
 
-        letter-spacing:
-            4px;
+        letter-spacing: 4px;
     }
-
 
     .nw-hero-description {
-        font-size:
-            12px;
+        font-size: 12px;
 
-        line-height:
-            1.45;
+        line-height: 1.45;
     }
-
 
     .nw-hero-meta {
-        font-size:
-            10px;
+        font-size: 10px;
     }
 
-
     .nw-btn {
-        min-height:
-            40px;
+        min-height: 40px;
 
         padding:
             0 14px;
 
-        font-size:
-            12px;
+        font-size: 12px;
     }
-
 
     .nw-hero-arrow {
-        width:
-            30px;
+        width: 30px;
+        height: 52px;
 
-        height:
-            52px;
-
-        font-size:
-            22px;
+        font-size: 22px;
     }
-
 
     .nw-hero-dots {
-        left:
-            20px;
+        left: 20px;
 
-        bottom:
-            18px;
+        bottom: 18px;
     }
-
 
     .nw-section {
         padding:
             22px 0;
     }
 
-
     .nw-section-header {
         padding:
             0 16px 11px;
     }
 
-
     .nw-note {
-        display:
-            none;
+        display: none;
     }
-
 
     .nw-row {
         padding:
             5px 16px 16px;
 
-        gap:
-            12px;
+        gap: 12px;
     }
-
 
     .nw-card {
         flex:
             0 0 82vw;
 
-        max-width:
-            360px;
+        max-width: 360px;
     }
-
 
     .nw-play {
-        opacity:
-            1;
+        opacity: 1;
 
-        width:
-            48px;
-
-        height:
-            48px;
+        width: 48px;
+        height: 48px;
     }
-
 
     .nw-row-arrow {
-        display:
-            none;
+        display: none;
     }
-
 
     .nw-card-title {
-        font-size:
-            18px;
+        font-size: 18px;
     }
-
 
     .nw-card-desc {
-        font-size:
-            11px;
+        font-size: 11px;
 
-        -webkit-line-clamp:
-            2;
+        -webkit-line-clamp: 2;
     }
-
 
     .nw-book-section {
         padding:
             45px 16px 55px;
     }
 
-
     .nw-book {
         grid-template-columns:
             1fr;
 
-        gap:
-            28px;
+        gap: 28px;
     }
 
-
     .nw-book-image {
-        max-width:
-            360px;
+        max-width: 360px;
 
         margin:
             0 auto;
     }
 
-
     .nw-book-content p {
-        font-size:
-            13px;
+        font-size: 13px;
     }
-
 
     .nw-map {
-        min-height:
-            70vh;
+        min-height: 68vh;
     }
 
+    .nw-map::before {
+        height: 110px;
+    }
 
     .nw-map-content {
-        min-height:
-            70vh;
+        min-height: 68vh;
 
         padding:
             0 20px 50px;
     }
 
-
     .nw-map-content p {
-        font-size:
-            13px;
+        font-size: 13px;
     }
 
+    .nw-video-modal {
+        padding: 10px;
+    }
+
+    .nw-video-shell {
+        width: 100%;
+
+        border-radius: 6px;
+    }
+
+    .nw-video-close {
+        top: 10px;
+        right: 10px;
+
+        width: 40px;
+        height: 40px;
+
+        font-size: 22px;
+    }
 
     .nw-footer {
         padding:
@@ -1565,7 +1428,7 @@ main {
 
 
 <!-- =========================================================
-     NAV
+     NAVBAR
 ========================================================= -->
 
 <nav
@@ -1623,7 +1486,9 @@ main {
 >
 
 
-<!-- TRAILER -->
+<!-- =========================================================
+     TRAILER
+========================================================= -->
 
 <div class="nw-hero-slide active">
 
@@ -1655,20 +1520,28 @@ main {
             </div>
 
             <div class="nw-hero-meta">
-                <span>Fantasy</span>
-                <span>Official Trailer</span>
+
+                <span>
+                    Fantasy
+                </span>
+
+                <span>
+                    Official Trailer
+                </span>
+
             </div>
+
 
             <div class="nw-buttons">
 
-                <a
-                    href="https://youtu.be/wFhQjP9k5o4"
-                    target="_blank"
-                    rel="noopener"
+                <button
+                    type="button"
                     class="nw-btn nw-primary"
+                    onclick="openVideo('wFhQjP9k5o4')"
                 >
                     ▶ Watch
-                </a>
+                </button>
+
 
                 <a
                     href="#episodes"
@@ -1687,7 +1560,9 @@ main {
 
 
 
-<!-- EPISODE 0 -->
+<!-- =========================================================
+     EPISODE 0
+========================================================= -->
 
 <div class="nw-hero-slide">
 
@@ -1723,16 +1598,16 @@ main {
                 for the first of its ten episodes.
             </p>
 
+
             <div class="nw-buttons">
 
-                <a
-                    href="https://youtu.be/ovSthDlFMGM"
-                    target="_blank"
-                    rel="noopener"
+                <button
+                    type="button"
                     class="nw-btn nw-primary"
+                    onclick="openVideo('ovSthDlFMGM')"
                 >
                     ▶ Watch
-                </a>
+                </button>
 
             </div>
 
@@ -1744,7 +1619,9 @@ main {
 
 
 
-<!-- EPISODE 1 -->
+<!-- =========================================================
+     EPISODE 1
+========================================================= -->
 
 <div class="nw-hero-slide">
 
@@ -1781,16 +1658,16 @@ main {
                 one that he is destined to fulfill.
             </p>
 
+
             <div class="nw-buttons">
 
-                <a
-                    href="https://youtu.be/WIf-MYzEQ8Y"
-                    target="_blank"
-                    rel="noopener"
+                <button
+                    type="button"
                     class="nw-btn nw-primary"
+                    onclick="openVideo('WIf-MYzEQ8Y')"
                 >
                     ▶ Watch
-                </a>
+                </button>
 
             </div>
 
@@ -1802,7 +1679,9 @@ main {
 
 
 
-<!-- EPISODE 2 -->
+<!-- =========================================================
+     EPISODE 2
+========================================================= -->
 
 <div class="nw-hero-slide">
 
@@ -1839,16 +1718,16 @@ main {
                 Hadrian and Cassius.
             </p>
 
+
             <div class="nw-buttons">
 
-                <a
-                    href="https://youtu.be/cyoHyvG7dSc"
-                    target="_blank"
-                    rel="noopener"
+                <button
+                    type="button"
                     class="nw-btn nw-primary"
+                    onclick="openVideo('cyoHyvG7dSc')"
                 >
                     ▶ Watch
-                </a>
+                </button>
 
             </div>
 
@@ -1881,28 +1760,32 @@ main {
 
 
 
-<!-- DOTS -->
+<!-- HERO DOTS -->
 
 <div class="nw-hero-dots">
 
     <button
         class="nw-dot active"
         onclick="heroGo(0)"
+        aria-label="Trailer"
     ></button>
 
     <button
         class="nw-dot"
         onclick="heroGo(1)"
+        aria-label="Episode 0"
     ></button>
 
     <button
         class="nw-dot"
         onclick="heroGo(2)"
+        aria-label="Episode 1"
     ></button>
 
     <button
         class="nw-dot"
         onclick="heroGo(3)"
+        aria-label="Episode 2"
     ></button>
 
 </div>
@@ -1917,7 +1800,6 @@ main {
 
 <!-- =========================================================
      SEASON ONE
-     YOUTUBE THUMBNAILS
 ========================================================= -->
 
 <section
@@ -1960,6 +1842,7 @@ main {
         </button>
 
 
+
         <div
             class="nw-row"
             id="episodeRow"
@@ -1970,11 +1853,7 @@ main {
 
             <article
                 class="nw-card"
-                onclick="
-                window.open(
-                'https://youtu.be/ovSthDlFMGM',
-                '_blank'
-                )"
+                onclick="openVideo('ovSthDlFMGM')"
             >
 
                 <div class="nw-card-image">
@@ -2014,11 +1893,7 @@ main {
 
             <article
                 class="nw-card"
-                onclick="
-                window.open(
-                'https://youtu.be/WIf-MYzEQ8Y',
-                '_blank'
-                )"
+                onclick="openVideo('WIf-MYzEQ8Y')"
             >
 
                 <div class="nw-card-image">
@@ -2047,7 +1922,8 @@ main {
 
 
                 <div class="nw-card-desc">
-                    Jago discovers that he is one of the Chosen. A mysterious mission has appeared on his arm.
+                    Jago discovers that he is one of the Chosen.
+                    A mysterious mission has appeared on his arm.
                 </div>
 
             </article>
@@ -2058,11 +1934,7 @@ main {
 
             <article
                 class="nw-card"
-                onclick="
-                window.open(
-                'https://youtu.be/cyoHyvG7dSc',
-                '_blank'
-                )"
+                onclick="openVideo('cyoHyvG7dSc')"
             >
 
                 <div class="nw-card-image">
@@ -2091,7 +1963,9 @@ main {
 
 
                 <div class="nw-card-desc">
-                    The witch reveals the ancient origins of the dragons and tells the story of the last Dragon Riders, Hadrian and Cassius.
+                    The witch reveals the ancient origins of the dragons
+                    and tells the story of the last Dragon Riders,
+                    Hadrian and Cassius.
                 </div>
 
             </article>
@@ -2292,6 +2166,7 @@ main {
         </div>
 
 
+
         <button
             class="nw-row-arrow nw-row-right"
             onclick="scrollEpisodes(1)"
@@ -2400,7 +2275,7 @@ main {
 
     <img
         class="nw-map-image"
-        src="mappa.png"
+        src="Mappa.png"
         alt="Map of Nirwest"
     >
 
@@ -2440,6 +2315,52 @@ main {
 
 
 </main>
+
+
+
+<!-- =========================================================
+     VIDEO PLAYER
+========================================================= -->
+
+<div
+    class="nw-video-modal"
+    id="videoModal"
+    aria-hidden="true"
+>
+
+    <button
+        type="button"
+        class="nw-video-close"
+        id="videoClose"
+        aria-label="Close video"
+    >
+        ×
+    </button>
+
+
+    <div
+        class="nw-video-shell"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Nirwest video player"
+    >
+
+        <iframe
+            id="videoFrame"
+            src=""
+            title="Nirwest video player"
+            allow="
+                autoplay;
+                encrypted-media;
+                picture-in-picture;
+                fullscreen
+            "
+            allowfullscreen
+        ></iframe>
+
+    </div>
+
+</div>
 
 
 
@@ -2697,6 +2618,189 @@ function scrollEpisodes(direction) {
     });
 
 }
+
+
+
+/* =========================================================
+   VIDEO PLAYER
+========================================================= */
+
+var videoModal =
+    document.getElementById(
+        'videoModal'
+    );
+
+
+var videoFrame =
+    document.getElementById(
+        'videoFrame'
+    );
+
+
+var videoClose =
+    document.getElementById(
+        'videoClose'
+    );
+
+
+function openVideo(videoId) {
+
+    if (
+        !videoModal ||
+        !videoFrame
+    ) {
+        return;
+    }
+
+
+    /*
+       Carichiamo il player YouTube incorporato.
+       autoplay=1 fa partire il video.
+       rel=0 limita i video correlati.
+    */
+
+    videoFrame.src =
+        'https://www.youtube.com/embed/'
+        +
+        videoId
+        +
+        '?autoplay=1&rel=0&modestbranding=1';
+
+
+    videoModal.classList.add(
+        'active'
+    );
+
+
+    videoModal.setAttribute(
+        'aria-hidden',
+        'false'
+    );
+
+
+    document.body.classList.add(
+        'nw-video-open'
+    );
+
+
+    /*
+       Fermiamo lo slider mentre
+       l'utente guarda il video.
+    */
+
+    clearInterval(
+        heroTimer
+    );
+
+}
+
+
+function closeVideo() {
+
+    if (
+        !videoModal ||
+        !videoFrame
+    ) {
+        return;
+    }
+
+
+    videoModal.classList.remove(
+        'active'
+    );
+
+
+    videoModal.setAttribute(
+        'aria-hidden',
+        'true'
+    );
+
+
+    /*
+       Togliendo src il video si ferma
+       completamente quando chiudiamo.
+    */
+
+    videoFrame.src = '';
+
+
+    document.body.classList.remove(
+        'nw-video-open'
+    );
+
+
+    /*
+       Riavviamo lo slider.
+    */
+
+    heroStart();
+
+}
+
+
+
+/* X */
+
+if (
+    videoClose
+) {
+
+    videoClose.addEventListener(
+        'click',
+        closeVideo
+    );
+
+}
+
+
+
+/* CLICK FUORI DAL VIDEO */
+
+if (
+    videoModal
+) {
+
+    videoModal.addEventListener(
+        'click',
+        function(event) {
+
+            if (
+                event.target === videoModal
+            ) {
+
+                closeVideo();
+
+            }
+
+        }
+    );
+
+}
+
+
+
+/* ESC */
+
+document.addEventListener(
+    'keydown',
+    function(event) {
+
+        if (
+            event.key === 'Escape'
+            &&
+            videoModal
+            &&
+            videoModal.classList.contains(
+                'active'
+            )
+        ) {
+
+            closeVideo();
+
+        }
+
+    }
+);
 
 </script>
 
