@@ -1,17 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 
 <head>
-
 <meta charset="UTF-8">
-
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nirwest Chronicles</title>
-
 
 <style>
 
@@ -31,18 +24,10 @@ html,
 body {
     margin: 0;
     padding: 0;
-
     width: 100%;
-
     background: #080808;
-
     color: #ffffff;
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+    font-family: Arial, Helvetica, sans-serif;
     overflow-x: hidden;
 }
 
@@ -50,11 +35,10 @@ body {
     min-height: 100vh;
 }
 
-button,
-a {
+a,
+button {
     font: inherit;
 }
-
 
 /* =========================================================
    NAVBAR
@@ -62,1456 +46,922 @@ a {
 
 .nw-nav {
     position: fixed;
-
     top: 0;
     left: 0;
     right: 0;
-
-    height: 72px;
+    z-index: 1000;
 
     display: flex;
-
     align-items: center;
     justify-content: space-between;
 
-    padding:
-        0 4vw;
-
-    z-index: 1000;
+    height: 72px;
+    padding: 0 4vw;
 
     background:
         linear-gradient(
             to bottom,
-            rgba(0,0,0,.88),
-            rgba(0,0,0,.35),
+            rgba(0,0,0,.92),
+            rgba(0,0,0,.45),
             transparent
         );
 
-    transition:
-        background .3s ease;
+    transition: background .3s ease;
 }
-
 
 .nw-nav.scrolled {
-
-    background:
-        rgba(8,8,8,.96);
+    background: rgba(8,8,8,.96);
 }
-
 
 .nw-logo {
-    font-family:
-        Georgia,
-        serif;
-
-    font-size:
-        24px;
-
-    font-weight:
-        bold;
-
-    letter-spacing:
-        4px;
-
-    text-decoration:
-        none;
-
-    color:
-        #ffffff;
+    color: #fff;
+    text-decoration: none;
+    font-family: Georgia, serif;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 4px;
 }
-
 
 .nw-logo span {
-
-    color:
-        #c79850;
+    color: #c79850;
 }
-
 
 .nw-nav-links {
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    gap:
-        26px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
 }
-
 
 .nw-nav-links a {
-
-    color:
-        rgba(255,255,255,.85);
-
-    text-decoration:
-        none;
-
-    font-size:
-        13px;
-
-    transition:
-        color .2s ease;
+    color: rgba(255,255,255,.82);
+    text-decoration: none;
+    font-size: 13px;
+    transition: color .2s ease;
 }
-
 
 .nw-nav-links a:hover {
-
-    color:
-        #ffffff;
+    color: #ffffff;
 }
 
-
 /* =========================================================
-   HERO
+   HERO SLIDER
 ========================================================= */
 
 .nw-hero {
-
-    position:
-        relative;
-
-    width:
-        100vw;
-
-    min-height:
-        100vh;
-
-    display:
-        flex;
-
-    align-items:
-        flex-end;
-
-    overflow:
-        hidden;
-
-    background:
-        #000;
+    position: relative;
+    width: 100vw;
+    min-height: 100vh;
+    overflow: hidden;
+    background: #000;
 }
 
+.nw-hero-slides {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+}
 
-/* HERO IMAGE */
+.nw-hero-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .7s ease;
+}
+
+.nw-hero-slide.active {
+    opacity: 1;
+    pointer-events: auto;
+}
 
 .nw-hero-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center center;
+    transform: scale(1.02);
+}
 
-    position:
-        absolute;
-
-    inset:
-        0;
-
-    width:
-        100%;
-
-    height:
-        100%;
-
-    background-image:
-
+.nw-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
         linear-gradient(
-            to right,
+            90deg,
             rgba(0,0,0,.88) 0%,
-            rgba(0,0,0,.62) 35%,
-            rgba(0,0,0,.14) 68%,
+            rgba(0,0,0,.66) 35%,
+            rgba(0,0,0,.18) 68%,
             rgba(0,0,0,.05) 100%
         ),
-
         linear-gradient(
-            to top,
+            0deg,
             #080808 0%,
-            rgba(8,8,8,.58) 20%,
-            transparent 52%
-        ),
-
-        url("https://img.youtube.com/vi/wFhQjP9k5o4/maxresdefault.jpg");
-
-    background-size:
-        cover;
-
-    background-position:
-        center center;
-
-    transform:
-        scale(1.02);
+            rgba(8,8,8,.55) 20%,
+            transparent 55%
+        );
 }
-
-
-/* HERO CONTENT */
 
 .nw-hero-content {
-
-    position:
-        relative;
-
-    z-index:
-        10;
-
-    width:
-        min(650px,90vw);
-
-    margin:
-        0 0 12vh 5vw;
+    position: relative;
+    z-index: 10;
+    width: min(650px, 90vw);
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    padding: 0 0 12vh 5vw;
 }
 
+.nw-hero-inner {
+    max-width: 620px;
+}
 
 .nw-eyebrow {
-
-    margin-bottom:
-        12px;
-
-    font-size:
-        12px;
-
-    font-weight:
-        bold;
-
-    letter-spacing:
-        6px;
-
-    color:
-        #c79850;
+    margin-bottom: 12px;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 6px;
+    color: #c79850;
 }
-
 
 .nw-hero-title {
-
-    margin:
-        0;
-
-    font-family:
-        Georgia,
-        serif;
-
-    font-size:
-        clamp(
-            48px,
-            8vw,
-            110px
-        );
-
-    line-height:
-        .88;
-
-    letter-spacing:
-        2px;
-
-    text-shadow:
-        0 5px 20px
-        rgba(0,0,0,.7);
+    margin: 0;
+    font-family: Georgia, serif;
+    font-size: clamp(46px, 8vw, 108px);
+    line-height: .92;
+    text-shadow: 0 6px 24px rgba(0,0,0,.65);
 }
-
 
 .nw-hero-subtitle {
-
-    margin-top:
-        14px;
-
-    font-family:
-        Georgia,
-        serif;
-
-    font-size:
-        clamp(
-            18px,
-            2vw,
-            29px
-        );
-
-    letter-spacing:
-        8px;
-
-    color:
-        #c79850;
+    margin-top: 10px;
+    font-family: Georgia, serif;
+    font-size: clamp(18px, 2vw, 28px);
+    letter-spacing: 8px;
+    color: #c79850;
 }
-
 
 .nw-hero-description {
-
-    max-width:
-        550px;
-
-    margin:
-        24px 0 0;
-
-    font-size:
-        15px;
-
-    line-height:
-        1.6;
-
-    color:
-        rgba(255,255,255,.85);
+    margin: 22px 0 0;
+    max-width: 560px;
+    color: rgba(255,255,255,.86);
+    font-size: 15px;
+    line-height: 1.6;
 }
-
 
 .nw-hero-meta {
-
-    display:
-        flex;
-
-    gap:
-        18px;
-
-    margin-top:
-        20px;
-
-    font-size:
-        12px;
-
-    color:
-        rgba(255,255,255,.65);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 20px;
+    font-size: 12px;
+    color: rgba(255,255,255,.65);
 }
-
 
 .nw-hero-buttons {
-
-    display:
-        flex;
-
-    flex-wrap:
-        wrap;
-
-    gap:
-        12px;
-
-    margin-top:
-        28px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
 }
-
 
 .nw-btn {
-
-    display:
-        inline-flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    min-height:
-        46px;
-
-    padding:
-        0 22px;
-
-    border:
-        0;
-
-    border-radius:
-        5px;
-
-    text-decoration:
-        none;
-
-    cursor:
-        pointer;
-
-    font-size:
-        14px;
-
-    font-weight:
-        bold;
-
-    transition:
-        transform .2s ease,
-        background .2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 0 22px;
+    border: 0;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: transform .2s ease, background .2s ease;
 }
-
 
 .nw-btn:hover {
-
-    transform:
-        scale(1.04);
+    transform: scale(1.04);
 }
-
 
 .nw-btn-primary {
-
-    background:
-        #ffffff;
-
-    color:
-        #080808;
+    background: #ffffff;
+    color: #080808;
 }
-
 
 .nw-btn-secondary {
-
-    background:
-        rgba(109,109,110,.55);
-
-    color:
-        #ffffff;
-
-    backdrop-filter:
-        blur(5px);
+    background: rgba(109,109,110,.55);
+    color: #ffffff;
+    backdrop-filter: blur(5px);
 }
 
+.nw-hero-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;
+
+    width: 46px;
+    height: 80px;
+    border: 0;
+    background: rgba(0,0,0,.48);
+    color: #fff;
+    font-size: 34px;
+    cursor: pointer;
+    transition: background .2s ease, opacity .2s ease;
+    opacity: .75;
+}
+
+.nw-hero-arrow:hover {
+    background: rgba(0,0,0,.78);
+    opacity: 1;
+}
+
+.nw-hero-left {
+    left: 0;
+}
+
+.nw-hero-right {
+    right: 0;
+}
+
+.nw-hero-dots {
+    position: absolute;
+    left: 5vw;
+    bottom: 32px;
+    z-index: 25;
+    display: flex;
+    gap: 9px;
+}
+
+.nw-hero-dot {
+    width: 9px;
+    height: 9px;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(255,255,255,.30);
+    cursor: pointer;
+    padding: 0;
+}
+
+.nw-hero-dot.active {
+    background: #c79850;
+    transform: scale(1.2);
+}
 
 /* =========================================================
-   CONTENT AREA
+   CONTENT
 ========================================================= */
 
 .nw-content {
-
-    position:
-        relative;
-
-    z-index:
-        20;
-
-    margin-top:
-        -40px;
-
-    padding-bottom:
-        70px;
-
-    background:
-        #080808;
+    position: relative;
+    z-index: 20;
+    margin-top: -40px;
+    padding-bottom: 80px;
+    background: #080808;
 }
-
-
-/* =========================================================
-   SECTIONS
-========================================================= */
 
 .nw-section {
-
-    width:
-        100%;
-
-    padding:
-        26px 0;
+    width: 100%;
+    padding: 26px 0;
 }
-
 
 .nw-section-header {
-
-    display:
-        flex;
-
-    align-items:
-        flex-end;
-
-    justify-content:
-        space-between;
-
-    gap:
-        20px;
-
-    padding:
-        0 4vw 14px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 0 4vw 14px;
 }
-
 
 .nw-section-kicker {
-
-    margin-bottom:
-        6px;
-
-    color:
-        #c79850;
-
-    font-size:
-        10px;
-
-    font-weight:
-        bold;
-
-    letter-spacing:
-        5px;
+    margin-bottom: 6px;
+    color: #c79850;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 5px;
 }
-
 
 .nw-section-title {
-
-    margin:
-        0;
-
-    font-family:
-        Georgia,
-        serif;
-
-    font-size:
-        clamp(
-            26px,
-            3vw,
-            40px
-        );
-
-    font-weight:
-        normal;
+    margin: 0;
+    font-family: Georgia, serif;
+    font-size: clamp(26px, 3vw, 40px);
+    font-weight: normal;
 }
-
 
 .nw-section-note {
-
-    color:
-        rgba(255,255,255,.45);
-
-    font-size:
-        11px;
+    color: rgba(255,255,255,.45);
+    font-size: 11px;
 }
 
-
 /* =========================================================
-   EPISODE ROW
+   ROWS
 ========================================================= */
 
 .nw-row-wrap {
-
-    position:
-        relative;
-
-    width:
-        100%;
+    position: relative;
+    width: 100%;
 }
-
 
 .nw-row {
-
-    display:
-        flex;
-
-    gap:
-        16px;
-
-    width:
-        100%;
-
-    padding:
-        8px 4vw 22px;
-
-    overflow-x:
-        auto;
-
-    overflow-y:
-        visible;
-
-    scroll-behavior:
-        smooth;
-
-    scroll-snap-type:
-        x proximity;
-
-    scrollbar-width:
-        none;
-
-    -webkit-overflow-scrolling:
-        touch;
+    display: flex;
+    gap: 16px;
+    width: 100%;
+    padding: 8px 4vw 22px;
+    overflow-x: auto;
+    overflow-y: visible;
+    scroll-behavior: smooth;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
 }
-
 
 .nw-row::-webkit-scrollbar {
-
-    display:
-        none;
+    display: none;
 }
 
+.nw-row-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-70%);
+    width: 44px;
+    height: 90px;
+    border: 0;
+    background: rgba(0,0,0,.55);
+    color: #ffffff;
+    font-size: 34px;
+    cursor: pointer;
+    z-index: 30;
+    opacity: .6;
+    transition: opacity .2s ease, background .2s ease;
+}
+
+.nw-row-arrow:hover {
+    opacity: 1;
+    background: rgba(0,0,0,.85);
+}
+
+.nw-row-left {
+    left: 0;
+}
+
+.nw-row-right {
+    right: 0;
+}
 
 /* =========================================================
    CARD
 ========================================================= */
 
 .nw-card {
-
-    position:
-        relative;
-
-    flex:
-        0 0 clamp(
-            260px,
-            30vw,
-            420px
-        );
-
-    scroll-snap-align:
-        start;
-
-    cursor:
-        pointer;
-
-    transition:
-        transform .3s ease;
+    position: relative;
+    flex: 0 0 clamp(260px, 30vw, 420px);
+    scroll-snap-align: start;
+    cursor: pointer;
+    transition: transform .3s ease;
 }
-
 
 .nw-card:hover {
-
-    transform:
-        translateY(-8px)
-        scale(1.025);
-
-    z-index:
-        10;
+    transform: translateY(-8px) scale(1.025);
+    z-index: 10;
 }
-
 
 .nw-card-image {
-
-    position:
-        relative;
-
-    width:
-        100%;
-
-    aspect-ratio:
-        16 / 9;
-
-    overflow:
-        hidden;
-
-    border-radius:
-        7px;
-
-    background:
-        #141414;
-
-    box-shadow:
-        0 12px 30px
-        rgba(0,0,0,.5);
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #141414;
+    box-shadow: 0 12px 30px rgba(0,0,0,.5);
 }
-
 
 .nw-card-image img {
-
-    display:
-        block;
-
-    width:
-        100%;
-
-    height:
-        100%;
-
-    object-fit:
-        cover;
-
-    transition:
-        transform .4s ease;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .4s ease;
 }
-
 
 .nw-card:hover img {
-
-    transform:
-        scale(1.06);
+    transform: scale(1.06);
 }
-
 
 .nw-card-overlay {
-
-    position:
-        absolute;
-
-    inset:
-        0;
-
-    background:
-        linear-gradient(
-            to top,
-            rgba(0,0,0,.68),
-            transparent 60%
-        );
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,.68),
+        transparent 60%
+    );
 }
-
 
 .nw-card-number {
-
-    position:
-        absolute;
-
-    left:
-        10px;
-
-    bottom:
-        10px;
-
-    padding:
-        5px 8px;
-
-    background:
-        rgba(0,0,0,.82);
-
-    font-size:
-        10px;
-
-    font-weight:
-        bold;
-
-    letter-spacing:
-        1px;
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    padding: 5px 8px;
+    background: rgba(0,0,0,.82);
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
-
 
 .nw-card-play {
-
-    position:
-        absolute;
-
-    left:
-        50%;
-
-    top:
-        50%;
-
-    transform:
-        translate(-50%,-50%)
-        scale(.85);
-
-    width:
-        56px;
-
-    height:
-        56px;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    border:
-        2px solid white;
-
-    border-radius:
-        50%;
-
-    background:
-        rgba(0,0,0,.58);
-
-    font-size:
-        20px;
-
-    opacity:
-        0;
-
-    transition:
-        opacity .2s ease,
-        transform .2s ease;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%) scale(.85);
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+    border-radius: 50%;
+    background: rgba(0,0,0,.58);
+    font-size: 20px;
+    opacity: 0;
+    transition: opacity .2s ease, transform .2s ease;
 }
 
-
-.nw-card:hover
-.nw-card-play {
-
-    opacity:
-        1;
-
-    transform:
-        translate(-50%,-50%)
-        scale(1);
+.nw-card:hover .nw-card-play {
+    opacity: 1;
+    transform: translate(-50%,-50%) scale(1);
 }
-
 
 .nw-card-title {
-
-    margin:
-        12px 0 5px;
-
-    font-family:
-        Georgia,
-        serif;
-
-    font-size:
-        20px;
+    margin: 12px 0 5px;
+    font-family: Georgia, serif;
+    font-size: 20px;
 }
-
 
 .nw-card-description {
-
-    margin:
-        0;
-
-    color:
-        rgba(255,255,255,.65);
-
-    font-size:
-        12px;
-
-    line-height:
-        1.5;
-
-    display:
-        -webkit-box;
-
-    -webkit-line-clamp:
-        3;
-
-    -webkit-box-orient:
-        vertical;
-
-    overflow:
-        hidden;
+    margin: 0;
+    color: rgba(255,255,255,.65);
+    font-size: 12px;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
-
 
 /* =========================================================
    COMING SOON
 ========================================================= */
 
 .nw-coming {
-
-    cursor:
-        default;
+    cursor: default;
 }
-
 
 .nw-coming:hover {
-
-    transform:
-        translateY(-8px);
+    transform: translateY(-8px);
 }
 
-
-.nw-coming
-.nw-card-image {
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    background:
-        linear-gradient(
-            135deg,
-            #151515,
-            #080808
-        );
-
-    border:
-        1px solid
-        rgba(255,255,255,.08);
+.nw-coming .nw-card-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #151515, #080808);
+    border: 1px solid rgba(255,255,255,.08);
 }
-
 
 .nw-coming-text {
-
-    color:
-        rgba(255,255,255,.35);
-
-    font-size:
-        14px;
-
-    font-weight:
-        bold;
-
-    letter-spacing:
-        4px;
-
-    text-transform:
-        uppercase;
+    color: rgba(255,255,255,.35);
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    text-transform: uppercase;
 }
-
 
 /* =========================================================
-   ROW ARROWS
+   BOOK SECTION
 ========================================================= */
 
-.nw-row-arrow {
-
-    position:
-        absolute;
-
-    top:
-        50%;
-
-    transform:
-        translateY(-70%);
-
-    width:
-        44px;
-
-    height:
-        90px;
-
-    border:
-        0;
-
-    background:
-        rgba(0,0,0,.55);
-
-    color:
-        #ffffff;
-
-    font-size:
-        34px;
-
-    cursor:
-        pointer;
-
-    z-index:
-        30;
-
-    opacity:
-        .6;
-
-    transition:
-        opacity .2s ease,
-        background .2s ease;
+.nw-book {
+    display: grid;
+    grid-template-columns: 420px 1fr;
+    gap: 48px;
+    align-items: center;
+    padding: 18px 4vw 10px;
 }
 
-
-.nw-row-arrow:hover {
-
-    opacity:
-        1;
-
-    background:
-        rgba(0,0,0,.85);
+.nw-book-cover {
+    width: 100%;
 }
 
-
-.nw-row-left {
-
-    left:
-        0;
+.nw-book-cover img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 20px 50px rgba(0,0,0,.45);
 }
 
-
-.nw-row-right {
-
-    right:
-        0;
+.nw-book-text h3 {
+    margin: 0 0 16px;
+    font-family: Georgia, serif;
+    font-size: clamp(30px, 4vw, 54px);
+    font-weight: normal;
 }
 
-
-/* =========================================================
-   FEATURED TRAILER
-========================================================= */
-
-.nw-feature {
-
-    position:
-        relative;
-
-    width:
-        100vw;
-
-    min-height:
-        58vw;
-
-    max-height:
-        720px;
-
-    margin-top:
-        30px;
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    background-image:
-
-        linear-gradient(
-            90deg,
-            rgba(0,0,0,.88),
-            rgba(0,0,0,.30) 60%,
-            rgba(0,0,0,.08)
-        ),
-
-        linear-gradient(
-            0deg,
-            #080808,
-            transparent 40%
-        ),
-
-        url("https://img.youtube.com/vi/wFhQjP9k5o4/maxresdefault.jpg");
-
-    background-size:
-        cover;
-
-    background-position:
-        center center;
+.nw-book-text p {
+    margin: 0 0 16px;
+    color: rgba(255,255,255,.78);
+    line-height: 1.7;
+    font-size: 15px;
+    max-width: 720px;
 }
 
-
-.nw-feature-content {
-
-    width:
-        min(600px,88vw);
-
-    margin-left:
-        5vw;
+.nw-book-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 22px;
 }
-
-
-.nw-feature-title {
-
-    margin:
-        8px 0 16px;
-
-    font-family:
-        Georgia,
-        serif;
-
-    font-size:
-        clamp(
-            35px,
-            5vw,
-            70px
-        );
-}
-
 
 /* =========================================================
    FOOTER
 ========================================================= */
 
 .nw-footer {
-
-    padding:
-        50px 5vw 70px;
-
-    border-top:
-        1px solid
-        rgba(255,255,255,.08);
-
-    color:
-        rgba(255,255,255,.40);
-
-    font-size:
-        12px;
+    padding: 50px 5vw 70px;
+    border-top: 1px solid rgba(255,255,255,.08);
+    color: rgba(255,255,255,.40);
+    font-size: 12px;
 }
-
 
 .nw-footer-logo {
-
-    margin-bottom:
-        10px;
-
-    font-family:
-        Georgia,
-        serif;
-
-    font-size:
-        22px;
-
-    letter-spacing:
-        4px;
-
-    color:
-        white;
+    margin-bottom: 10px;
+    font-family: Georgia, serif;
+    font-size: 22px;
+    letter-spacing: 4px;
+    color: white;
 }
-
 
 /* =========================================================
    MOBILE
 ========================================================= */
 
-@media
-screen and
-(max-width: 700px) {
+@media screen and (max-width: 900px) {
+    .nw-book {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
 
+    .nw-book-cover {
+        max-width: 380px;
+    }
+}
+
+@media screen and (max-width: 700px) {
 
     .nw-nav {
-
-        height:
-            60px;
-
-        padding:
-            0 18px;
-
-        background:
-            rgba(8,8,8,.92);
+        height: 60px;
+        padding: 0 18px;
+        background: rgba(8,8,8,.92);
     }
-
 
     .nw-logo {
-
-        font-size:
-            18px;
-
-        letter-spacing:
-            2px;
+        font-size: 18px;
+        letter-spacing: 2px;
     }
-
 
     .nw-nav-links {
-
-        display:
-            none;
+        display: none;
     }
-
 
     .nw-hero {
-
-        min-height:
-            78vh;
-
-        align-items:
-            flex-end;
+        min-height: 82vh;
     }
-
-
-    .nw-hero-bg {
-
-        background-image:
-
-            linear-gradient(
-                0deg,
-                #080808 0%,
-                rgba(0,0,0,.78) 28%,
-                rgba(0,0,0,.20) 68%,
-                rgba(0,0,0,.08)
-            ),
-
-            url("https://img.youtube.com/vi/wFhQjP9k5o4/maxresdefault.jpg");
-
-        background-position:
-            center center;
-    }
-
 
     .nw-hero-content {
-
-        width:
-            auto;
-
-        margin:
-            0 20px 45px;
+        width: auto;
+        min-height: 82vh;
+        padding: 0 20px 56px;
     }
-
 
     .nw-eyebrow {
-
-        font-size:
-            9px;
-
-        letter-spacing:
-            4px;
+        font-size: 9px;
+        letter-spacing: 4px;
     }
-
 
     .nw-hero-title {
-
-        font-size:
-            48px;
+        font-size: 48px;
     }
-
 
     .nw-hero-subtitle {
-
-        font-size:
-            15px;
-
-        letter-spacing:
-            5px;
+        font-size: 15px;
+        letter-spacing: 5px;
     }
-
 
     .nw-hero-description {
-
-        font-size:
-            12px;
-
-        line-height:
-            1.5;
+        font-size: 12px;
+        line-height: 1.5;
     }
-
 
     .nw-hero-meta {
-
-        font-size:
-            10px;
-
-        gap:
-            12px;
+        font-size: 10px;
+        gap: 12px;
     }
-
 
     .nw-btn {
-
-        min-height:
-            40px;
-
-        padding:
-            0 15px;
-
-        font-size:
-            12px;
+        min-height: 40px;
+        padding: 0 15px;
+        font-size: 12px;
     }
 
+    .nw-hero-arrow {
+        width: 32px;
+        height: 54px;
+        font-size: 24px;
+    }
+
+    .nw-hero-dots {
+        left: 20px;
+        bottom: 18px;
+    }
 
     .nw-content {
-
-        margin-top:
-            -15px;
+        margin-top: -12px;
     }
-
 
     .nw-section {
-
-        padding:
-            17px 0;
+        padding: 17px 0;
     }
-
 
     .nw-section-header {
-
-        padding:
-            0 16px 10px;
+        padding: 0 16px 10px;
     }
-
 
     .nw-section-title {
-
-        font-size:
-            25px;
+        font-size: 25px;
     }
-
 
     .nw-section-note {
-
-        display:
-            none;
+        display: none;
     }
-
 
     .nw-row {
-
-        gap:
-            12px;
-
-        padding:
-            5px 16px 17px;
+        gap: 12px;
+        padding: 5px 16px 17px;
     }
-
 
     .nw-card {
-
-        flex:
-            0 0 82vw;
-
-        max-width:
-            360px;
+        flex: 0 0 82vw;
+        max-width: 360px;
     }
-
 
     .nw-card-title {
-
-        font-size:
-            18px;
+        font-size: 18px;
     }
-
 
     .nw-card-description {
-
-        font-size:
-            11px;
-
-        -webkit-line-clamp:
-            2;
+        font-size: 11px;
+        -webkit-line-clamp: 2;
     }
-
 
     .nw-card-play {
-
-        opacity:
-            1;
-
-        width:
-            48px;
-
-        height:
-            48px;
-
-        font-size:
-            17px;
-
-        transform:
-            translate(-50%,-50%)
-            scale(1);
+        opacity: 1;
+        width: 48px;
+        height: 48px;
+        font-size: 17px;
+        transform: translate(-50%,-50%) scale(1);
     }
-
 
     .nw-row-arrow {
-
-        display:
-            none;
+        display: none;
     }
 
-
-    .nw-feature {
-
-        min-height:
-            75vh;
-
-        background-image:
-
-            linear-gradient(
-                0deg,
-                #080808 0%,
-                rgba(0,0,0,.82) 35%,
-                rgba(0,0,0,.18) 75%
-            ),
-
-            url("https://img.youtube.com/vi/wFhQjP9k5o4/maxresdefault.jpg");
-
-        background-position:
-            center center;
+    .nw-book {
+        padding: 12px 16px 0;
     }
 
-
-    .nw-feature-content {
-
-        margin:
-            auto 20px 45px;
+    .nw-book-text p {
+        font-size: 13px;
     }
-
 
     .nw-footer {
-
-        padding:
-            40px 20px 60px;
+        padding: 40px 20px 60px;
     }
-
 }
 
 </style>
-
 </head>
 
-
-
 <body>
-
 
 <!-- =========================================================
      NAVBAR
 ========================================================= -->
 
 <nav class="nw-nav" id="nwNav">
-
-    <a
-        href="#home"
-        class="nw-logo"
-    >
+    <a href="#home" class="nw-logo">
         NIRWEST<span>+</span>
     </a>
 
-
     <div class="nw-nav-links">
+        <a href="#home">Home</a>
+        <a href="#season">Season One</a>
+        <a href="#discover">Scopri altro</a>
+        <a href="#book">Il libro</a>
+        <a href="https://www.youtube.com/@Nirwest-official" target="_blank" rel="noopener">YouTube</a>
+    </div>
+</nav>
 
-        <a href="#home">
-            Home
-        </a>
+<!-- =========================================================
+     HERO SLIDER
+========================================================= -->
 
-        <a href="#season">
-            Season One
-        </a>
+<header class="nw-hero" id="home">
 
-        <a href="#trailer">
-            Trailer
-        </a>
+    <div class="nw-hero-slides">
 
-        <a
-            href="https://www.youtube.com/@Nirwestofficial"
-            target="_blank"
-            rel="noopener"
-        >
-            YouTube
-        </a>
+        <!-- SLIDE 1 -->
+        <div class="nw-hero-slide active">
+            <div class="nw-hero-bg" style="background-image:
+                linear-gradient(90deg, rgba(0,0,0,.88) 0%, rgba(0,0,0,.66) 35%, rgba(0,0,0,.18) 68%, rgba(0,0,0,.05) 100%),
+                linear-gradient(0deg, #080808 0%, rgba(8,8,8,.55) 20%, transparent 55%),
+                url('https://img.youtube.com/vi/wFhQjP9k5o4/hqdefault.jpg');">
+            </div>
+
+            <div class="nw-hero-content">
+                <div class="nw-hero-inner">
+                    <div class="nw-eyebrow">OFFICIAL TRAILER</div>
+                    <h1 class="nw-hero-title">NIRWEST</h1>
+                    <div class="nw-hero-subtitle">CHRONICLES</div>
+                    <div class="nw-hero-meta">
+                        <span>Trailer</span>
+                        <span>Fantasy</span>
+                        <span>AI Cinema</span>
+                    </div>
+                    <p class="nw-hero-description">
+                        Enter the world of Nirwest, where ancient legends, forgotten powers and mysterious symbols shape the fate of those chosen to uncover the truth.
+                    </p>
+                    <div class="nw-hero-buttons">
+                        <a class="nw-btn nw-btn-primary" href="https://youtu.be/wFhQjP9k5o4" target="_blank" rel="noopener">▶ Watch Now</a>
+                        <a class="nw-btn nw-btn-secondary" href="#season">ⓘ Season One</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 2 -->
+        <div class="nw-hero-slide">
+            <div class="nw-hero-bg" style="background-image:
+                linear-gradient(90deg, rgba(0,0,0,.88) 0%, rgba(0,0,0,.66) 35%, rgba(0,0,0,.18) 68%, rgba(0,0,0,.05) 100%),
+                linear-gradient(0deg, #080808 0%, rgba(8,8,8,.55) 20%, transparent 55%),
+                url('https://img.youtube.com/vi/ovSthDlFMGM/hqdefault.jpg');">
+            </div>
+
+            <div class="nw-hero-content">
+                <div class="nw-hero-inner">
+                    <div class="nw-eyebrow">EPISODE 0</div>
+                    <h1 class="nw-hero-title">THE BIRTH OF A BLACK BLADE</h1>
+                    <div class="nw-hero-subtitle">PROLOGUE</div>
+                    <div class="nw-hero-meta">
+                        <span>Season One</span>
+                        <span>Episode 0</span>
+                    </div>
+                    <p class="nw-hero-description">
+                        The prologue opens the first book and sets the stage for the first of its ten episodes.
+                    </p>
+                    <div class="nw-hero-buttons">
+                        <a class="nw-btn nw-btn-primary" href="https://youtu.be/ovSthDlFMGM" target="_blank" rel="noopener">▶ Watch Now</a>
+                        <a class="nw-btn nw-btn-secondary" href="#season">ⓘ Explore Episodes</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 3 -->
+        <div class="nw-hero-slide">
+            <div class="nw-hero-bg" style="background-image:
+                linear-gradient(90deg, rgba(0,0,0,.88) 0%, rgba(0,0,0,.66) 35%, rgba(0,0,0,.18) 68%, rgba(0,0,0,.05) 100%),
+                linear-gradient(0deg, #080808 0%, rgba(8,8,8,.55) 20%, transparent 55%),
+                url('https://img.youtube.com/vi/WIf-MYzEQ8Y/hqdefault.jpg');">
+            </div>
+
+            <div class="nw-hero-content">
+                <div class="nw-hero-inner">
+                    <div class="nw-eyebrow">EPISODE 1</div>
+                    <h1 class="nw-hero-title">MYSTERIOUS DRAWINGS</h1>
+                    <div class="nw-hero-subtitle">SEASON ONE</div>
+                    <div class="nw-hero-meta">
+                        <span>Season One</span>
+                        <span>Episode 1</span>
+                    </div>
+                    <p class="nw-hero-description">
+                        Jago discovers that he is one of the Chosen. A mysterious mission has appeared on his arm, one that he is destined to fulfill.
+                    </p>
+                    <div class="nw-hero-buttons">
+                        <a class="nw-btn nw-btn-primary" href="https://youtu.be/WIf-MYzEQ8Y" target="_blank" rel="noopener">▶ Watch Now</a>
+                        <a class="nw-btn nw-btn-secondary" href="#season">ⓘ Explore Episodes</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 4 -->
+        <div class="nw-hero-slide">
+            <div class="nw-hero-bg" style="background-image:
+                linear-gradient(90deg, rgba(0,0,0,.88) 0%, rgba(0,0,0,.66) 35%, rgba(0,0,0,.18) 68%, rgba(0,0,0,.05) 100%),
+                linear-gradient(0deg, #080808 0%, rgba(8,8,8,.55) 20%, transparent 55%),
+                url('https://img.youtube.com/vi/cyoHyvG7dSc/hqdefault.jpg');">
+            </div>
+
+            <div class="nw-hero-content">
+                <div class="nw-hero-inner">
+                    <div class="nw-eyebrow">EPISODE 2</div>
+                    <h1 class="nw-hero-title">ROYAL SYMBOLS</h1>
+                    <div class="nw-hero-subtitle">SEASON ONE</div>
+                    <div class="nw-hero-meta">
+                        <span>Season One</span>
+                        <span>Episode 2</span>
+                    </div>
+                    <p class="nw-hero-description">
+                        The witch reveals the ancient origins of the dragons and tells the story of the last Dragon Riders, Hadrian and Cassius.
+                    </p>
+                    <div class="nw-hero-buttons">
+                        <a class="nw-btn nw-btn-primary" href="https://youtu.be/cyoHyvG7dSc" target="_blank" rel="noopener">▶ Watch Now</a>
+                        <a class="nw-btn nw-btn-secondary" href="#season">ⓘ Explore Episodes</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 5 -->
+        <div class="nw-hero-slide">
+            <div class="nw-hero-bg" style="background-image:
+                linear-gradient(90deg, rgba(0,0,0,.88) 0%, rgba(0,0,0,.66) 35%, rgba(0,0,0,.18) 68%, rgba(0,0,0,.05) 100%),
+                linear-gradient(0deg, #080808 0%, rgba(8,8,8,.55) 20%, transparent 55%),
+                url('https://img.youtube.com/vi/xqCRcj6C1L4/hqdefault.jpg');">
+            </div>
+
+            <div class="nw-hero-content">
+                <div class="nw-hero-inner">
+                    <div class="nw-eyebrow">SCOPRI ALTRO</div>
+                    <h1 class="nw-hero-title">BETWEEN TWO BREATHS</h1>
+                    <div class="nw-hero-subtitle">SHORT FILM</div>
+                    <div class="nw-hero-meta">
+                        <span>Standalone</span>
+                        <span>Fantasy</span>
+                    </div>
+                    <p class="nw-hero-description">
+                        A separate cinematic experience from the world of Nirwest.
+                    </p>
+                    <div class="nw-hero-buttons">
+                        <a class="nw-btn nw-btn-primary" href="https://youtu.be/xqCRcj6C1L4" target="_blank" rel="noopener">▶ Watch Now</a>
+                        <a class="nw-btn nw-btn-secondary" href="#discover">ⓘ Scopri Altro</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 6 -->
+        <div class="nw-hero-slide">
+            <div class="nw-hero-bg" style="background-image:
+                linear-gradient(90deg, rgba(0,0,0,.88) 0%, rgba(0,0,0,.66) 35%, rgba(0,0,0,.18) 68%, rgba(0,0,0,.05) 100%),
+                linear-gradient(0deg, #080808 0%, rgba(8,8,8,.55) 20%, transparent 55%),
+                url('https://img.youtube.com/vi/0LMqJIMSM-c/hqdefault.jpg');">
+            </div>
+
+            <div class="nw-hero-content">
+                <div class="nw-hero-inner">
+                    <div class="nw-eyebrow">SCOPRI ALTRO</div>
+                    <h1 class="nw-hero-title">THE BREATH COLLECTOR</h1>
+                    <div class="nw-hero-subtitle">SHORT FILM</div>
+                    <div class="nw-hero-meta">
+                        <span>Standalone</span>
+                        <span>Fantasy</span>
+                    </div>
+                    <p class="nw-hero-description">
+                        Another original cinematic project connected to the Nirwest universe.
+                    </p>
+                    <div class="nw-hero-buttons">
+                        <a class="nw-btn nw-btn-primary" href="https://youtu.be/0LMqJIMSM-c" target="_blank" rel="noopener">▶ Watch Now</a>
+                        <a class="nw-btn nw-btn-secondary" href="#discover">ⓘ Scopri Altro</a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
 
-</nav>
+    <button class="nw-hero-arrow nw-hero-left" onclick="nwHeroPrev()" aria-label="Previous">‹</button>
+    <button class="nw-hero-arrow nw-hero-right" onclick="nwHeroNext()" aria-label="Next">›</button>
 
-
-
-<!-- =========================================================
-     HERO
-========================================================= -->
-
-<header
-    class="nw-hero"
-    id="home"
->
-
-    <div class="nw-hero-bg"></div>
-
-
-    <div class="nw-hero-content">
-
-        <div class="nw-eyebrow">
-            ORIGINAL FANTASY SERIES
-        </div>
-
-
-        <h1 class="nw-hero-title">
-            NIRWEST
-        </h1>
-
-
-        <div class="nw-hero-subtitle">
-            CHRONICLES
-        </div>
-
-
-        <div class="nw-hero-meta">
-
-            <span>
-                Season One
-            </span>
-
-            <span>
-                Fantasy
-            </span>
-
-            <span>
-                AI Cinema
-            </span>
-
-        </div>
-
-
-        <p class="nw-hero-description">
-            Enter the world of Nirwest, where ancient legends,
-            mysterious symbols and forgotten powers shape the fate
-            of those chosen to uncover the truth.
-        </p>
-
-
-        <div class="nw-hero-buttons">
-
-            <a
-                class="nw-btn nw-btn-primary"
-                href="https://youtu.be/wFhQjP9k5o4"
-                target="_blank"
-                rel="noopener"
-            >
-                ▶ Watch Trailer
-            </a>
-
-
-            <a
-                class="nw-btn nw-btn-secondary"
-                href="#season"
-            >
-                ⓘ Episodes
-            </a>
-
-        </div>
-
+    <div class="nw-hero-dots">
+        <button class="nw-hero-dot active" onclick="nwHeroGo(0)"></button>
+        <button class="nw-hero-dot" onclick="nwHeroGo(1)"></button>
+        <button class="nw-hero-dot" onclick="nwHeroGo(2)"></button>
+        <button class="nw-hero-dot" onclick="nwHeroGo(3)"></button>
+        <button class="nw-hero-dot" onclick="nwHeroGo(4)"></button>
+        <button class="nw-hero-dot" onclick="nwHeroGo(5)"></button>
     </div>
 
 </header>
-
-
 
 <!-- =========================================================
      CONTENT
@@ -1519,453 +969,221 @@ screen and
 
 <main class="nw-content">
 
+    <!-- SEASON ONE -->
+    <section class="nw-section" id="season">
 
-<!-- =========================================================
-     SEASON ONE
-========================================================= -->
+        <div class="nw-section-header">
+            <div>
+                <div class="nw-section-kicker">NIRWEST CHRONICLES</div>
+                <h2 class="nw-section-title">Season One</h2>
+            </div>
+            <div class="nw-section-note">Scroll to explore</div>
+        </div>
 
-<section
-    class="nw-section"
-    id="season"
->
+        <div class="nw-row-wrap">
+            <button class="nw-row-arrow nw-row-left" onclick="nwScrollRow('nwEpisodeRow', -1)" aria-label="Previous episodes">‹</button>
 
-    <div class="nw-section-header">
+            <div class="nw-row" id="nwEpisodeRow">
 
-        <div>
+                <article class="nw-card" onclick="nwOpenYouTube('ovSthDlFMGM')">
+                    <div class="nw-card-image">
+                        <img src="https://img.youtube.com/vi/ovSthDlFMGM/hqdefault.jpg" alt="The Birth of a Black Blade">
+                        <div class="nw-card-overlay"></div>
+                        <div class="nw-card-play">▶</div>
+                        <div class="nw-card-number">EP. 0</div>
+                    </div>
+                    <h3 class="nw-card-title">The Birth of a Black Blade</h3>
+                    <p class="nw-card-description">The prologue opens the first book and sets the stage for the first of its ten episodes.</p>
+                </article>
 
-            <div class="nw-section-kicker">
-                NIRWEST CHRONICLES
+                <article class="nw-card" onclick="nwOpenYouTube('WIf-MYzEQ8Y')">
+                    <div class="nw-card-image">
+                        <img src="https://img.youtube.com/vi/WIf-MYzEQ8Y/hqdefault.jpg" alt="Mysterious Drawings">
+                        <div class="nw-card-overlay"></div>
+                        <div class="nw-card-play">▶</div>
+                        <div class="nw-card-number">EP. 1</div>
+                    </div>
+                    <h3 class="nw-card-title">Mysterious Drawings</h3>
+                    <p class="nw-card-description">Jago discovers that he is one of the Chosen. A mysterious mission has appeared on his arm, one that he is destined to fulfill.</p>
+                </article>
+
+                <article class="nw-card" onclick="nwOpenYouTube('cyoHyvG7dSc')">
+                    <div class="nw-card-image">
+                        <img src="https://img.youtube.com/vi/cyoHyvG7dSc/hqdefault.jpg" alt="Royal Symbols">
+                        <div class="nw-card-overlay"></div>
+                        <div class="nw-card-play">▶</div>
+                        <div class="nw-card-number">EP. 2</div>
+                    </div>
+                    <h3 class="nw-card-title">Royal Symbols</h3>
+                    <p class="nw-card-description">The witch reveals the ancient origins of the dragons and tells the story of the last Dragon Riders, Hadrian and Cassius.</p>
+                </article>
+
+                <article class="nw-card nw-coming">
+                    <div class="nw-card-image">
+                        <div class="nw-coming-text">Coming Soon</div>
+                        <div class="nw-card-number">EP. 3</div>
+                    </div>
+                    <h3 class="nw-card-title">Episode 3</h3>
+                </article>
+
+                <article class="nw-card nw-coming">
+                    <div class="nw-card-image">
+                        <div class="nw-coming-text">Coming Soon</div>
+                        <div class="nw-card-number">EP. 4</div>
+                    </div>
+                    <h3 class="nw-card-title">Episode 4</h3>
+                </article>
+
+                <article class="nw-card nw-coming">
+                    <div class="nw-card-image">
+                        <div class="nw-coming-text">Coming Soon</div>
+                        <div class="nw-card-number">EP. 5</div>
+                    </div>
+                    <h3 class="nw-card-title">Episode 5</h3>
+                </article>
+
+                <article class="nw-card nw-coming">
+                    <div class="nw-card-image">
+                        <div class="nw-coming-text">Coming Soon</div>
+                        <div class="nw-card-number">EP. 6</div>
+                    </div>
+                    <h3 class="nw-card-title">Episode 6</h3>
+                </article>
+
+                <article class="nw-card nw-coming">
+                    <div class="nw-card-image">
+                        <div class="nw-coming-text">Coming Soon</div>
+                        <div class="nw-card-number">EP. 7</div>
+                    </div>
+                    <h3 class="nw-card-title">Episode 7</h3>
+                </article>
+
+                <article class="nw-card nw-coming">
+                    <div class="nw-card-image">
+                        <div class="nw-coming-text">Coming Soon</div>
+                        <div class="nw-card-number">EP. 8</div>
+                    </div>
+                    <h3 class="nw-card-title">Episode 8</h3>
+                </article>
+
+                <article class="nw-card nw-coming">
+                    <div class="nw-card-image">
+                        <div class="nw-coming-text">Coming Soon</div>
+                        <div class="nw-card-number">EP. 9</div>
+                    </div>
+                    <h3 class="nw-card-title">Episode 9</h3>
+                </article>
+
+                <article class="nw-card nw-coming">
+                    <div class="nw-card-image">
+                        <div class="nw-coming-text">Coming Soon</div>
+                        <div class="nw-card-number">EP. 10</div>
+                    </div>
+                    <h3 class="nw-card-title">Episode 10</h3>
+                </article>
+
             </div>
 
-            <h2 class="nw-section-title">
-                Season One
-            </h2>
-
+            <button class="nw-row-arrow nw-row-right" onclick="nwScrollRow('nwEpisodeRow', 1)" aria-label="Next episodes">›</button>
         </div>
 
+    </section>
 
-        <div class="nw-section-note">
-            Scroll to explore
+    <!-- SCOPRI ALTRO -->
+    <section class="nw-section" id="discover">
+
+        <div class="nw-section-header">
+            <div>
+                <div class="nw-section-kicker">SCOPRI ALTRO</div>
+                <h2 class="nw-section-title">Other Films</h2>
+            </div>
+            <div class="nw-section-note">More from Nirwest</div>
         </div>
 
-    </div>
+        <div class="nw-row-wrap">
+            <button class="nw-row-arrow nw-row-left" onclick="nwScrollRow('nwDiscoverRow', -1)" aria-label="Previous films">‹</button>
 
+            <div class="nw-row" id="nwDiscoverRow">
 
-
-    <div class="nw-row-wrap">
-
-
-        <button
-            class="nw-row-arrow nw-row-left"
-            onclick="nwScrollRow(-1)"
-            aria-label="Previous episodes"
-        >
-            ‹
-        </button>
-
-
-        <div
-            class="nw-row"
-            id="nwEpisodeRow"
-        >
-
-
-            <!-- EPISODE 0 -->
-
-            <article
-                class="nw-card"
-                onclick="nwOpenYouTube('ovSthDlFMGM')"
-            >
-
-                <div class="nw-card-image">
-
-                    <img
-                        src="https://img.youtube.com/vi/ovSthDlFMGM/maxresdefault.jpg"
-                        alt="The Birth of a Black Blade"
-                    >
-
-                    <div class="nw-card-overlay"></div>
-
-                    <div class="nw-card-play">
-                        ▶
+                <article class="nw-card" onclick="nwOpenYouTube('xqCRcj6C1L4')">
+                    <div class="nw-card-image">
+                        <img src="https://img.youtube.com/vi/xqCRcj6C1L4/hqdefault.jpg" alt="Between Two Breaths">
+                        <div class="nw-card-overlay"></div>
+                        <div class="nw-card-play">▶</div>
                     </div>
+                    <h3 class="nw-card-title">Between Two Breaths</h3>
+                    <p class="nw-card-description">A cinematic side project from the Nirwest universe.</p>
+                </article>
 
-                    <div class="nw-card-number">
-                        EP. 0
+                <article class="nw-card" onclick="nwOpenYouTube('0LMqJIMSM-c')">
+                    <div class="nw-card-image">
+                        <img src="https://img.youtube.com/vi/0LMqJIMSM-c/hqdefault.jpg" alt="The Breath Collector">
+                        <div class="nw-card-overlay"></div>
+                        <div class="nw-card-play">▶</div>
                     </div>
+                    <h3 class="nw-card-title">The Breath Collector</h3>
+                    <p class="nw-card-description">Another original fantasy short connected to the creative world of Nirwest.</p>
+                </article>
 
-                </div>
+            </div>
 
+            <button class="nw-row-arrow nw-row-right" onclick="nwScrollRow('nwDiscoverRow', 1)" aria-label="Next films">›</button>
+        </div>
 
-                <h3 class="nw-card-title">
-                    The Birth of a Black Blade
-                </h3>
+    </section>
 
+    <!-- BOOK -->
+    <section class="nw-section" id="book">
 
-                <p class="nw-card-description">
-                    The prologue opens the first book and sets the stage
-                    for the first of its ten episodes.
+        <div class="nw-section-header">
+            <div>
+                <div class="nw-section-kicker">THE BOOK</div>
+                <h2 class="nw-section-title">Read Nirwest</h2>
+            </div>
+        </div>
+
+        <div class="nw-book">
+
+            <div class="nw-book-cover">
+                <img src="nirwest-book.png" alt="Nirwest book cover">
+            </div>
+
+            <div class="nw-book-text">
+                <h3>Nirwest is also a book on Amazon.</h3>
+
+                <p>
+                    The world of Nirwest does not live only through films and visual storytelling.
+                    It is also a book universe available on Amazon, where readers can explore its
+                    dragons, symbols, ancient powers and deeper mythology.
                 </p>
 
-            </article>
-
-
-
-            <!-- EPISODE 1 -->
-
-            <article
-                class="nw-card"
-                onclick="nwOpenYouTube('WIf-MYzEQ8Y')"
-            >
-
-                <div class="nw-card-image">
-
-                    <img
-                        src="https://img.youtube.com/vi/WIf-MYzEQ8Y/maxresdefault.jpg"
-                        alt="Mysterious Drawings"
-                    >
-
-                    <div class="nw-card-overlay"></div>
-
-                    <div class="nw-card-play">
-                        ▶
-                    </div>
-
-                    <div class="nw-card-number">
-                        EP. 1
-                    </div>
-
-                </div>
-
-
-                <h3 class="nw-card-title">
-                    Mysterious Drawings
-                </h3>
-
-
-                <p class="nw-card-description">
-                    Jago discovers that he is one of the Chosen.
-                    A mysterious mission has appeared on his arm,
-                    one that he is destined to fulfill.
+                <p>
+                    Use the buttons below to discover the book in English or Italian.
                 </p>
 
-            </article>
+                <div class="nw-book-buttons">
+                    <a class="nw-btn nw-btn-primary" href="https://mybook.to/eAgtXf" target="_blank" rel="noopener">
+                        Amazon English
+                    </a>
 
-
-
-            <!-- EPISODE 2 -->
-
-            <article
-                class="nw-card"
-                onclick="nwOpenYouTube('cyoHyvG7dSc')"
-            >
-
-                <div class="nw-card-image">
-
-                    <img
-                        src="https://img.youtube.com/vi/cyoHyvG7dSc/maxresdefault.jpg"
-                        alt="Royal Symbols"
-                    >
-
-                    <div class="nw-card-overlay"></div>
-
-                    <div class="nw-card-play">
-                        ▶
-                    </div>
-
-                    <div class="nw-card-number">
-                        EP. 2
-                    </div>
-
+                    <a class="nw-btn nw-btn-secondary" href="http://relinks.me/B0G4B3V9KY" target="_blank" rel="noopener">
+                        Amazon Italiano
+                    </a>
                 </div>
-
-
-                <h3 class="nw-card-title">
-                    Royal Symbols
-                </h3>
-
-
-                <p class="nw-card-description">
-                    The witch reveals the ancient origins of the dragons
-                    and tells the story of the last Dragon Riders,
-                    Hadrian and Cassius.
-                </p>
-
-            </article>
-
-
-
-            <!-- EPISODE 3 -->
-
-            <article class="nw-card nw-coming">
-
-                <div class="nw-card-image">
-
-                    <div class="nw-coming-text">
-                        Coming Soon
-                    </div>
-
-                    <div class="nw-card-number">
-                        EP. 3
-                    </div>
-
-                </div>
-
-                <h3 class="nw-card-title">
-                    Episode 3
-                </h3>
-
-            </article>
-
-
-
-            <!-- EPISODE 4 -->
-
-            <article class="nw-card nw-coming">
-
-                <div class="nw-card-image">
-
-                    <div class="nw-coming-text">
-                        Coming Soon
-                    </div>
-
-                    <div class="nw-card-number">
-                        EP. 4
-                    </div>
-
-                </div>
-
-                <h3 class="nw-card-title">
-                    Episode 4
-                </h3>
-
-            </article>
-
-
-
-            <!-- EPISODE 5 -->
-
-            <article class="nw-card nw-coming">
-
-                <div class="nw-card-image">
-
-                    <div class="nw-coming-text">
-                        Coming Soon
-                    </div>
-
-                    <div class="nw-card-number">
-                        EP. 5
-                    </div>
-
-                </div>
-
-                <h3 class="nw-card-title">
-                    Episode 5
-                </h3>
-
-            </article>
-
-
-
-            <!-- EPISODE 6 -->
-
-            <article class="nw-card nw-coming">
-
-                <div class="nw-card-image">
-
-                    <div class="nw-coming-text">
-                        Coming Soon
-                    </div>
-
-                    <div class="nw-card-number">
-                        EP. 6
-                    </div>
-
-                </div>
-
-                <h3 class="nw-card-title">
-                    Episode 6
-                </h3>
-
-            </article>
-
-
-
-            <!-- EPISODE 7 -->
-
-            <article class="nw-card nw-coming">
-
-                <div class="nw-card-image">
-
-                    <div class="nw-coming-text">
-                        Coming Soon
-                    </div>
-
-                    <div class="nw-card-number">
-                        EP. 7
-                    </div>
-
-                </div>
-
-                <h3 class="nw-card-title">
-                    Episode 7
-                </h3>
-
-            </article>
-
-
-
-            <!-- EPISODE 8 -->
-
-            <article class="nw-card nw-coming">
-
-                <div class="nw-card-image">
-
-                    <div class="nw-coming-text">
-                        Coming Soon
-                    </div>
-
-                    <div class="nw-card-number">
-                        EP. 8
-                    </div>
-
-                </div>
-
-                <h3 class="nw-card-title">
-                    Episode 8
-                </h3>
-
-            </article>
-
-
-
-            <!-- EPISODE 9 -->
-
-            <article class="nw-card nw-coming">
-
-                <div class="nw-card-image">
-
-                    <div class="nw-coming-text">
-                        Coming Soon
-                    </div>
-
-                    <div class="nw-card-number">
-                        EP. 9
-                    </div>
-
-                </div>
-
-                <h3 class="nw-card-title">
-                    Episode 9
-                </h3>
-
-            </article>
-
-
-
-            <!-- EPISODE 10 -->
-
-            <article class="nw-card nw-coming">
-
-                <div class="nw-card-image">
-
-                    <div class="nw-coming-text">
-                        Coming Soon
-                    </div>
-
-                    <div class="nw-card-number">
-                        EP. 10
-                    </div>
-
-                </div>
-
-                <h3 class="nw-card-title">
-                    Episode 10
-                </h3>
-
-            </article>
-
+            </div>
 
         </div>
 
-
-        <button
-            class="nw-row-arrow nw-row-right"
-            onclick="nwScrollRow(1)"
-            aria-label="Next episodes"
-        >
-            ›
-        </button>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     FEATURED TRAILER
-========================================================= -->
-
-<section
-    class="nw-feature"
-    id="trailer"
->
-
-    <div class="nw-feature-content">
-
-        <div class="nw-section-kicker">
-            OFFICIAL TRAILER
-        </div>
-
-
-        <h2 class="nw-feature-title">
-            Enter Nirwest
-        </h2>
-
-
-        <p class="nw-hero-description">
-            Discover the world, the legends and the mysteries
-            behind Nirwest Chronicles.
-        </p>
-
-
-        <a
-            class="nw-btn nw-btn-primary"
-            href="https://youtu.be/wFhQjP9k5o4"
-            target="_blank"
-            rel="noopener"
-        >
-            ▶ Watch on YouTube
-        </a>
-
-    </div>
-
-</section>
-
+    </section>
 
 </main>
 
-
-
-<!-- =========================================================
-     FOOTER
-========================================================= -->
+<!-- FOOTER -->
 
 <footer class="nw-footer">
-
-    <div class="nw-footer-logo">
-        NIRWEST
-    </div>
-
-    <div>
-        Nirwest Chronicles — Official Website
-    </div>
-
+    <div class="nw-footer-logo">NIRWEST</div>
+    <div>Nirwest Chronicles — Official Website</div>
 </footer>
-
-
 
 <script>
 
@@ -1973,116 +1191,104 @@ screen and
    NAVBAR
 ========================================================= */
 
-var nav =
-    document.getElementById(
-        'nwNav'
-    );
+var nav = document.getElementById('nwNav');
 
-
-window.addEventListener(
-    'scroll',
-    function() {
-
-        if (
-            window.scrollY > 50
-        ) {
-
-            nav.classList.add(
-                'scrolled'
-            );
-
-        }
-
-        else {
-
-            nav.classList.remove(
-                'scrolled'
-            );
-
-        }
-
+window.addEventListener('scroll', function() {
+    if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+    } else {
+        nav.classList.remove('scrolled');
     }
-);
+});
 
+/* =========================================================
+   HERO SLIDER
+========================================================= */
 
+var nwHeroIndex = 0;
+var nwHeroSlides = document.querySelectorAll('.nw-hero-slide');
+var nwHeroDots = document.querySelectorAll('.nw-hero-dot');
+var nwHeroTimer;
+
+function nwHeroShow(index) {
+    if (index < 0) {
+        index = nwHeroSlides.length - 1;
+    }
+
+    if (index >= nwHeroSlides.length) {
+        index = 0;
+    }
+
+    nwHeroIndex = index;
+
+    nwHeroSlides.forEach(function(slide, i) {
+        slide.classList.toggle('active', i === index);
+    });
+
+    nwHeroDots.forEach(function(dot, i) {
+        dot.classList.toggle('active', i === index);
+    });
+}
+
+function nwHeroNext() {
+    nwHeroShow(nwHeroIndex + 1);
+    nwHeroRestart();
+}
+
+function nwHeroPrev() {
+    nwHeroShow(nwHeroIndex - 1);
+    nwHeroRestart();
+}
+
+function nwHeroGo(index) {
+    nwHeroShow(index);
+    nwHeroRestart();
+}
+
+function nwHeroStart() {
+    clearInterval(nwHeroTimer);
+    nwHeroTimer = setInterval(function() {
+        nwHeroShow(nwHeroIndex + 1);
+    }, 5000);
+}
+
+function nwHeroRestart() {
+    clearInterval(nwHeroTimer);
+    nwHeroStart();
+}
+
+nwHeroStart();
 
 /* =========================================================
    OPEN YOUTUBE
 ========================================================= */
 
 function nwOpenYouTube(videoId) {
-
-    var url =
-        'https://www.youtube.com/watch?v='
-        + videoId;
-
-
-    window.open(
-        url,
-        '_blank',
-        'noopener'
-    );
-
+    var url = 'https://www.youtube.com/watch?v=' + videoId;
+    window.open(url, '_blank', 'noopener');
 }
 
-
-
 /* =========================================================
-   EPISODE ROW
+   ROW SCROLL
 ========================================================= */
 
-function nwScrollRow(direction) {
+function nwScrollRow(rowId, direction) {
+    var row = document.getElementById(rowId);
+    if (!row) return;
 
-    var row =
-        document.getElementById(
-            'nwEpisodeRow'
-        );
+    var card = row.querySelector('.nw-card');
+    if (!card) return;
 
-
-    if (!row) {
-        return;
-    }
-
-
-    var card =
-        row.querySelector(
-            '.nw-card'
-        );
-
-
-    if (!card) {
-        return;
-    }
-
-
-    var gap =
-        parseFloat(
-            window.getComputedStyle(row).gap
-        ) || 16;
-
-
-    var amount =
-        (
-            card.getBoundingClientRect().width
-            + gap
-        ) * 2;
-
+    var gap = parseFloat(window.getComputedStyle(row).gap) || 16;
+    var amount = (card.getBoundingClientRect().width + gap) * 2;
 
     row.scrollBy({
-
-        left:
-            direction * amount,
-
-        behavior:
-            'smooth'
-
+        left: direction * amount,
+        behavior: 'smooth'
     });
-
 }
 
 </script>
 
-
 </body>
-
 </html>
