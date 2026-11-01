@@ -76,12 +76,12 @@ a {
             to bottom,
             rgba(0,0,0,.96),
             rgba(0,0,0,.72),
-            rgba(0,0,0,.05)
+            rgba(0,0,0,.08)
         );
 
-    transition: background .3s ease;
+    transition:
+        background .3s ease;
 }
-
 
 .nw-nav.scrolled {
     background: rgba(7,7,7,.97);
@@ -90,23 +90,22 @@ a {
         1px solid rgba(255,255,255,.06);
 }
 
-
 .nw-logo {
-    font-family: Georgia, serif;
+    color: #ffffff;
+
+    font-family:
+        Georgia,
+        serif;
 
     font-size: 23px;
     font-weight: bold;
 
     letter-spacing: 4px;
-
-    color: #ffffff;
 }
-
 
 .nw-logo span {
     color: #c79850;
 }
-
 
 .nw-nav-links {
     display: flex;
@@ -116,15 +115,15 @@ a {
     gap: 18px;
 }
 
-
 .nw-nav-links a {
-    color: rgba(255,255,255,.76);
+    color:
+        rgba(255,255,255,.76);
 
     font-size: 12px;
 
-    transition: color .2s ease;
+    transition:
+        color .2s ease;
 }
-
 
 .nw-nav-links a:hover {
     color: #ffffff;
@@ -145,13 +144,12 @@ a {
 
         radial-gradient(
             circle at center top,
-            rgba(199,152,80,.11),
+            rgba(199,152,80,.10),
             transparent 42%
         ),
 
         #070707;
 }
-
 
 .nw-kicker {
     margin-bottom: 10px;
@@ -159,6 +157,7 @@ a {
     color: #c79850;
 
     font-size: 10px;
+
     font-weight: bold;
 
     letter-spacing: 6px;
@@ -166,11 +165,12 @@ a {
     text-transform: uppercase;
 }
 
-
 .nw-intro h1 {
     margin: 0;
 
-    font-family: Georgia, serif;
+    font-family:
+        Georgia,
+        serif;
 
     font-size:
         clamp(
@@ -184,7 +184,6 @@ a {
     line-height: 1;
 }
 
-
 .nw-intro p {
     max-width: 760px;
 
@@ -192,7 +191,7 @@ a {
         20px auto 0;
 
     color:
-        rgba(255,255,255,.68);
+        rgba(255,255,255,.67);
 
     font-size: 15px;
 
@@ -213,7 +212,6 @@ a {
     background: #070707;
 }
 
-
 .nw-map-frame {
     position: relative;
 
@@ -223,21 +221,22 @@ a {
 
     margin: 0 auto;
 
-    aspect-ratio: 16 / 9;
+    aspect-ratio:
+        16 / 9;
 
     overflow: hidden;
 
     border:
-        1px solid rgba(199,152,80,.23);
+        1px solid rgba(199,152,80,.20);
 
     border-radius: 10px;
 
     background: #15100b;
 
     box-shadow:
-        0 30px 90px rgba(0,0,0,.65);
+        0 30px 90px
+        rgba(0,0,0,.65);
 }
-
 
 .nw-map-image {
     position: absolute;
@@ -256,62 +255,174 @@ a {
 
 
 /* =========================================================
-   SVG INTERACTIVE LAYER
+   CIRCULAR HOTSPOTS
 ========================================================= */
 
-.nw-svg-map {
+.nw-hotspot {
     position: absolute;
 
-    inset: 0;
+    z-index: 20;
 
-    z-index: 10;
+    width: 100px;
+    height: 100px;
 
-    width: 100%;
-    height: 100%;
+    display: flex;
 
-    display: block;
-}
+    align-items: center;
+    justify-content: center;
 
+    border-radius: 50%;
 
-.nw-region {
-    fill: rgba(199,152,80,0);
-
-    stroke:
+    border:
+        1px solid
         rgba(199,152,80,0);
 
-    stroke-width: 3;
-
-    vector-effect:
-        non-scaling-stroke;
+    background:
+        rgba(0,0,0,0);
 
     cursor: pointer;
 
+    transform:
+        translate(-50%,-50%);
+
     transition:
-        fill .25s ease,
-        stroke .25s ease,
-        filter .25s ease;
+        background .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease,
+        transform .25s ease;
 }
 
+.nw-hotspot img {
+    width: 60px;
+    height: 60px;
 
-.nw-region:hover,
-.nw-region.active {
+    object-fit: contain;
 
-    fill:
-        rgba(199,152,80,.20);
+    opacity: 0;
 
-    stroke:
-        rgba(218,173,103,.95);
+    transform: scale(.72);
 
     filter:
         drop-shadow(
-            0 0 7px
-            rgba(199,152,80,.70)
+            0 6px 12px
+            rgba(0,0,0,.75)
+        );
+
+    transition:
+        opacity .25s ease,
+        transform .25s ease,
+        filter .25s ease;
+}
+
+.nw-hotspot:hover,
+.nw-hotspot.active {
+    background:
+        radial-gradient(
+            circle,
+            rgba(199,152,80,.24),
+            rgba(0,0,0,.28)
+        );
+
+    border-color:
+        rgba(218,173,103,.95);
+
+    box-shadow:
+        0 0 28px
+        rgba(199,152,80,.40);
+
+    transform:
+        translate(-50%,-50%)
+        scale(1.10);
+
+    backdrop-filter:
+        blur(3px);
+}
+
+.nw-hotspot:hover img,
+.nw-hotspot.active img {
+    opacity: 1;
+
+    transform:
+        scale(1);
+
+    filter:
+        drop-shadow(
+            0 0 12px
+            rgba(199,152,80,.40)
         );
 }
 
 
 /* =========================================================
-   MAP LABEL
+   HOTSPOT POSITIONS
+========================================================= */
+
+/* ICE */
+
+.nw-hotspot-ice {
+    left: 21%;
+    top: 19%;
+}
+
+
+/* SHADOW */
+
+.nw-hotspot-shadow {
+    left: 43%;
+    top: 19%;
+}
+
+
+/* EARTH */
+
+.nw-hotspot-earth {
+    left: 25%;
+    top: 49%;
+}
+
+
+/* WIND */
+
+.nw-hotspot-wind {
+    left: 53%;
+    top: 45%;
+}
+
+
+/* SUN */
+
+.nw-hotspot-sun {
+    left: 38%;
+    top: 69%;
+}
+
+
+/* FIRE */
+
+.nw-hotspot-fire {
+    left: 49%;
+    top: 70%;
+}
+
+
+/* AIR */
+
+.nw-hotspot-air {
+    left: 20%;
+    top: 75%;
+}
+
+
+/* OCEAN */
+
+.nw-hotspot-ocean {
+    left: 81%;
+    top: 69%;
+}
+
+
+/* =========================================================
+   HOVER LABEL
 ========================================================= */
 
 .nw-map-label {
@@ -324,7 +435,7 @@ a {
         translateX(-50%)
         translateY(-8px);
 
-    z-index: 30;
+    z-index: 40;
 
     min-width: 220px;
 
@@ -354,7 +465,6 @@ a {
         transform .2s ease;
 }
 
-
 .nw-map-label.visible {
     opacity: 1;
 
@@ -362,7 +472,6 @@ a {
         translateX(-50%)
         translateY(0);
 }
-
 
 .nw-map-label-small {
     display: block;
@@ -377,7 +486,6 @@ a {
 
     letter-spacing: 3px;
 }
-
 
 .nw-map-label-name {
     display: block;
@@ -414,44 +522,51 @@ a {
     font-size: 11px;
 }
 
-
 .nw-map-caption strong {
     color: #c79850;
 }
 
 
 /* =========================================================
-   KINGDOM EMBLEMS
+   EMBLEMS GRID
 ========================================================= */
 
 .nw-quick-nav {
     padding:
         25px 4vw 70px;
 
-    background: #070707;
+    background:
+        #070707;
 
-    scroll-margin-top: 66px;
+    scroll-margin-top:
+        66px;
 }
-
 
 .nw-quick-grid {
-    max-width: 1500px;
+    max-width:
+        1500px;
 
-    margin: 0 auto;
+    margin:
+        0 auto;
 
-    display: grid;
+    display:
+        grid;
 
     grid-template-columns:
-        repeat(4, minmax(0,1fr));
+        repeat(
+            4,
+            minmax(0,1fr)
+        );
 
-    gap: 16px;
+    gap:
+        16px;
 }
-
 
 .nw-quick-card {
     position: relative;
 
-    min-height: 225px;
+    min-height:
+        225px;
 
     padding:
         25px 18px 20px;
@@ -469,9 +584,11 @@ a {
     overflow: hidden;
 
     border:
-        1px solid rgba(255,255,255,.08);
+        1px solid
+        rgba(255,255,255,.08);
 
-    border-radius: 10px;
+    border-radius:
+        10px;
 
     background:
 
@@ -493,7 +610,6 @@ a {
         background .3s ease,
         box-shadow .3s ease;
 }
-
 
 .nw-quick-card:hover {
     transform:
@@ -525,21 +641,28 @@ a {
 /* STEMMA */
 
 .nw-kingdom-emblem {
-    width: 100px;
-    height: 100px;
+    width:
+        100px;
 
-    margin-bottom: 17px;
+    height:
+        100px;
 
-    display: flex;
+    margin-bottom:
+        17px;
 
-    align-items: center;
-    justify-content: center;
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
 
     transition:
         transform .35s ease,
         filter .35s ease;
 }
-
 
 .nw-kingdom-emblem img {
     display: block;
@@ -547,7 +670,8 @@ a {
     width: 100%;
     height: 100%;
 
-    object-fit: contain;
+    object-fit:
+        contain;
 
     filter:
         drop-shadow(
@@ -556,11 +680,11 @@ a {
         );
 }
 
-
 .nw-quick-card:hover
 .nw-kingdom-emblem {
 
-    transform: scale(1.10);
+    transform:
+        scale(1.10);
 
     filter:
         drop-shadow(
@@ -569,31 +693,35 @@ a {
         );
 }
 
-
 .nw-quick-card strong {
     display: block;
 
-    margin-bottom: 5px;
+    margin-bottom:
+        5px;
 
-    color: #ffffff;
+    color:
+        #ffffff;
 
     font-family:
         Georgia,
         serif;
 
-    font-size: 20px;
+    font-size:
+        20px;
 
-    font-weight: normal;
+    font-weight:
+        normal;
 }
-
 
 .nw-quick-card span {
     color:
         rgba(255,255,255,.46);
 
-    font-size: 11px;
+    font-size:
+        11px;
 
-    line-height: 1.4;
+    line-height:
+        1.4;
 }
 
 
@@ -604,7 +732,8 @@ a {
 .nw-kingdom {
     position: relative;
 
-    min-height: 78vh;
+    min-height:
+        78vh;
 
     display: grid;
 
@@ -612,21 +741,25 @@ a {
         minmax(320px,.95fr)
         minmax(0,1.05fr);
 
-    align-items: center;
+    align-items:
+        center;
 
-    gap: 55px;
+    gap:
+        55px;
 
     padding:
         75px 5vw;
 
     border-top:
-        1px solid rgba(255,255,255,.06);
+        1px solid
+        rgba(255,255,255,.06);
 
-    overflow: hidden;
+    overflow:
+        hidden;
 
-    scroll-margin-top: 66px;
+    scroll-margin-top:
+        66px;
 }
-
 
 .nw-kingdom:nth-of-type(even) {
     background:
@@ -637,9 +770,9 @@ a {
         );
 }
 
-
 .nw-kingdom:nth-of-type(odd) {
-    background: #070707;
+    background:
+        #070707;
 }
 
 
@@ -649,20 +782,20 @@ a {
     position: relative;
 }
 
-
 .nw-kingdom-image img {
     display: block;
 
     width: 100%;
+
     height: auto;
 
-    border-radius: 10px;
+    border-radius:
+        10px;
 
     box-shadow:
         0 25px 70px
         rgba(0,0,0,.60);
 }
-
 
 .nw-kingdom-image::after {
     content: "";
@@ -671,9 +804,11 @@ a {
 
     inset: 0;
 
-    border-radius: 10px;
+    border-radius:
+        10px;
 
-    pointer-events: none;
+    pointer-events:
+        none;
 
     box-shadow:
         inset 0 0 55px
@@ -684,52 +819,66 @@ a {
 /* CONTENT */
 
 .nw-kingdom-content {
-    max-width: 730px;
+    max-width:
+        730px;
 }
-
 
 .nw-kingdom-number {
-    margin-bottom: 10px;
+    margin-bottom:
+        10px;
 
-    color: #c79850;
+    color:
+        #c79850;
 
-    font-size: 10px;
+    font-size:
+        10px;
 
-    font-weight: bold;
+    font-weight:
+        bold;
 
-    letter-spacing: 5px;
+    letter-spacing:
+        5px;
 }
-
 
 .nw-kingdom-heading {
-    display: flex;
+    display:
+        flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    gap: 18px;
+    gap:
+        18px;
 
-    margin-bottom: 18px;
+    margin-bottom:
+        18px;
 }
-
 
 .nw-kingdom-small-emblem {
-    flex: 0 0 58px;
+    flex:
+        0 0 58px;
 
-    width: 58px;
-    height: 58px;
+    width:
+        58px;
+
+    height:
+        58px;
 }
-
 
 .nw-kingdom-small-emblem img {
-    width: 100%;
-    height: 100%;
+    width:
+        100%;
 
-    object-fit: contain;
+    height:
+        100%;
+
+    object-fit:
+        contain;
 }
 
-
 .nw-kingdom-content h2 {
-    margin: 0;
+    margin:
+        0;
 
     font-family:
         Georgia,
@@ -742,11 +891,12 @@ a {
             62px
         );
 
-    font-weight: normal;
+    font-weight:
+        normal;
 
-    line-height: 1.05;
+    line-height:
+        1.05;
 }
-
 
 .nw-kingdom-content p {
     margin:
@@ -755,76 +905,96 @@ a {
     color:
         rgba(255,255,255,.70);
 
-    font-size: 15px;
+    font-size:
+        15px;
 
-    line-height: 1.75;
+    line-height:
+        1.75;
 }
 
 
-/* INFO */
+/* =========================================================
+   INFO
+========================================================= */
 
 .nw-info-grid {
     display: grid;
 
     grid-template-columns:
-        repeat(2,minmax(0,1fr));
+        repeat(
+            2,
+            minmax(0,1fr)
+        );
 
-    gap: 10px;
+    gap:
+        10px;
 
-    margin-top: 25px;
+    margin-top:
+        25px;
 }
-
 
 .nw-info {
     padding:
         13px 15px;
 
     border:
-        1px solid rgba(255,255,255,.07);
+        1px solid
+        rgba(255,255,255,.07);
 
-    border-radius: 6px;
+    border-radius:
+        6px;
 
     background:
         rgba(255,255,255,.025);
 }
 
-
 .nw-info-label {
-    display: block;
+    display:
+        block;
 
-    margin-bottom: 5px;
+    margin-bottom:
+        5px;
 
-    color: #c79850;
+    color:
+        #c79850;
 
-    font-size: 9px;
+    font-size:
+        9px;
 
-    font-weight: bold;
+    font-weight:
+        bold;
 
-    letter-spacing: 2px;
+    letter-spacing:
+        2px;
 }
-
 
 .nw-info-value {
     color:
         rgba(255,255,255,.70);
 
-    font-size: 12px;
+    font-size:
+        12px;
 }
 
-
 .nw-back-map {
-    display: inline-flex;
+    display:
+        inline-flex;
 
-    margin-top: 25px;
+    margin-top:
+        25px;
 
-    padding-bottom: 4px;
+    padding-bottom:
+        4px;
 
     border-bottom:
-        1px solid rgba(199,152,80,.45);
+        1px solid
+        rgba(199,152,80,.45);
 
-    color: #c79850;
+    color:
+        #c79850;
 
-    font-size: 12px;
+    font-size:
+        12px;
 }
 
 
@@ -837,27 +1007,32 @@ a {
         55px 5vw 70px;
 
     border-top:
-        1px solid rgba(255,255,255,.07);
+        1px solid
+        rgba(255,255,255,.07);
 
     color:
         rgba(255,255,255,.35);
 
-    font-size: 12px;
+    font-size:
+        12px;
 }
 
-
 .nw-footer-logo {
-    margin-bottom: 9px;
+    margin-bottom:
+        9px;
 
-    color: white;
+    color:
+        white;
 
     font-family:
         Georgia,
         serif;
 
-    font-size: 22px;
+    font-size:
+        22px;
 
-    letter-spacing: 4px;
+    letter-spacing:
+        4px;
 }
 
 
@@ -871,19 +1046,23 @@ a {
         display: none;
     }
 
-
     .nw-quick-grid {
         grid-template-columns:
-            repeat(2,minmax(0,1fr));
+            repeat(
+                2,
+                minmax(0,1fr)
+            );
     }
 
-
     .nw-kingdom {
-        min-height: auto;
+        min-height:
+            auto;
 
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            1fr;
 
-        gap: 28px;
+        gap:
+            28px;
 
         padding:
             55px 4vw;
@@ -899,7 +1078,8 @@ a {
 @media screen and (max-width:700px) {
 
     .nw-nav {
-        height: 58px;
+        height:
+            58px;
 
         padding:
             0 16px;
@@ -908,68 +1088,124 @@ a {
             rgba(7,7,7,.95);
     }
 
-
     .nw-logo {
-        font-size: 18px;
+        font-size:
+            18px;
 
-        letter-spacing: 2px;
+        letter-spacing:
+            2px;
     }
-
 
     .nw-intro {
         padding:
             95px 20px 35px;
     }
 
-
     .nw-intro p {
-        font-size: 13px;
+        font-size:
+            13px;
     }
-
 
     .nw-map-section {
         padding:
             0 7px 25px;
     }
 
-
     .nw-map-frame {
-        border-radius: 5px;
+        border-radius:
+            5px;
     }
 
+    .nw-hotspot {
+        width:
+            48px;
+
+        height:
+            48px;
+    }
+
+    .nw-hotspot img {
+        width:
+            31px;
+
+        height:
+            31px;
+    }
+
+    /*
+       Sul telefono li rendiamo leggermente
+       visibili per far capire dove toccare.
+    */
+
+    .nw-hotspot {
+        border-color:
+            rgba(199,152,80,.20);
+
+        background:
+            rgba(0,0,0,.10);
+    }
+
+    .nw-hotspot img {
+        opacity:
+            .35;
+
+        transform:
+            scale(.86);
+    }
+
+    .nw-hotspot:active,
+    .nw-hotspot.active {
+
+        border-color:
+            rgba(218,173,103,.95);
+
+        background:
+            rgba(199,152,80,.25);
+    }
+
+    .nw-hotspot:active img,
+    .nw-hotspot.active img {
+
+        opacity:
+            1;
+
+        transform:
+            scale(1);
+    }
 
     .nw-map-label {
-        top: 8px;
+        top:
+            7px;
 
-        min-width: 150px;
+        min-width:
+            145px;
 
         padding:
-            7px 10px;
+            6px 9px;
     }
-
 
     .nw-map-label-small {
-        font-size: 6px;
+        font-size:
+            6px;
     }
-
 
     .nw-map-label-name {
-        font-size: 13px;
+        font-size:
+            13px;
     }
-
 
     .nw-map-caption {
         padding:
             0 5px;
 
-        font-size: 9px;
+        font-size:
+            9px;
     }
-
 
     .nw-map-caption span:last-child {
-        display: none;
+        display:
+            none;
     }
-
 
     .nw-quick-nav {
         padding:
@@ -979,71 +1215,79 @@ a {
             58px;
     }
 
-
     .nw-quick-grid {
         grid-template-columns:
-            repeat(2,minmax(0,1fr));
+            repeat(
+                2,
+                minmax(0,1fr)
+            );
 
-        gap: 10px;
+        gap:
+            10px;
     }
 
-
     .nw-quick-card {
-        min-height: 180px;
+        min-height:
+            180px;
 
         padding:
             17px 8px 15px;
     }
 
-
     .nw-kingdom-emblem {
-        width: 72px;
-        height: 72px;
+        width:
+            72px;
 
-        margin-bottom: 13px;
+        height:
+            72px;
+
+        margin-bottom:
+            13px;
     }
-
 
     .nw-quick-card strong {
-        font-size: 15px;
+        font-size:
+            15px;
     }
-
 
     .nw-quick-card span {
-        font-size: 9px;
+        font-size:
+            9px;
     }
 
-
     .nw-kingdom {
-        scroll-margin-top: 58px;
+        scroll-margin-top:
+            58px;
 
         padding:
             45px 16px;
     }
 
-
     .nw-kingdom-heading {
-        gap: 12px;
+        gap:
+            12px;
     }
-
 
     .nw-kingdom-small-emblem {
-        flex-basis: 46px;
+        flex-basis:
+            46px;
 
-        width: 46px;
-        height: 46px;
+        width:
+            46px;
+
+        height:
+            46px;
     }
-
 
     .nw-kingdom-content p {
-        font-size: 13px;
+        font-size:
+            13px;
     }
-
 
     .nw-info-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            1fr;
     }
-
 
     .nw-footer {
         padding:
@@ -1135,15 +1379,13 @@ a {
         EXPLORE NIRWEST
     </div>
 
-
     <h1>
         The Eight Kingdoms
     </h1>
 
-
     <p>
         Explore the world of Nirwest through its eight great kingdoms.
-        Move across the map and select a territory to enter its realm.
+        Move across the map and discover each realm through its royal emblem.
     </p>
 
 </section>
@@ -1151,7 +1393,7 @@ a {
 
 
 <!-- =========================================================
-     INTERACTIVE SVG MAP
+     INTERACTIVE MAP
 ========================================================= -->
 
 <section
@@ -1169,7 +1411,7 @@ a {
         >
 
 
-        <!-- LABEL CENTRALE -->
+        <!-- LABEL -->
 
         <div
             class="nw-map-label"
@@ -1191,303 +1433,163 @@ a {
 
 
 
-        <!--
-        =====================================================
-        SVG
+        <!-- ICE -->
 
-        viewBox uguale alla proporzione della tua mappa.
-
-        Le forme seguono i territori invece di usare rettangoli.
-        =====================================================
-        -->
-
-        <svg
-            class="nw-svg-map"
-            viewBox="0 0 1664 936"
-            preserveAspectRatio="xMidYMid meet"
-            aria-label="Interactive map of the Eight Kingdoms"
+        <a
+            href="#ice"
+            class="
+                nw-hotspot
+                nw-hotspot-ice
+            "
+            data-name="Kingdom of Ice"
         >
 
+            <img
+                src="ghiaccio_argento.png"
+                alt=""
+            >
 
-            <!-- =============================================
-                 ICE
-            ============================================== -->
-
-            <a href="#ice">
-
-                <path
-                    class="nw-region"
-                    data-name="Kingdom of Ice"
-                    d="
-                    M 231 94
-                    L 289 56
-                    L 357 40
-                    L 421 55
-                    L 468 92
-                    L 511 130
-                    L 505 178
-                    L 473 213
-                    L 442 254
-                    L 389 279
-                    L 330 271
-                    L 282 249
-                    L 238 221
-                    L 218 179
-                    L 221 134
-                    Z
-                    "
-                ></path>
-
-            </a>
+        </a>
 
 
 
-            <!-- =============================================
-                 SHADOW
-            ============================================== -->
+        <!-- SHADOW -->
 
-            <a href="#shadow">
+        <a
+            href="#shadow"
+            class="
+                nw-hotspot
+                nw-hotspot-shadow
+            "
+            data-name="Kingdom of Shadow"
+        >
 
-                <path
-                    class="nw-region"
-                    data-name="Kingdom of Shadow"
-                    d="
-                    M 500 79
-                    L 561 48
-                    L 633 33
-                    L 702 48
-                    L 755 81
-                    L 826 72
-                    L 887 101
-                    L 925 140
-                    L 918 190
-                    L 884 228
-                    L 850 275
-                    L 788 298
-                    L 724 287
-                    L 662 279
-                    L 604 295
-                    L 552 270
-                    L 520 232
-                    L 489 194
-                    L 484 139
-                    Z
-                    "
-                ></path>
+            <img
+                src="ombra_argento.png"
+                alt=""
+            >
 
-            </a>
+        </a>
 
 
 
-            <!-- =============================================
-                 EARTH
-            ============================================== -->
+        <!-- EARTH -->
 
-            <a href="#earth">
+        <a
+            href="#earth"
+            class="
+                nw-hotspot
+                nw-hotspot-earth
+            "
+            data-name="Kingdom of the Earth"
+        >
 
-                <path
-                    class="nw-region"
-                    data-name="Kingdom of the Earth"
-                    d="
-                    M 247 347
-                    L 298 320
-                    L 356 327
-                    L 405 350
-                    L 458 327
-                    L 511 351
-                    L 566 391
-                    L 599 438
-                    L 581 484
-                    L 547 517
-                    L 515 566
-                    L 462 598
-                    L 405 612
-                    L 346 598
-                    L 300 568
-                    L 267 527
-                    L 230 487
-                    L 219 439
-                    Z
-                    "
-                ></path>
+            <img
+                src="natura_argento.png"
+                alt=""
+            >
 
-            </a>
+        </a>
 
 
 
-            <!-- =============================================
-                 WIND
-            ============================================== -->
+        <!-- WIND -->
 
-            <a href="#wind">
+        <a
+            href="#wind"
+            class="
+                nw-hotspot
+                nw-hotspot-wind
+            "
+            data-name="Kingdom of Wind"
+        >
 
-                <path
-                    class="nw-region"
-                    data-name="Kingdom of Wind"
-                    d="
-                    M 790 304
-                    L 844 286
-                    L 899 298
-                    L 949 322
-                    L 1000 356
-                    L 1019 401
-                    L 1000 442
-                    L 964 474
-                    L 934 513
-                    L 884 526
-                    L 838 508
-                    L 797 481
-                    L 772 439
-                    L 755 394
-                    Z
-                    "
-                ></path>
+            <img
+                src="fiume_argento.png"
+                alt=""
+            >
 
-            </a>
+        </a>
 
 
 
-            <!-- =============================================
-                 SUN
-            ============================================== -->
+        <!-- SUN -->
 
-            <a href="#sun">
+        <a
+            href="#sun"
+            class="
+                nw-hotspot
+                nw-hotspot-sun
+            "
+            data-name="Kingdom of the Sun"
+        >
 
-                <path
-                    class="nw-region"
-                    data-name="Kingdom of the Sun"
-                    d="
-                    M 495 546
-                    L 545 519
-                    L 602 520
-                    L 652 543
-                    L 706 560
-                    L 744 600
-                    L 748 651
-                    L 726 698
-                    L 697 746
-                    L 651 788
-                    L 597 808
-                    L 544 796
-                    L 499 768
-                    L 461 732
-                    L 447 684
-                    L 457 633
-                    Z
-                    "
-                ></path>
+            <img
+                src="sole_argento.png"
+                alt=""
+            >
 
-            </a>
+        </a>
 
 
 
-            <!-- =============================================
-                 FIRE
-            ============================================== -->
+        <!-- FIRE -->
 
-            <a href="#fire">
+        <a
+            href="#fire"
+            class="
+                nw-hotspot
+                nw-hotspot-fire
+            "
+            data-name="Kingdom of Fire"
+        >
 
-                <path
-                    class="nw-region"
-                    data-name="Kingdom of Fire"
-                    d="
-                    M 716 557
-                    L 759 531
-                    L 809 544
-                    L 848 570
-                    L 899 579
-                    L 934 617
-                    L 951 665
-                    L 946 716
-                    L 923 763
-                    L 886 802
-                    L 838 831
-                    L 787 824
-                    L 746 799
-                    L 712 764
-                    L 690 716
-                    L 686 667
-                    L 694 607
-                    Z
-                    "
-                ></path>
+            <img
+                src="fuoco_argento.png"
+                alt=""
+            >
 
-            </a>
+        </a>
 
 
 
-            <!-- =============================================
-                 AIR
-            ============================================== -->
+        <!-- AIR -->
 
-            <a href="#air">
+        <a
+            href="#air"
+            class="
+                nw-hotspot
+                nw-hotspot-air
+            "
+            data-name="Kingdom of Air"
+        >
 
-                <path
-                    class="nw-region"
-                    data-name="Kingdom of Air"
-                    d="
-                    M 231 629
-                    L 274 610
-                    L 322 618
-                    L 365 641
-                    L 413 671
-                    L 445 712
-                    L 440 756
-                    L 414 800
-                    L 377 834
-                    L 332 854
-                    L 286 847
-                    L 246 825
-                    L 214 792
-                    L 201 750
-                    L 205 703
-                    Z
-                    "
-                ></path>
+            <img
+                src="aria_argento.png"
+                alt=""
+            >
 
-            </a>
+        </a>
 
 
 
-            <!-- =============================================
-                 OCEAN
-            ============================================== -->
+        <!-- OCEAN -->
 
-            <a href="#ocean">
+        <a
+            href="#ocean"
+            class="
+                nw-hotspot
+                nw-hotspot-ocean
+            "
+            data-name="Kingdom of the Ocean"
+        >
 
-                <path
-                    class="nw-region"
-                    data-name="Kingdom of the Ocean"
-                    d="
-                    M 1123 472
-                    L 1177 434
-                    L 1233 435
-                    L 1295 457
-                    L 1348 441
-                    L 1404 472
-                    L 1435 517
-                    L 1468 569
-                    L 1479 627
-                    L 1465 685
-                    L 1438 737
-                    L 1402 786
-                    L 1351 819
-                    L 1297 832
-                    L 1242 819
-                    L 1192 790
-                    L 1151 753
-                    L 1125 707
-                    L 1107 658
-                    L 1099 607
-                    L 1104 548
-                    Z
-                    "
-                ></path>
+            <img
+                src="acqua_argento.png"
+                alt=""
+            >
 
-            </a>
-
-
-        </svg>
+        </a>
 
 
     </div>
@@ -1497,11 +1599,11 @@ a {
 
         <span>
             <strong>Interactive map</strong>
-            — hover over a kingdom and select it
+            — hover over a kingdom
         </span>
 
         <span>
-            The Eight Kingdoms of Nirwest
+            Select a royal emblem to explore
         </span>
 
     </div>
@@ -1511,7 +1613,7 @@ a {
 
 
 <!-- =========================================================
-     STEMMI
+     EMBLEMS GRID
 ========================================================= -->
 
 <section
@@ -1521,6 +1623,8 @@ a {
 
     <div class="nw-quick-grid">
 
+
+        <!-- ICE -->
 
         <a
             href="#ice"
@@ -1548,6 +1652,8 @@ a {
 
 
 
+        <!-- SHADOW -->
+
         <a
             href="#shadow"
             class="nw-quick-card"
@@ -1573,6 +1679,8 @@ a {
         </a>
 
 
+
+        <!-- WIND -->
 
         <a
             href="#wind"
@@ -1600,6 +1708,8 @@ a {
 
 
 
+        <!-- EARTH -->
+
         <a
             href="#earth"
             class="nw-quick-card"
@@ -1625,6 +1735,8 @@ a {
         </a>
 
 
+
+        <!-- SUN -->
 
         <a
             href="#sun"
@@ -1652,6 +1764,8 @@ a {
 
 
 
+        <!-- FIRE -->
+
         <a
             href="#fire"
             class="nw-quick-card"
@@ -1678,6 +1792,8 @@ a {
 
 
 
+        <!-- AIR -->
+
         <a
             href="#air"
             class="nw-quick-card"
@@ -1703,6 +1819,8 @@ a {
         </a>
 
 
+
+        <!-- OCEAN -->
 
         <a
             href="#ocean"
@@ -1772,7 +1890,6 @@ a {
 
             </div>
 
-
             <h2>
                 Kingdom of Ice
             </h2>
@@ -1794,7 +1911,6 @@ a {
 
 
         <div class="nw-info-grid">
-
 
             <div class="nw-info">
 
@@ -1820,7 +1936,6 @@ a {
                 </span>
 
             </div>
-
 
         </div>
 
@@ -1875,7 +1990,6 @@ a {
 
             </div>
 
-
             <h2>
                 Kingdom of Shadow
             </h2>
@@ -1893,6 +2007,35 @@ a {
             The Kingdom of Shadow is marked by secrecy,
             isolation and forces hidden from much of the world.
         </p>
+
+
+        <div class="nw-info-grid">
+
+            <div class="nw-info">
+
+                <span class="nw-info-label">
+                    REGION
+                </span>
+
+                <span class="nw-info-value">
+                    Northern Lands
+                </span>
+
+            </div>
+
+            <div class="nw-info">
+
+                <span class="nw-info-label">
+                    BORDER
+                </span>
+
+                <span class="nw-info-value">
+                    Celestial Walls
+                </span>
+
+            </div>
+
+        </div>
 
 
         <a
@@ -1944,7 +2087,6 @@ a {
                 >
 
             </div>
-
 
             <h2>
                 Kingdom of Wind
@@ -2015,7 +2157,6 @@ a {
 
             </div>
 
-
             <h2>
                 Kingdom of the Earth
             </h2>
@@ -2084,7 +2225,6 @@ a {
                 >
 
             </div>
-
 
             <h2>
                 Kingdom of the Sun
@@ -2156,7 +2296,6 @@ a {
 
             </div>
 
-
             <h2>
                 Kingdom of Fire
             </h2>
@@ -2227,7 +2366,6 @@ a {
 
             </div>
 
-
             <h2>
                 Kingdom of Air
             </h2>
@@ -2296,7 +2434,6 @@ a {
                 >
 
             </div>
-
 
             <h2>
                 Kingdom of the Ocean
@@ -2388,12 +2525,12 @@ window.addEventListener(
 
 
 /* =========================================================
-   SVG MAP LABEL
+   MAP INTERACTION
 ========================================================= */
 
-var regions =
+var hotspots =
     document.querySelectorAll(
-        '.nw-region'
+        '.nw-hotspot'
     );
 
 
@@ -2409,77 +2546,109 @@ var mapLabelName =
     );
 
 
-regions.forEach(
-    function(region) {
+function clearHotspots() {
 
-        function showRegion() {
+    hotspots.forEach(
+        function(item) {
 
-            var name =
-                region.getAttribute(
-                    'data-name'
+            item.classList.remove(
+                'active'
+            );
+
+        }
+    );
+
+}
+
+
+function showHotspot(
+    hotspot
+) {
+
+    clearHotspots();
+
+
+    hotspot.classList.add(
+        'active'
+    );
+
+
+    var name =
+        hotspot.getAttribute(
+            'data-name'
+        );
+
+
+    mapLabelName.textContent =
+        name;
+
+
+    mapLabel.classList.add(
+        'visible'
+    );
+
+}
+
+
+function hideHotspot(
+    hotspot
+) {
+
+    hotspot.classList.remove(
+        'active'
+    );
+
+
+    mapLabel.classList.remove(
+        'visible'
+    );
+
+}
+
+
+hotspots.forEach(
+    function(hotspot) {
+
+
+        hotspot.addEventListener(
+            'mouseenter',
+            function() {
+
+                showHotspot(
+                    hotspot
                 );
 
-
-            mapLabelName.textContent =
-                name;
-
-
-            mapLabel.classList.add(
-                'visible'
-            );
-
-
-            regions.forEach(
-                function(other) {
-
-                    other.classList.remove(
-                        'active'
-                    );
-
-                }
-            );
-
-
-            region.classList.add(
-                'active'
-            );
-
-        }
-
-
-        function hideRegion() {
-
-            mapLabel.classList.remove(
-                'visible'
-            );
-
-
-            region.classList.remove(
-                'active'
-            );
-
-        }
-
-
-        region.addEventListener(
-            'mouseenter',
-            showRegion
+            }
         );
 
 
-        region.addEventListener(
+        hotspot.addEventListener(
             'mouseleave',
-            hideRegion
+            function() {
+
+                hideHotspot(
+                    hotspot
+                );
+
+            }
         );
 
 
-        region.addEventListener(
+        hotspot.addEventListener(
             'touchstart',
-            showRegion,
+            function() {
+
+                showHotspot(
+                    hotspot
+                );
+
+            },
+
             {
                 passive: true
             }
         );
+
 
     }
 );
