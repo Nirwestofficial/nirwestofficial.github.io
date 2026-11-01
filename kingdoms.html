@@ -4,14 +4,9 @@
 <head>
 
 <meta charset="UTF-8">
-
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>The Eight Kingdoms | Nirwest</title>
-
 
 <style>
 
@@ -35,7 +30,6 @@ body {
     width: 100%;
 
     background: #070707;
-
     color: #ffffff;
 
     font-family:
@@ -71,31 +65,26 @@ a {
 
     height: 66px;
 
-    padding:
-        0 4vw;
+    padding: 0 4vw;
 
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
 
     background:
         linear-gradient(
             to bottom,
             rgba(0,0,0,.96),
-            rgba(0,0,0,.68),
-            transparent
+            rgba(0,0,0,.72),
+            rgba(0,0,0,.05)
         );
 
-    transition:
-        background .3s ease;
+    transition: background .3s ease;
 }
 
 
 .nw-nav.scrolled {
-    background:
-        rgba(7,7,7,.97);
+    background: rgba(7,7,7,.97);
 
     border-bottom:
         1px solid rgba(255,255,255,.06);
@@ -103,27 +92,19 @@ a {
 
 
 .nw-logo {
-    color:
-        #ffffff;
+    font-family: Georgia, serif;
 
-    font-family:
-        Georgia,
-        serif;
+    font-size: 23px;
+    font-weight: bold;
 
-    font-size:
-        23px;
+    letter-spacing: 4px;
 
-    font-weight:
-        bold;
-
-    letter-spacing:
-        4px;
+    color: #ffffff;
 }
 
 
 .nw-logo span {
-    color:
-        #c79850;
+    color: #c79850;
 }
 
 
@@ -132,25 +113,21 @@ a {
 
     align-items: center;
 
-    gap: 19px;
+    gap: 18px;
 }
 
 
 .nw-nav-links a {
-    color:
-        rgba(255,255,255,.76);
+    color: rgba(255,255,255,.76);
 
-    font-size:
-        12px;
+    font-size: 12px;
 
-    transition:
-        color .2s ease;
+    transition: color .2s ease;
 }
 
 
 .nw-nav-links a:hover {
-    color:
-        #ffffff;
+    color: #ffffff;
 }
 
 
@@ -162,15 +139,14 @@ a {
     padding:
         115px 5vw 45px;
 
-    text-align:
-        center;
+    text-align: center;
 
     background:
 
         radial-gradient(
             circle at center top,
-            rgba(199,152,80,.10),
-            transparent 40%
+            rgba(199,152,80,.11),
+            transparent 42%
         ),
 
         #070707;
@@ -178,33 +154,23 @@ a {
 
 
 .nw-kicker {
-    margin-bottom:
-        10px;
+    margin-bottom: 10px;
 
-    color:
-        #c79850;
+    color: #c79850;
 
-    font-size:
-        10px;
+    font-size: 10px;
+    font-weight: bold;
 
-    font-weight:
-        bold;
+    letter-spacing: 6px;
 
-    letter-spacing:
-        6px;
-
-    text-transform:
-        uppercase;
+    text-transform: uppercase;
 }
 
 
 .nw-intro h1 {
-    margin:
-        0;
+    margin: 0;
 
-    font-family:
-        Georgia,
-        serif;
+    font-family: Georgia, serif;
 
     font-size:
         clamp(
@@ -213,350 +179,216 @@ a {
             90px
         );
 
-    font-weight:
-        normal;
+    font-weight: normal;
 
-    line-height:
-        1;
+    line-height: 1;
 }
 
 
 .nw-intro p {
-    max-width:
-        720px;
+    max-width: 760px;
 
     margin:
         20px auto 0;
 
     color:
-        rgba(255,255,255,.67);
+        rgba(255,255,255,.68);
 
-    font-size:
-        15px;
+    font-size: 15px;
 
-    line-height:
-        1.7;
+    line-height: 1.7;
 }
 
 
 /* =========================================================
-   MAP
+   MAP SECTION
 ========================================================= */
 
 .nw-map-section {
-    width:
-        100%;
+    width: 100%;
 
     padding:
         0 3vw 45px;
 
-    background:
-        #070707;
+    background: #070707;
 }
 
 
 .nw-map-frame {
-    position:
-        relative;
+    position: relative;
 
-    width:
-        100%;
+    width: 100%;
 
-    max-width:
-        1800px;
+    max-width: 1800px;
 
-    margin:
-        0 auto;
+    margin: 0 auto;
 
-    aspect-ratio:
-        16 / 9;
+    aspect-ratio: 16 / 9;
 
-    overflow:
-        hidden;
+    overflow: hidden;
 
     border:
-        1px solid
-        rgba(199,152,80,.20);
+        1px solid rgba(199,152,80,.23);
 
-    border-radius:
-        10px;
+    border-radius: 10px;
 
-    background:
-        #15100b;
+    background: #15100b;
 
     box-shadow:
-        0 30px 90px
-        rgba(0,0,0,.65);
-}
-
-
-.nw-map-frame::after {
-    content:
-        "";
-
-    position:
-        absolute;
-
-    inset:
-        0;
-
-    pointer-events:
-        none;
-
-    z-index:
-        3;
-
-    background:
-
-        linear-gradient(
-            0deg,
-            rgba(0,0,0,.25),
-            transparent 25%
-        );
+        0 30px 90px rgba(0,0,0,.65);
 }
 
 
 .nw-map-image {
-    position:
-        absolute;
+    position: absolute;
 
-    inset:
-        0;
+    inset: 0;
 
-    display:
-        block;
+    display: block;
 
-    width:
-        100%;
+    width: 100%;
+    height: 100%;
 
-    height:
-        100%;
+    object-fit: contain;
 
-    object-fit:
-        contain;
-
-    background:
-        #15100b;
+    background: #15100b;
 }
 
 
 /* =========================================================
-   MAP HOTSPOTS
+   SVG INTERACTIVE LAYER
 ========================================================= */
 
-.nw-hotspot {
-    position:
-        absolute;
+.nw-svg-map {
+    position: absolute;
 
-    z-index:
-        10;
+    inset: 0;
 
-    display:
-        flex;
+    z-index: 10;
 
-    align-items:
-        center;
+    width: 100%;
+    height: 100%;
 
-    justify-content:
-        center;
+    display: block;
+}
 
-    border:
-        1px solid transparent;
 
-    border-radius:
-        12px;
+.nw-region {
+    fill: rgba(199,152,80,0);
 
-    background:
-        transparent;
+    stroke:
+        rgba(199,152,80,0);
 
-    color:
-        transparent;
+    stroke-width: 3;
 
-    font-size:
-        11px;
+    vector-effect:
+        non-scaling-stroke;
 
-    font-weight:
-        bold;
-
-    letter-spacing:
-        2px;
-
-    line-height:
-        1.4;
-
-    text-align:
-        center;
-
-    text-transform:
-        uppercase;
-
-    cursor:
-        pointer;
+    cursor: pointer;
 
     transition:
-        background .25s ease,
-        border-color .25s ease,
-        box-shadow .25s ease,
-        color .25s ease,
-        transform .25s ease;
+        fill .25s ease,
+        stroke .25s ease,
+        filter .25s ease;
 }
 
 
-.nw-hotspot:hover {
-    color:
-        #ffffff;
+.nw-region:hover,
+.nw-region.active {
 
-    background:
-        rgba(199,152,80,.17);
+    fill:
+        rgba(199,152,80,.20);
 
-    border-color:
-        rgba(199,152,80,.85);
+    stroke:
+        rgba(218,173,103,.95);
 
-    box-shadow:
-        0 0 30px
-        rgba(199,152,80,.32);
+    filter:
+        drop-shadow(
+            0 0 7px
+            rgba(199,152,80,.70)
+        );
+}
+
+
+/* =========================================================
+   MAP LABEL
+========================================================= */
+
+.nw-map-label {
+    position: absolute;
+
+    left: 50%;
+    top: 28px;
 
     transform:
-        scale(1.025);
+        translateX(-50%)
+        translateY(-8px);
+
+    z-index: 30;
+
+    min-width: 220px;
+
+    padding:
+        11px 17px;
+
+    border:
+        1px solid
+        rgba(199,152,80,.35);
+
+    border-radius: 5px;
+
+    background:
+        rgba(0,0,0,.78);
 
     backdrop-filter:
-        blur(2px);
+        blur(8px);
+
+    text-align: center;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    transition:
+        opacity .2s ease,
+        transform .2s ease;
 }
 
 
-/* ICE */
+.nw-map-label.visible {
+    opacity: 1;
 
-.nw-hotspot-ice {
-    left:
-        13%;
-
-    top:
-        6%;
-
-    width:
-        18%;
-
-    height:
-        24%;
+    transform:
+        translateX(-50%)
+        translateY(0);
 }
 
 
-/* SHADOW */
+.nw-map-label-small {
+    display: block;
 
-.nw-hotspot-shadow {
-    left:
-        33%;
+    margin-bottom: 3px;
 
-    top:
-        7%;
+    color: #c79850;
 
-    width:
-        23%;
+    font-size: 8px;
 
-    height:
-        25%;
+    font-weight: bold;
+
+    letter-spacing: 3px;
 }
 
 
-/* EARTH */
+.nw-map-label-name {
+    display: block;
 
-.nw-hotspot-earth {
-    left:
-        13%;
+    font-family:
+        Georgia,
+        serif;
 
-    top:
-        35%;
+    font-size: 20px;
 
-    width:
-        21%;
-
-    height:
-        27%;
-}
-
-
-/* WIND */
-
-.nw-hotspot-wind {
-    left:
-        43%;
-
-    top:
-        32%;
-
-    width:
-        17%;
-
-    height:
-        23%;
-}
-
-
-/* SUN */
-
-.nw-hotspot-sun {
-    left:
-        31%;
-
-    top:
-        57%;
-
-    width:
-        17%;
-
-    height:
-        27%;
-}
-
-
-/* FIRE */
-
-.nw-hotspot-fire {
-    left:
-        43%;
-
-    top:
-        59%;
-
-    width:
-        17%;
-
-    height:
-        27%;
-}
-
-
-/* AIR */
-
-.nw-hotspot-air {
-    left:
-        12%;
-
-    top:
-        64%;
-
-    width:
-        18%;
-
-    height:
-        27%;
-}
-
-
-/* OCEAN */
-
-.nw-hotspot-ocean {
-    left:
-        72%;
-
-    top:
-        55%;
-
-    width:
-        20%;
-
-    height:
-        33%;
+    color: #ffffff;
 }
 
 
@@ -565,103 +397,81 @@ a {
 ========================================================= */
 
 .nw-map-caption {
-    max-width:
-        1800px;
+    max-width: 1800px;
 
     margin:
         13px auto 0;
 
-    display:
-        flex;
+    display: flex;
 
-    justify-content:
-        space-between;
+    justify-content: space-between;
 
-    gap:
-        20px;
+    gap: 20px;
 
     color:
-        rgba(255,255,255,.37);
+        rgba(255,255,255,.38);
 
-    font-size:
-        11px;
+    font-size: 11px;
 }
 
 
 .nw-map-caption strong {
-    color:
-        #c79850;
+    color: #c79850;
 }
 
 
 /* =========================================================
-   KINGDOM EMBLEMS GRID
+   KINGDOM EMBLEMS
 ========================================================= */
 
 .nw-quick-nav {
     padding:
-        20px 4vw 70px;
+        25px 4vw 70px;
 
-    background:
-        #070707;
+    background: #070707;
+
+    scroll-margin-top: 66px;
 }
 
 
 .nw-quick-grid {
-    max-width:
-        1500px;
+    max-width: 1500px;
 
-    margin:
-        0 auto;
+    margin: 0 auto;
 
-    display:
-        grid;
+    display: grid;
 
     grid-template-columns:
-        repeat(
-            4,
-            minmax(0,1fr)
-        );
+        repeat(4, minmax(0,1fr));
 
-    gap:
-        16px;
+    gap: 16px;
 }
 
 
 .nw-quick-card {
-    position:
-        relative;
+    position: relative;
 
-    min-height:
-        225px;
+    min-height: 225px;
 
     padding:
         25px 18px 20px;
 
-    display:
-        flex;
+    display: flex;
 
-    flex-direction:
-        column;
+    flex-direction: column;
 
-    align-items:
-        center;
+    align-items: center;
 
-    justify-content:
-        center;
+    justify-content: center;
 
-    text-align:
-        center;
+    text-align: center;
 
-    overflow:
-        hidden;
+    overflow: hidden;
 
     border:
-        1px solid
-        rgba(255,255,255,.08);
+        1px solid rgba(255,255,255,.08);
 
-    border-radius:
-        10px;
+    border-radius: 10px;
 
     background:
 
@@ -682,41 +492,6 @@ a {
         border-color .3s ease,
         background .3s ease,
         box-shadow .3s ease;
-}
-
-
-.nw-quick-card::after {
-    content:
-        "";
-
-    position:
-        absolute;
-
-    left:
-        20%;
-
-    right:
-        20%;
-
-    bottom:
-        0;
-
-    height:
-        1px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(199,152,80,.60),
-            transparent
-        );
-
-    opacity:
-        0;
-
-    transition:
-        opacity .3s ease;
 }
 
 
@@ -747,32 +522,18 @@ a {
 }
 
 
-.nw-quick-card:hover::after {
-    opacity:
-        1;
-}
-
-
-/* EMBLEM */
+/* STEMMA */
 
 .nw-kingdom-emblem {
-    width:
-        100px;
+    width: 100px;
+    height: 100px;
 
-    height:
-        100px;
+    margin-bottom: 17px;
 
-    margin-bottom:
-        17px;
+    display: flex;
 
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
+    align-items: center;
+    justify-content: center;
 
     transition:
         transform .35s ease,
@@ -781,17 +542,12 @@ a {
 
 
 .nw-kingdom-emblem img {
-    display:
-        block;
+    display: block;
 
-    width:
-        100%;
+    width: 100%;
+    height: 100%;
 
-    height:
-        100%;
-
-    object-fit:
-        contain;
+    object-fit: contain;
 
     filter:
         drop-shadow(
@@ -803,8 +559,8 @@ a {
 
 .nw-quick-card:hover
 .nw-kingdom-emblem {
-    transform:
-        scale(1.10);
+
+    transform: scale(1.10);
 
     filter:
         drop-shadow(
@@ -814,41 +570,30 @@ a {
 }
 
 
-/* NAME */
-
 .nw-quick-card strong {
-    display:
-        block;
+    display: block;
 
-    margin-bottom:
-        5px;
+    margin-bottom: 5px;
 
-    color:
-        #ffffff;
+    color: #ffffff;
 
     font-family:
         Georgia,
         serif;
 
-    font-size:
-        20px;
+    font-size: 20px;
 
-    font-weight:
-        normal;
+    font-weight: normal;
 }
 
-
-/* SUBTEXT */
 
 .nw-quick-card span {
     color:
         rgba(255,255,255,.46);
 
-    font-size:
-        11px;
+    font-size: 11px;
 
-    line-height:
-        1.4;
+    line-height: 1.4;
 }
 
 
@@ -857,41 +602,33 @@ a {
 ========================================================= */
 
 .nw-kingdom {
-    position:
-        relative;
+    position: relative;
 
-    min-height:
-        78vh;
+    min-height: 78vh;
 
-    display:
-        grid;
+    display: grid;
 
     grid-template-columns:
         minmax(320px,.95fr)
         minmax(0,1.05fr);
 
-    align-items:
-        center;
+    align-items: center;
 
-    gap:
-        55px;
+    gap: 55px;
 
     padding:
         75px 5vw;
 
     border-top:
-        1px solid
-        rgba(255,255,255,.06);
+        1px solid rgba(255,255,255,.06);
 
-    overflow:
-        hidden;
+    overflow: hidden;
 
-    scroll-margin-top:
-        66px;
+    scroll-margin-top: 66px;
 }
 
 
-.nw-kingdom:nth-child(even) {
+.nw-kingdom:nth-of-type(even) {
     background:
         linear-gradient(
             135deg,
@@ -901,32 +638,25 @@ a {
 }
 
 
-.nw-kingdom:nth-child(odd) {
-    background:
-        #070707;
+.nw-kingdom:nth-of-type(odd) {
+    background: #070707;
 }
 
 
 /* IMAGE */
 
 .nw-kingdom-image {
-    position:
-        relative;
+    position: relative;
 }
 
 
 .nw-kingdom-image img {
-    display:
-        block;
+    display: block;
 
-    width:
-        100%;
+    width: 100%;
+    height: auto;
 
-    height:
-        auto;
-
-    border-radius:
-        10px;
+    border-radius: 10px;
 
     box-shadow:
         0 25px 70px
@@ -935,20 +665,15 @@ a {
 
 
 .nw-kingdom-image::after {
-    content:
-        "";
+    content: "";
 
-    position:
-        absolute;
+    position: absolute;
 
-    inset:
-        0;
+    inset: 0;
 
-    border-radius:
-        10px;
+    border-radius: 10px;
 
-    pointer-events:
-        none;
+    pointer-events: none;
 
     box-shadow:
         inset 0 0 55px
@@ -956,74 +681,55 @@ a {
 }
 
 
-/* TEXT */
+/* CONTENT */
 
 .nw-kingdom-content {
-    max-width:
-        730px;
+    max-width: 730px;
 }
 
 
 .nw-kingdom-number {
-    margin-bottom:
-        10px;
+    margin-bottom: 10px;
 
-    color:
-        #c79850;
+    color: #c79850;
 
-    font-size:
-        10px;
+    font-size: 10px;
 
-    font-weight:
-        bold;
+    font-weight: bold;
 
-    letter-spacing:
-        5px;
+    letter-spacing: 5px;
 }
 
 
 .nw-kingdom-heading {
-    display:
-        flex;
+    display: flex;
 
-    align-items:
-        center;
+    align-items: center;
 
-    gap:
-        18px;
+    gap: 18px;
 
-    margin-bottom:
-        18px;
+    margin-bottom: 18px;
 }
 
 
 .nw-kingdom-small-emblem {
-    flex:
-        0 0 58px;
+    flex: 0 0 58px;
 
-    width:
-        58px;
-
-    height:
-        58px;
+    width: 58px;
+    height: 58px;
 }
 
 
 .nw-kingdom-small-emblem img {
-    width:
-        100%;
+    width: 100%;
+    height: 100%;
 
-    height:
-        100%;
-
-    object-fit:
-        contain;
+    object-fit: contain;
 }
 
 
 .nw-kingdom-content h2 {
-    margin:
-        0;
+    margin: 0;
 
     font-family:
         Georgia,
@@ -1036,11 +742,9 @@ a {
             62px
         );
 
-    font-weight:
-        normal;
+    font-weight: normal;
 
-    line-height:
-        1.05;
+    line-height: 1.05;
 }
 
 
@@ -1051,31 +755,23 @@ a {
     color:
         rgba(255,255,255,.70);
 
-    font-size:
-        15px;
+    font-size: 15px;
 
-    line-height:
-        1.75;
+    line-height: 1.75;
 }
 
 
 /* INFO */
 
 .nw-info-grid {
-    display:
-        grid;
+    display: grid;
 
     grid-template-columns:
-        repeat(
-            2,
-            minmax(0,1fr)
-        );
+        repeat(2,minmax(0,1fr));
 
-    gap:
-        10px;
+    gap: 10px;
 
-    margin-top:
-        25px;
+    margin-top: 25px;
 }
 
 
@@ -1084,11 +780,9 @@ a {
         13px 15px;
 
     border:
-        1px solid
-        rgba(255,255,255,.07);
+        1px solid rgba(255,255,255,.07);
 
-    border-radius:
-        6px;
+    border-radius: 6px;
 
     background:
         rgba(255,255,255,.025);
@@ -1096,23 +790,17 @@ a {
 
 
 .nw-info-label {
-    display:
-        block;
+    display: block;
 
-    margin-bottom:
-        5px;
+    margin-bottom: 5px;
 
-    color:
-        #c79850;
+    color: #c79850;
 
-    font-size:
-        9px;
+    font-size: 9px;
 
-    font-weight:
-        bold;
+    font-weight: bold;
 
-    letter-spacing:
-        2px;
+    letter-spacing: 2px;
 }
 
 
@@ -1120,32 +808,23 @@ a {
     color:
         rgba(255,255,255,.70);
 
-    font-size:
-        12px;
+    font-size: 12px;
 }
 
 
-/* BACK TO MAP */
-
 .nw-back-map {
-    display:
-        inline-flex;
+    display: inline-flex;
 
-    margin-top:
-        25px;
+    margin-top: 25px;
 
-    padding-bottom:
-        4px;
+    padding-bottom: 4px;
 
     border-bottom:
-        1px solid
-        rgba(199,152,80,.45);
+        1px solid rgba(199,152,80,.45);
 
-    color:
-        #c79850;
+    color: #c79850;
 
-    font-size:
-        12px;
+    font-size: 12px;
 }
 
 
@@ -1158,33 +837,27 @@ a {
         55px 5vw 70px;
 
     border-top:
-        1px solid
-        rgba(255,255,255,.07);
+        1px solid rgba(255,255,255,.07);
 
     color:
         rgba(255,255,255,.35);
 
-    font-size:
-        12px;
+    font-size: 12px;
 }
 
 
 .nw-footer-logo {
-    margin-bottom:
-        9px;
+    margin-bottom: 9px;
 
-    color:
-        white;
+    color: white;
 
     font-family:
         Georgia,
         serif;
 
-    font-size:
-        22px;
+    font-size: 22px;
 
-    letter-spacing:
-        4px;
+    letter-spacing: 4px;
 }
 
 
@@ -1195,29 +868,22 @@ a {
 @media screen and (max-width:900px) {
 
     .nw-nav-links {
-        display:
-            none;
+        display: none;
     }
 
 
     .nw-quick-grid {
         grid-template-columns:
-            repeat(
-                2,
-                minmax(0,1fr)
-            );
+            repeat(2,minmax(0,1fr));
     }
 
 
     .nw-kingdom {
-        min-height:
-            auto;
+        min-height: auto;
 
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
 
-        gap:
-            28px;
+        gap: 28px;
 
         padding:
             55px 4vw;
@@ -1233,8 +899,7 @@ a {
 @media screen and (max-width:700px) {
 
     .nw-nav {
-        height:
-            58px;
+        height: 58px;
 
         padding:
             0 16px;
@@ -1245,11 +910,9 @@ a {
 
 
     .nw-logo {
-        font-size:
-            18px;
+        font-size: 18px;
 
-        letter-spacing:
-            2px;
+        letter-spacing: 2px;
     }
 
 
@@ -1260,8 +923,7 @@ a {
 
 
     .nw-intro p {
-        font-size:
-            13px;
+        font-size: 13px;
     }
 
 
@@ -1272,30 +934,27 @@ a {
 
 
     .nw-map-frame {
-        border-radius:
-            5px;
+        border-radius: 5px;
     }
 
 
-    /*
-       Restano cliccabili,
-       ma non mostriamo il testo dentro l'hotspot.
-    */
-    .nw-hotspot {
-        font-size:
-            0;
+    .nw-map-label {
+        top: 8px;
 
-        border-radius:
-            4px;
+        min-width: 150px;
+
+        padding:
+            7px 10px;
     }
 
 
-    .nw-hotspot:active {
-        background:
-            rgba(199,152,80,.25);
+    .nw-map-label-small {
+        font-size: 6px;
+    }
 
-        border-color:
-            rgba(199,152,80,.90);
+
+    .nw-map-label-name {
+        font-size: 13px;
     }
 
 
@@ -1303,38 +962,34 @@ a {
         padding:
             0 5px;
 
-        font-size:
-            9px;
+        font-size: 9px;
     }
 
 
     .nw-map-caption span:last-child {
-        display:
-            none;
+        display: none;
     }
 
 
     .nw-quick-nav {
         padding:
             15px 12px 45px;
+
+        scroll-margin-top:
+            58px;
     }
 
 
     .nw-quick-grid {
         grid-template-columns:
-            repeat(
-                2,
-                minmax(0,1fr)
-            );
+            repeat(2,minmax(0,1fr));
 
-        gap:
-            10px;
+        gap: 10px;
     }
 
 
     .nw-quick-card {
-        min-height:
-            180px;
+        min-height: 180px;
 
         padding:
             17px 8px 15px;
@@ -1342,32 +997,25 @@ a {
 
 
     .nw-kingdom-emblem {
-        width:
-            72px;
+        width: 72px;
+        height: 72px;
 
-        height:
-            72px;
-
-        margin-bottom:
-            13px;
+        margin-bottom: 13px;
     }
 
 
     .nw-quick-card strong {
-        font-size:
-            15px;
+        font-size: 15px;
     }
 
 
     .nw-quick-card span {
-        font-size:
-            9px;
+        font-size: 9px;
     }
 
 
     .nw-kingdom {
-        scroll-margin-top:
-            58px;
+        scroll-margin-top: 58px;
 
         padding:
             45px 16px;
@@ -1375,32 +1023,25 @@ a {
 
 
     .nw-kingdom-heading {
-        gap:
-            12px;
+        gap: 12px;
     }
 
 
     .nw-kingdom-small-emblem {
-        flex-basis:
-            46px;
+        flex-basis: 46px;
 
-        width:
-            46px;
-
-        height:
-            46px;
+        width: 46px;
+        height: 46px;
     }
 
 
     .nw-kingdom-content p {
-        font-size:
-            13px;
+        font-size: 13px;
     }
 
 
     .nw-info-grid {
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
     }
 
 
@@ -1502,8 +1143,7 @@ a {
 
     <p>
         Explore the world of Nirwest through its eight great kingdoms.
-        Select a territory directly from the map or choose one of the
-        royal emblems below.
+        Move across the map and select a territory to enter its realm.
     </p>
 
 </section>
@@ -1511,7 +1151,7 @@ a {
 
 
 <!-- =========================================================
-     INTERACTIVE MAP
+     INTERACTIVE SVG MAP
 ========================================================= -->
 
 <section
@@ -1529,92 +1169,325 @@ a {
         >
 
 
-        <a
-            href="#ice"
-            class="
-                nw-hotspot
-                nw-hotspot-ice
-            "
+        <!-- LABEL CENTRALE -->
+
+        <div
+            class="nw-map-label"
+            id="mapLabel"
         >
-            Kingdom<br>of Ice
-        </a>
+
+            <span class="nw-map-label-small">
+                EXPLORE
+            </span>
+
+            <span
+                class="nw-map-label-name"
+                id="mapLabelName"
+            >
+                Kingdom
+            </span>
+
+        </div>
 
 
-        <a
-            href="#shadow"
-            class="
-                nw-hotspot
-                nw-hotspot-shadow
-            "
+
+        <!--
+        =====================================================
+        SVG
+
+        viewBox uguale alla proporzione della tua mappa.
+
+        Le forme seguono i territori invece di usare rettangoli.
+        =====================================================
+        -->
+
+        <svg
+            class="nw-svg-map"
+            viewBox="0 0 1664 936"
+            preserveAspectRatio="xMidYMid meet"
+            aria-label="Interactive map of the Eight Kingdoms"
         >
-            Kingdom<br>of Shadow
-        </a>
 
 
-        <a
-            href="#earth"
-            class="
-                nw-hotspot
-                nw-hotspot-earth
-            "
-        >
-            Kingdom<br>of Earth
-        </a>
+            <!-- =============================================
+                 ICE
+            ============================================== -->
+
+            <a href="#ice">
+
+                <path
+                    class="nw-region"
+                    data-name="Kingdom of Ice"
+                    d="
+                    M 231 94
+                    L 289 56
+                    L 357 40
+                    L 421 55
+                    L 468 92
+                    L 511 130
+                    L 505 178
+                    L 473 213
+                    L 442 254
+                    L 389 279
+                    L 330 271
+                    L 282 249
+                    L 238 221
+                    L 218 179
+                    L 221 134
+                    Z
+                    "
+                ></path>
+
+            </a>
 
 
-        <a
-            href="#wind"
-            class="
-                nw-hotspot
-                nw-hotspot-wind
-            "
-        >
-            Kingdom<br>of Wind
-        </a>
+
+            <!-- =============================================
+                 SHADOW
+            ============================================== -->
+
+            <a href="#shadow">
+
+                <path
+                    class="nw-region"
+                    data-name="Kingdom of Shadow"
+                    d="
+                    M 500 79
+                    L 561 48
+                    L 633 33
+                    L 702 48
+                    L 755 81
+                    L 826 72
+                    L 887 101
+                    L 925 140
+                    L 918 190
+                    L 884 228
+                    L 850 275
+                    L 788 298
+                    L 724 287
+                    L 662 279
+                    L 604 295
+                    L 552 270
+                    L 520 232
+                    L 489 194
+                    L 484 139
+                    Z
+                    "
+                ></path>
+
+            </a>
 
 
-        <a
-            href="#sun"
-            class="
-                nw-hotspot
-                nw-hotspot-sun
-            "
-        >
-            Kingdom<br>of Sun
-        </a>
+
+            <!-- =============================================
+                 EARTH
+            ============================================== -->
+
+            <a href="#earth">
+
+                <path
+                    class="nw-region"
+                    data-name="Kingdom of the Earth"
+                    d="
+                    M 247 347
+                    L 298 320
+                    L 356 327
+                    L 405 350
+                    L 458 327
+                    L 511 351
+                    L 566 391
+                    L 599 438
+                    L 581 484
+                    L 547 517
+                    L 515 566
+                    L 462 598
+                    L 405 612
+                    L 346 598
+                    L 300 568
+                    L 267 527
+                    L 230 487
+                    L 219 439
+                    Z
+                    "
+                ></path>
+
+            </a>
 
 
-        <a
-            href="#fire"
-            class="
-                nw-hotspot
-                nw-hotspot-fire
-            "
-        >
-            Kingdom<br>of Fire
-        </a>
+
+            <!-- =============================================
+                 WIND
+            ============================================== -->
+
+            <a href="#wind">
+
+                <path
+                    class="nw-region"
+                    data-name="Kingdom of Wind"
+                    d="
+                    M 790 304
+                    L 844 286
+                    L 899 298
+                    L 949 322
+                    L 1000 356
+                    L 1019 401
+                    L 1000 442
+                    L 964 474
+                    L 934 513
+                    L 884 526
+                    L 838 508
+                    L 797 481
+                    L 772 439
+                    L 755 394
+                    Z
+                    "
+                ></path>
+
+            </a>
 
 
-        <a
-            href="#air"
-            class="
-                nw-hotspot
-                nw-hotspot-air
-            "
-        >
-            Kingdom<br>of Air
-        </a>
+
+            <!-- =============================================
+                 SUN
+            ============================================== -->
+
+            <a href="#sun">
+
+                <path
+                    class="nw-region"
+                    data-name="Kingdom of the Sun"
+                    d="
+                    M 495 546
+                    L 545 519
+                    L 602 520
+                    L 652 543
+                    L 706 560
+                    L 744 600
+                    L 748 651
+                    L 726 698
+                    L 697 746
+                    L 651 788
+                    L 597 808
+                    L 544 796
+                    L 499 768
+                    L 461 732
+                    L 447 684
+                    L 457 633
+                    Z
+                    "
+                ></path>
+
+            </a>
 
 
-        <a
-            href="#ocean"
-            class="
-                nw-hotspot
-                nw-hotspot-ocean
-            "
-        >
-            Kingdom<br>of Ocean
-        </a>
+
+            <!-- =============================================
+                 FIRE
+            ============================================== -->
+
+            <a href="#fire">
+
+                <path
+                    class="nw-region"
+                    data-name="Kingdom of Fire"
+                    d="
+                    M 716 557
+                    L 759 531
+                    L 809 544
+                    L 848 570
+                    L 899 579
+                    L 934 617
+                    L 951 665
+                    L 946 716
+                    L 923 763
+                    L 886 802
+                    L 838 831
+                    L 787 824
+                    L 746 799
+                    L 712 764
+                    L 690 716
+                    L 686 667
+                    L 694 607
+                    Z
+                    "
+                ></path>
+
+            </a>
+
+
+
+            <!-- =============================================
+                 AIR
+            ============================================== -->
+
+            <a href="#air">
+
+                <path
+                    class="nw-region"
+                    data-name="Kingdom of Air"
+                    d="
+                    M 231 629
+                    L 274 610
+                    L 322 618
+                    L 365 641
+                    L 413 671
+                    L 445 712
+                    L 440 756
+                    L 414 800
+                    L 377 834
+                    L 332 854
+                    L 286 847
+                    L 246 825
+                    L 214 792
+                    L 201 750
+                    L 205 703
+                    Z
+                    "
+                ></path>
+
+            </a>
+
+
+
+            <!-- =============================================
+                 OCEAN
+            ============================================== -->
+
+            <a href="#ocean">
+
+                <path
+                    class="nw-region"
+                    data-name="Kingdom of the Ocean"
+                    d="
+                    M 1123 472
+                    L 1177 434
+                    L 1233 435
+                    L 1295 457
+                    L 1348 441
+                    L 1404 472
+                    L 1435 517
+                    L 1468 569
+                    L 1479 627
+                    L 1465 685
+                    L 1438 737
+                    L 1402 786
+                    L 1351 819
+                    L 1297 832
+                    L 1242 819
+                    L 1192 790
+                    L 1151 753
+                    L 1125 707
+                    L 1107 658
+                    L 1099 607
+                    L 1104 548
+                    Z
+                    "
+                ></path>
+
+            </a>
+
+
+        </svg>
 
 
     </div>
@@ -1624,7 +1497,7 @@ a {
 
         <span>
             <strong>Interactive map</strong>
-            — select a kingdom
+            — hover over a kingdom and select it
         </span>
 
         <span>
@@ -1638,15 +1511,16 @@ a {
 
 
 <!-- =========================================================
-     KINGDOM EMBLEMS
+     STEMMI
 ========================================================= -->
 
-<section class="nw-quick-nav">
+<section
+    class="nw-quick-nav"
+    id="kingdoms"
+>
 
     <div class="nw-quick-grid">
 
-
-        <!-- ICE -->
 
         <a
             href="#ice"
@@ -1674,8 +1548,6 @@ a {
 
 
 
-        <!-- SHADOW -->
-
         <a
             href="#shadow"
             class="nw-quick-card"
@@ -1701,8 +1573,6 @@ a {
         </a>
 
 
-
-        <!-- WIND -->
 
         <a
             href="#wind"
@@ -1730,8 +1600,6 @@ a {
 
 
 
-        <!-- EARTH -->
-
         <a
             href="#earth"
             class="nw-quick-card"
@@ -1757,8 +1625,6 @@ a {
         </a>
 
 
-
-        <!-- SUN -->
 
         <a
             href="#sun"
@@ -1786,8 +1652,6 @@ a {
 
 
 
-        <!-- FIRE -->
-
         <a
             href="#fire"
             class="nw-quick-card"
@@ -1814,8 +1678,6 @@ a {
 
 
 
-        <!-- AIR -->
-
         <a
             href="#air"
             class="nw-quick-card"
@@ -1841,8 +1703,6 @@ a {
         </a>
 
 
-
-        <!-- OCEAN -->
 
         <a
             href="#ocean"
@@ -1876,7 +1736,7 @@ a {
 
 
 <!-- =========================================================
-     KINGDOM OF ICE
+     ICE
 ========================================================= -->
 
 <section
@@ -1912,6 +1772,7 @@ a {
 
             </div>
 
+
             <h2>
                 Kingdom of Ice
             </h2>
@@ -1925,6 +1786,7 @@ a {
             silence and endurance.
         </p>
 
+
         <p>
             Here the climate has forged both the landscape
             and those who inhabit it.
@@ -1932,6 +1794,7 @@ a {
 
 
         <div class="nw-info-grid">
+
 
             <div class="nw-info">
 
@@ -1958,6 +1821,7 @@ a {
 
             </div>
 
+
         </div>
 
 
@@ -1975,7 +1839,7 @@ a {
 
 
 <!-- =========================================================
-     KINGDOM OF SHADOW
+     SHADOW
 ========================================================= -->
 
 <section
@@ -2011,6 +1875,7 @@ a {
 
             </div>
 
+
             <h2>
                 Kingdom of Shadow
             </h2>
@@ -2023,40 +1888,11 @@ a {
             the most mysterious regions of Nirwest.
         </p>
 
+
         <p>
             The Kingdom of Shadow is marked by secrecy,
             isolation and forces hidden from much of the world.
         </p>
-
-
-        <div class="nw-info-grid">
-
-            <div class="nw-info">
-
-                <span class="nw-info-label">
-                    REGION
-                </span>
-
-                <span class="nw-info-value">
-                    Northern Lands
-                </span>
-
-            </div>
-
-
-            <div class="nw-info">
-
-                <span class="nw-info-label">
-                    BORDER
-                </span>
-
-                <span class="nw-info-value">
-                    Celestial Walls
-                </span>
-
-            </div>
-
-        </div>
 
 
         <a
@@ -2073,7 +1909,7 @@ a {
 
 
 <!-- =========================================================
-     KINGDOM OF WIND
+     WIND
 ========================================================= -->
 
 <section
@@ -2109,6 +1945,7 @@ a {
 
             </div>
 
+
             <h2>
                 Kingdom of Wind
             </h2>
@@ -2121,40 +1958,11 @@ a {
             mountain passes and constantly changing winds.
         </p>
 
+
         <p>
             The Kingdom of Wind is a land shaped by movement,
             distance and the freedom of the open horizon.
         </p>
-
-
-        <div class="nw-info-grid">
-
-            <div class="nw-info">
-
-                <span class="nw-info-label">
-                    REGION
-                </span>
-
-                <span class="nw-info-value">
-                    Eastern Nirwest
-                </span>
-
-            </div>
-
-
-            <div class="nw-info">
-
-                <span class="nw-info-label">
-                    LANDMARK
-                </span>
-
-                <span class="nw-info-value">
-                    Sandy Valley
-                </span>
-
-            </div>
-
-        </div>
 
 
         <a
@@ -2171,7 +1979,7 @@ a {
 
 
 <!-- =========================================================
-     KINGDOM OF EARTH
+     EARTH
 ========================================================= -->
 
 <section
@@ -2207,6 +2015,7 @@ a {
 
             </div>
 
+
             <h2>
                 Kingdom of the Earth
             </h2>
@@ -2219,40 +2028,11 @@ a {
             the western territories of this ancient kingdom.
         </p>
 
+
         <p>
             The Kingdom of the Earth is deeply connected
             to nature, stability and the oldest roots of Nirwest.
         </p>
-
-
-        <div class="nw-info-grid">
-
-            <div class="nw-info">
-
-                <span class="nw-info-label">
-                    REGION
-                </span>
-
-                <span class="nw-info-value">
-                    Western Nirwest
-                </span>
-
-            </div>
-
-
-            <div class="nw-info">
-
-                <span class="nw-info-label">
-                    LANDMARK
-                </span>
-
-                <span class="nw-info-value">
-                    Valley of Waterfalls
-                </span>
-
-            </div>
-
-        </div>
 
 
         <a
@@ -2269,7 +2049,7 @@ a {
 
 
 <!-- =========================================================
-     KINGDOM OF SUN
+     SUN
 ========================================================= -->
 
 <section
@@ -2305,6 +2085,7 @@ a {
 
             </div>
 
+
             <h2>
                 Kingdom of the Sun
             </h2>
@@ -2318,40 +2099,11 @@ a {
             the great realms.
         </p>
 
+
         <p>
             Its lands evoke light, order and balance
             between the surrounding kingdoms.
         </p>
-
-
-        <div class="nw-info-grid">
-
-            <div class="nw-info">
-
-                <span class="nw-info-label">
-                    REGION
-                </span>
-
-                <span class="nw-info-value">
-                    Central Nirwest
-                </span>
-
-            </div>
-
-
-            <div class="nw-info">
-
-                <span class="nw-info-label">
-                    BORDER
-                </span>
-
-                <span class="nw-info-value">
-                    Great South
-                </span>
-
-            </div>
-
-        </div>
 
 
         <a
@@ -2368,7 +2120,7 @@ a {
 
 
 <!-- =========================================================
-     KINGDOM OF FIRE
+     FIRE
 ========================================================= -->
 
 <section
@@ -2404,6 +2156,7 @@ a {
 
             </div>
 
+
             <h2>
                 Kingdom of Fire
             </h2>
@@ -2417,40 +2170,11 @@ a {
             the southeastern lands.
         </p>
 
+
         <p>
             Its landscape is surrounded by dangerous forests,
             valleys and regions shaped by extreme forces.
         </p>
-
-
-        <div class="nw-info-grid">
-
-            <div class="nw-info">
-
-                <span class="nw-info-label">
-                    REGION
-                </span>
-
-                <span class="nw-info-value">
-                    Southern Nirwest
-                </span>
-
-            </div>
-
-
-            <div class="nw-info">
-
-                <span class="nw-info-label">
-                    LANDMARK
-                </span>
-
-                <span class="nw-info-value">
-                    Carbon Valley
-                </span>
-
-            </div>
-
-        </div>
 
 
         <a
@@ -2467,7 +2191,7 @@ a {
 
 
 <!-- =========================================================
-     KINGDOM OF AIR
+     AIR
 ========================================================= -->
 
 <section
@@ -2503,6 +2227,7 @@ a {
 
             </div>
 
+
             <h2>
                 Kingdom of Air
             </h2>
@@ -2515,40 +2240,11 @@ a {
             connected to open spaces, movement and elevation.
         </p>
 
+
         <p>
             The Kingdom of Air stands apart from the central lands,
             facing the outer borders of the known world.
         </p>
-
-
-        <div class="nw-info-grid">
-
-            <div class="nw-info">
-
-                <span class="nw-info-label">
-                    REGION
-                </span>
-
-                <span class="nw-info-value">
-                    Southwest
-                </span>
-
-            </div>
-
-
-            <div class="nw-info">
-
-                <span class="nw-info-label">
-                    BORDER
-                </span>
-
-                <span class="nw-info-value">
-                    Great South
-                </span>
-
-            </div>
-
-        </div>
 
 
         <a
@@ -2565,7 +2261,7 @@ a {
 
 
 <!-- =========================================================
-     KINGDOM OF OCEAN
+     OCEAN
 ========================================================= -->
 
 <section
@@ -2601,6 +2297,7 @@ a {
 
             </div>
 
+
             <h2>
                 Kingdom of the Ocean
             </h2>
@@ -2613,40 +2310,11 @@ a {
             separated from the western kingdoms by vast waters.
         </p>
 
+
         <p>
             Its territory is tied to maritime routes,
             distant islands and horizons that lead toward the unknown.
         </p>
-
-
-        <div class="nw-info-grid">
-
-            <div class="nw-info">
-
-                <span class="nw-info-label">
-                    REGION
-                </span>
-
-                <span class="nw-info-value">
-                    Eastern Continent
-                </span>
-
-            </div>
-
-
-            <div class="nw-info">
-
-                <span class="nw-info-label">
-                    LANDMARK
-                </span>
-
-                <span class="nw-info-value">
-                    The Three Peaks
-                </span>
-
-            </div>
-
-        </div>
 
 
         <a
@@ -2713,6 +2381,105 @@ window.addEventListener(
             );
 
         }
+
+    }
+);
+
+
+
+/* =========================================================
+   SVG MAP LABEL
+========================================================= */
+
+var regions =
+    document.querySelectorAll(
+        '.nw-region'
+    );
+
+
+var mapLabel =
+    document.getElementById(
+        'mapLabel'
+    );
+
+
+var mapLabelName =
+    document.getElementById(
+        'mapLabelName'
+    );
+
+
+regions.forEach(
+    function(region) {
+
+        function showRegion() {
+
+            var name =
+                region.getAttribute(
+                    'data-name'
+                );
+
+
+            mapLabelName.textContent =
+                name;
+
+
+            mapLabel.classList.add(
+                'visible'
+            );
+
+
+            regions.forEach(
+                function(other) {
+
+                    other.classList.remove(
+                        'active'
+                    );
+
+                }
+            );
+
+
+            region.classList.add(
+                'active'
+            );
+
+        }
+
+
+        function hideRegion() {
+
+            mapLabel.classList.remove(
+                'visible'
+            );
+
+
+            region.classList.remove(
+                'active'
+            );
+
+        }
+
+
+        region.addEventListener(
+            'mouseenter',
+            showRegion
+        );
+
+
+        region.addEventListener(
+            'mouseleave',
+            hideRegion
+        );
+
+
+        region.addEventListener(
+            'touchstart',
+            showRegion,
+            {
+                passive: true
+            }
+        );
 
     }
 );
