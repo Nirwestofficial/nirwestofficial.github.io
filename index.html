@@ -1,18 +1,18 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Nirwest Chronicles</title>
+<title>Nirwest Chronicles | Official Website</title>
 
 <style>
 
-/* =========================================================
+/* ========================================
    RESET
-========================================================= */
+======================================== */
 
 * {
     box-sizing: border-box;
@@ -22,86 +22,58 @@ html {
     scroll-behavior: smooth;
 }
 
-html,
 body {
     margin: 0;
-    padding: 0;
-
-    width: 100%;
-
     background: #070707;
-    color: #ffffff;
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
     overflow-x: hidden;
 }
 
-body {
-    min-height: 100vh;
-}
-
-a,
-button {
+button, a {
     font: inherit;
 }
 
+a {
+    color: inherit;
+    text-decoration: none;
+}
 
-/* =========================================================
-   NAVBAR
-========================================================= */
+button {
+    cursor: pointer;
+}
+
+section {
+    scroll-margin-top: 75px;
+}
+
+/* ========================================
+   NAVIGATION
+======================================== */
 
 .nw-nav {
     position: fixed;
-
     top: 0;
     left: 0;
-    right: 0;
-
+    width: 100%;
+    height: 65px;
     z-index: 1000;
 
-    height: 68px;
-
-    padding:
-        0 4vw;
-
     display: flex;
-
     align-items: center;
     justify-content: space-between;
 
-    background:
-        linear-gradient(
-            to bottom,
-            rgba(0,0,0,.92),
-            rgba(0,0,0,.40),
-            transparent
-        );
+    padding: 0 4vw;
 
-    transition:
-        background .3s ease;
-}
-
-.nw-nav.scrolled {
-    background:
-        rgba(7,7,7,.96);
+    background: rgba(7,7,7,.94);
+    border-bottom: 1px solid rgba(255,255,255,.07);
+    backdrop-filter: blur(12px);
 }
 
 .nw-logo {
-    color: #ffffff;
-
-    text-decoration: none;
-
-    font-family:
-        Georgia,
-        serif;
-
-    font-size: 24px;
+    font-family: Georgia, serif;
+    font-size: 23px;
     font-weight: bold;
-
     letter-spacing: 4px;
 }
 
@@ -111,494 +83,318 @@ button {
 
 .nw-nav-links {
     display: flex;
-
     align-items: center;
-
-    gap: 24px;
+    gap: 25px;
 }
 
 .nw-nav-links a {
-    color:
-        rgba(255,255,255,.82);
-
-    text-decoration: none;
-
-    font-size: 13px;
-
-    transition:
-        color .2s ease;
+    font-size: 12px;
+    color: rgba(255,255,255,.75);
+    transition: color .2s;
 }
 
 .nw-nav-links a:hover {
-    color: #ffffff;
-}
-
-
-/* =========================================================
-   HERO
-========================================================= */
-
-.nw-hero {
-    position: relative;
-
-    width: 100vw;
-    height: 100vh;
-
-    min-height: 650px;
-
-    overflow: hidden;
-
-    background: #000;
-}
-
-.nw-hero-slide {
-    position: absolute;
-
-    inset: 0;
-
-    opacity: 0;
-
-    pointer-events: none;
-
-    transition:
-        opacity .75s ease;
-}
-
-.nw-hero-slide.active {
-    opacity: 1;
-
-    pointer-events: auto;
-}
-
-.nw-hero-bg {
-    position: absolute;
-
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-
-    background-size: cover;
-    background-position: center center;
-
-    transform:
-        scale(1.01);
-}
-
-.nw-hero-overlay {
-    position: absolute;
-
-    inset: 0;
-
-    background:
-
-        linear-gradient(
-            90deg,
-            rgba(0,0,0,.90) 0%,
-            rgba(0,0,0,.66) 30%,
-            rgba(0,0,0,.22) 62%,
-            rgba(0,0,0,.04) 100%
-        ),
-
-        linear-gradient(
-            0deg,
-            #070707 0%,
-            rgba(7,7,7,.50) 18%,
-            transparent 50%
-        );
-}
-
-.nw-hero-content {
-    position: relative;
-
-    z-index: 5;
-
-    height: 100%;
-
-    display: flex;
-
-    align-items: flex-end;
-
-    padding:
-        0 5vw 12vh;
-}
-
-.nw-hero-inner {
-    width:
-        min(660px,85vw);
-}
-
-.nw-eyebrow {
-    margin-bottom:
-        12px;
-
     color: #c79850;
+}
 
-    font-size: 11px;
+/* ========================================
+   COMMON
+======================================== */
 
+.nw-kicker {
+    color: #c79850;
+    font-size: 10px;
     font-weight: bold;
-
-    letter-spacing: 6px;
-}
-
-.nw-hero-title {
-    margin: 0;
-
-    font-family:
-        Georgia,
-        serif;
-
-    font-size:
-        clamp(
-            45px,
-            7vw,
-            104px
-        );
-
-    line-height: .92;
-
-    text-transform:
-        uppercase;
-
-    text-shadow:
-        0 5px 25px
-        rgba(0,0,0,.85);
-}
-
-.nw-hero-subtitle {
-    margin-top: 12px;
-
-    color: #c79850;
-
-    font-family:
-        Georgia,
-        serif;
-
-    font-size:
-        clamp(
-            17px,
-            2vw,
-            28px
-        );
-
-    letter-spacing: 7px;
-}
-
-.nw-hero-meta {
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 16px;
-
-    margin-top: 20px;
-
-    color:
-        rgba(255,255,255,.65);
-
-    font-size: 12px;
-}
-
-.nw-hero-description {
-    max-width: 560px;
-
-    margin:
-        20px 0 0;
-
-    color:
-        rgba(255,255,255,.86);
-
-    font-size: 15px;
-
-    line-height: 1.6;
-}
-
-
-/* =========================================================
-   BUTTONS
-========================================================= */
-
-.nw-buttons {
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 12px;
-
-    margin-top: 27px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
 }
 
 .nw-btn {
     display: inline-flex;
-
     align-items: center;
     justify-content: center;
 
-    min-height: 45px;
-
-    padding:
-        0 21px;
+    min-height: 41px;
+    padding: 0 19px;
 
     border: 0;
-
     border-radius: 5px;
 
-    font-size: 14px;
+    font-size: 12px;
     font-weight: bold;
-
     text-decoration: none;
 
-    cursor: pointer;
-
-    transition:
-        transform .2s ease,
-        background .2s ease;
+    transition: transform .2s, background .2s;
 }
 
 .nw-btn:hover {
-    transform:
-        scale(1.04);
+    transform: scale(1.04);
 }
 
 .nw-primary {
-    background: #ffffff;
-
-    color: #090909;
+    background: white;
+    color: #080808;
 }
 
 .nw-secondary {
-    color: #ffffff;
-
-    background:
-        rgba(110,110,110,.55);
-
-    backdrop-filter:
-        blur(5px);
-}
-
-
-/* =========================================================
-   HERO ARROWS
-========================================================= */
-
-.nw-hero-arrow {
-    position: absolute;
-
-    top: 50%;
-
-    transform:
-        translateY(-50%);
-
-    width: 48px;
-    height: 82px;
-
-    padding: 0;
-
-    border: 0;
-
-    background:
-        rgba(0,0,0,.44);
-
+    background: rgba(110,110,110,.45);
     color: white;
-
-    font-size: 35px;
-
-    cursor: pointer;
-
-    z-index: 20;
-
-    transition:
-        background .2s ease;
 }
 
-.nw-hero-arrow:hover {
-    background:
-        rgba(0,0,0,.80);
-}
-
-.nw-hero-left {
-    left: 0;
-}
-
-.nw-hero-right {
-    right: 0;
-}
-
-
-/* =========================================================
-   HERO DOTS
-========================================================= */
-
-.nw-hero-dots {
-    position: absolute;
-
-    z-index: 30;
-
-    left: 5vw;
-    bottom: 28px;
-
+.nw-buttons {
     display: flex;
-
-    gap: 8px;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 19px;
 }
 
-.nw-dot {
-    width: 9px;
-    height: 9px;
+/* ========================================
+   1. BOOK - COMPACT TOP SECTION
+======================================== */
 
-    padding: 0;
-
-    border: 0;
-
-    border-radius: 50%;
+.nw-book-section {
+    padding: 85px 5vw 25px;
 
     background:
-        rgba(255,255,255,.30);
-
-    cursor: pointer;
+        radial-gradient(
+            ellipse at 25% 35%,
+            rgba(199,152,80,.09),
+            transparent 55%
+        ),
+        #080808;
 }
 
-.nw-dot.active {
-    background: #c79850;
+.nw-book {
+    width: 100%;
+    max-width: 1150px;
+    margin: 0 auto;
 
-    transform:
-        scale(1.25);
+    display: grid;
+    grid-template-columns: 180px minmax(0,1fr);
+    align-items: center;
+    gap: 35px;
 }
 
+.nw-book-image {
+    display: flex;
+    justify-content: center;
+}
 
-/* =========================================================
-   GENERAL
-========================================================= */
+.nw-book-image img {
+    width: 100%;
+    max-width: 180px;
+    max-height: 260px;
+    object-fit: contain;
 
-main {
+    border-radius: 5px;
+
+    filter:
+        drop-shadow(0 12px 22px rgba(0,0,0,.75));
+}
+
+.nw-book-content {
+    max-width: 760px;
+}
+
+.nw-book-content h1 {
+    margin: 8px 0 12px;
+
+    font-family: Georgia, serif;
+    font-weight: normal;
+    font-size: clamp(30px, 3.4vw, 48px);
+    line-height: 1.05;
+}
+
+.nw-book-content p {
+    margin: 0;
+    max-width: 650px;
+
+    color: rgba(255,255,255,.72);
+    font-size: 13px;
+    line-height: 1.65;
+}
+
+/* ========================================
+   2. EPISODES
+======================================== */
+
+.nw-section {
+    padding: 25px 0 30px;
     background: #070707;
 }
 
-.nw-section {
-    width: 100%;
-
-    padding:
-        38px 0;
-}
-
 .nw-section-header {
+    padding: 0 4vw 14px;
+
     display: flex;
-
-    align-items: flex-end;
     justify-content: space-between;
-
-    gap: 20px;
-
-    padding:
-        0 4vw 15px;
-}
-
-.nw-kicker {
-    margin-bottom: 7px;
-
-    color: #c79850;
-
-    font-size: 10px;
-    font-weight: bold;
-
-    letter-spacing: 5px;
+    align-items: flex-end;
+    gap: 15px;
 }
 
 .nw-section-title {
-    margin: 0;
+    margin: 6px 0 0;
 
-    font-family:
-        Georgia,
-        serif;
-
-    font-size:
-        clamp(
-            27px,
-            3vw,
-            40px
-        );
-
+    font-family: Georgia, serif;
+    font-size: clamp(26px,3vw,39px);
     font-weight: normal;
 }
 
 .nw-note {
-    color:
-        rgba(255,255,255,.40);
-
+    color: rgba(255,255,255,.40);
     font-size: 11px;
 }
 
-
-/* =========================================================
-   EPISODES
-========================================================= */
-
 .nw-row-container {
     position: relative;
-
-    width: 100%;
 }
 
 .nw-row {
     display: flex;
+    gap: 15px;
 
-    gap: 16px;
-
-    width: 100%;
-
-    padding:
-        8px 4vw 22px;
+    padding: 8px 4vw 22px;
 
     overflow-x: auto;
-    overflow-y: visible;
-
     scroll-behavior: smooth;
-
-    scroll-snap-type:
-        x proximity;
-
+    scroll-snap-type: x mandatory;
     scrollbar-width: none;
 
-    -webkit-overflow-scrolling:
-        touch;
+    -webkit-overflow-scrolling: touch;
 }
 
 .nw-row::-webkit-scrollbar {
     display: none;
 }
 
-.nw-row-arrow {
-    position: absolute;
+.nw-card {
+    flex: 0 0 clamp(250px,28vw,385px);
+    min-width: 0;
 
-    top: 50%;
-
-    transform:
-        translateY(-65%);
-
-    width: 44px;
-    height: 90px;
-
-    border: 0;
-
-    color: white;
-
-    background:
-        rgba(0,0,0,.52);
-
-    font-size: 33px;
-
+    scroll-snap-align: start;
     cursor: pointer;
 
-    z-index: 20;
-
-    opacity: .65;
+    transition: transform .3s;
 }
 
-.nw-row-arrow:hover {
-    opacity: 1;
+.nw-card:hover {
+    transform: translateY(-5px);
+}
 
-    background:
-        rgba(0,0,0,.85);
+.nw-card-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+
+    overflow: hidden;
+    border-radius: 7px;
+    background: #151515;
+}
+
+.nw-card-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    transition: transform .4s;
+}
+
+.nw-card:hover img {
+    transform: scale(1.05);
+}
+
+.nw-card-overlay {
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,.60),
+        transparent 60%
+    );
+}
+
+.nw-play {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+
+    width: 52px;
+    height: 52px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 2px solid white;
+    border-radius: 50%;
+
+    background: rgba(0,0,0,.65);
+    font-size: 18px;
+}
+
+.nw-episode-number {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+
+    padding: 5px 9px;
+    background: rgba(0,0,0,.85);
+
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.nw-card-title {
+    margin: 11px 0 5px;
+    font-family: Georgia, serif;
+    font-size: 19px;
+}
+
+.nw-card-desc {
+    margin: 0;
+
+    color: rgba(255,255,255,.60);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.nw-coming {
+    cursor: default;
+}
+
+.nw-coming .nw-card-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(135deg,#1b1b1b,#090909);
+    border: 1px solid rgba(255,255,255,.08);
+}
+
+.nw-coming-text {
+    color: rgba(255,255,255,.35);
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.nw-row-arrow {
+    position: absolute;
+    top: 35%;
+    transform: translateY(-50%);
+    z-index: 20;
+
+    width: 42px;
+    height: 75px;
+
+    border: 0;
+    background: rgba(0,0,0,.68);
+
+    color: white;
+    font-size: 32px;
 }
 
 .nw-row-left {
@@ -609,358 +405,179 @@ main {
     right: 0;
 }
 
+/* ========================================
+   3. LARGE IMAGE SLIDER
+======================================== */
 
-/* =========================================================
-   EPISODE CARDS
-========================================================= */
-
-.nw-card {
-    flex:
-        0 0 clamp(
-            270px,
-            30vw,
-            420px
-        );
-
-    scroll-snap-align:
-        start;
-
-    cursor: pointer;
-
-    transition:
-        transform .3s ease;
-}
-
-.nw-card:hover {
-    transform:
-        translateY(-7px)
-        scale(1.02);
-}
-
-.nw-card-image {
+.nw-hero {
     position: relative;
-
     width: 100%;
-
-    aspect-ratio:
-        16 / 9;
+    height: 78vh;
+    min-height: 500px;
 
     overflow: hidden;
-
-    border-radius: 7px;
-
-    background: #151515;
-
-    box-shadow:
-        0 12px 28px
-        rgba(0,0,0,.50);
+    background: #000;
 }
 
-.nw-card-image img {
-    display: block;
+.nw-hero-slide {
+    position: absolute;
+    inset: 0;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition: opacity .8s ease, visibility .8s;
+}
+
+.nw-hero-slide.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.nw-hero-bg {
+    position: absolute;
+    inset: 0;
 
     width: 100%;
     height: 100%;
 
-    object-fit: cover;
-
-    transition:
-        transform .4s ease;
+    background-size: cover;
+    background-position: center;
 }
 
-.nw-card:hover img {
-    transform:
-        scale(1.05);
-}
-
-.nw-card-overlay {
+.nw-hero-overlay {
     position: absolute;
-
     inset: 0;
 
     background:
         linear-gradient(
-            to top,
-            rgba(0,0,0,.65),
-            transparent 60%
+            90deg,
+            rgba(0,0,0,.88),
+            rgba(0,0,0,.40) 55%,
+            rgba(0,0,0,.08)
+        ),
+        linear-gradient(
+            0deg,
+            #070707,
+            transparent 55%
         );
 }
 
-.nw-play {
-    position: absolute;
+.nw-hero-content {
+    position: relative;
+    z-index: 5;
 
-    left: 50%;
-    top: 50%;
-
-    transform:
-        translate(-50%,-50%);
-
-    width: 55px;
-    height: 55px;
+    height: 100%;
 
     display: flex;
+    align-items: flex-end;
 
-    align-items: center;
-    justify-content: center;
+    padding: 0 6vw 10vh;
+}
 
-    border:
-        2px solid white;
+.nw-hero-inner {
+    width: min(700px,85vw);
+}
 
-    border-radius: 50%;
+.nw-hero-title {
+    margin: 12px 0 0;
 
-    background:
-        rgba(0,0,0,.58);
+    font-family: Georgia, serif;
+    font-size: clamp(42px,6vw,85px);
+    text-transform: uppercase;
+    line-height: 1;
+
+    text-shadow: 0 5px 25px rgba(0,0,0,.85);
+}
+
+.nw-hero-subtitle {
+    margin-top: 12px;
+
+    color: #c79850;
+    font-family: Georgia, serif;
+    font-size: clamp(17px,2vw,26px);
+    letter-spacing: 5px;
+}
+
+.nw-hero-description {
+    max-width: 560px;
+    margin: 16px 0 0;
+
+    color: rgba(255,255,255,.85);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.nw-hero-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;
+
+    width: 45px;
+    height: 75px;
+
+    border: 0;
+    background: rgba(0,0,0,.50);
 
     color: white;
-
-    font-size: 19px;
-
-    opacity: 0;
-
-    transition:
-        opacity .2s ease;
+    font-size: 34px;
 }
 
-.nw-card:hover
-.nw-play {
-    opacity: 1;
+.nw-hero-arrow:hover {
+    background: rgba(0,0,0,.85);
 }
 
-.nw-episode-number {
+.nw-hero-left {
+    left: 0;
+}
+
+.nw-hero-right {
+    right: 0;
+}
+
+.nw-hero-dots {
     position: absolute;
+    z-index: 30;
+    bottom: 25px;
+    left: 6vw;
 
-    left: 10px;
-    bottom: 10px;
-
-    padding:
-        5px 8px;
-
-    background:
-        rgba(0,0,0,.82);
-
-    font-size: 10px;
-
-    font-weight: bold;
-}
-
-.nw-card-title {
-    margin:
-        11px 0 5px;
-
-    font-family:
-        Georgia,
-        serif;
-
-    font-size: 20px;
-}
-
-.nw-card-desc {
-    margin: 0;
-
-    color:
-        rgba(255,255,255,.62);
-
-    font-size: 12px;
-
-    line-height: 1.5;
-
-    display:
-        -webkit-box;
-
-    -webkit-line-clamp: 3;
-
-    -webkit-box-orient:
-        vertical;
-
-    overflow: hidden;
-}
-
-
-/* =========================================================
-   COMING SOON
-========================================================= */
-
-.nw-coming {
-    cursor: default;
-}
-
-.nw-coming:hover {
-    transform:
-        translateY(-7px);
-}
-
-.nw-coming
-.nw-card-image {
     display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    background:
-        linear-gradient(
-            135deg,
-            #181818,
-            #080808
-        );
-
-    border:
-        1px solid
-        rgba(255,255,255,.08);
+    gap: 9px;
 }
 
-.nw-coming-text {
-    color:
-        rgba(255,255,255,.35);
+.nw-dot {
+    width: 10px;
+    height: 10px;
 
-    font-weight: bold;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
 
-    letter-spacing: 3px;
-
-    text-transform: uppercase;
+    background: rgba(255,255,255,.35);
 }
 
-
-/* =========================================================
-   BOOK
-========================================================= */
-
-.nw-book-section {
-    padding:
-        65px 5vw 80px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #0d0d0d,
-            #050505
-        );
+.nw-dot.active {
+    background: #c79850;
 }
 
-.nw-book {
-    max-width: 1300px;
-
-    margin: 0 auto;
-
-    display: grid;
-
-    grid-template-columns:
-        minmax(280px,430px)
-        minmax(0,1fr);
-
-    align-items: center;
-
-    gap: 60px;
-}
-
-.nw-book-image img {
-    display: block;
-
-    width: 100%;
-    height: auto;
-
-    border-radius: 8px;
-
-    box-shadow:
-        0 20px 60px
-        rgba(0,0,0,.55);
-}
-
-.nw-book-content {
-    max-width: 720px;
-}
-
-.nw-book-content h2 {
-    margin:
-        0 0 18px;
-
-    font-family:
-        Georgia,
-        serif;
-
-    font-size:
-        clamp(
-            36px,
-            5vw,
-            65px
-        );
-
-    font-weight: normal;
-}
-
-.nw-book-content p {
-    color:
-        rgba(255,255,255,.72);
-
-    font-size: 15px;
-
-    line-height: 1.75;
-}
-
-
-/* =========================================================
-   MAP
-========================================================= */
+/* ========================================
+   4. MAP
+======================================== */
 
 .nw-map {
     position: relative;
-
-    width: 100vw;
-
-    min-height: 82vh;
-
+    width: 100%;
+    min-height: 75vh;
     overflow: hidden;
 
     background: #090806;
 }
 
-.nw-map::before {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: 0;
-    right: 0;
-
-    height: 180px;
-
-    z-index: 3;
-
-    pointer-events: none;
-
-    background:
-        linear-gradient(
-            to bottom,
-            #070707,
-            transparent
-        );
-}
-
-.nw-map::after {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: 5vw;
-    right: 5vw;
-
-    height: 1px;
-
-    z-index: 4;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(199,152,80,.75),
-            transparent
-        );
-}
-
 .nw-map-image {
     position: absolute;
-
     inset: 0;
 
     width: 100%;
@@ -969,263 +586,160 @@ main {
     object-fit: cover;
     object-position: center;
 
-    filter:
-        brightness(.72);
+    filter: brightness(.75);
 }
 
 .nw-map-overlay {
     position: absolute;
-
     inset: 0;
 
     background:
-
         linear-gradient(
             90deg,
-            rgba(0,0,0,.82),
-            rgba(0,0,0,.34) 50%,
-            rgba(0,0,0,.12)
+            rgba(0,0,0,.85),
+            rgba(0,0,0,.25) 70%
         ),
-
         linear-gradient(
             0deg,
-            #070707 0%,
-            transparent 45%
+            #070707,
+            transparent 50%
         );
 }
 
 .nw-map-content {
     position: relative;
-
     z-index: 5;
 
-    min-height: 82vh;
+    min-height: 75vh;
+    max-width: 750px;
 
     display: flex;
-
     flex-direction: column;
-
     justify-content: flex-end;
     align-items: flex-start;
 
-    max-width: 650px;
-
-    padding:
-        0 5vw 8vh;
+    padding: 70px 5vw 8vh;
 }
 
 .nw-map-content h2 {
-    margin:
-        6px 0 16px;
+    margin: 9px 0 17px;
 
-    font-family:
-        Georgia,
-        serif;
-
-    font-size:
-        clamp(
-            42px,
-            6vw,
-            78px
-        );
-
+    font-family: Georgia, serif;
     font-weight: normal;
+    font-size: clamp(40px,6vw,75px);
 }
 
 .nw-map-content p {
-    margin:
-        0 0 25px;
+    max-width: 570px;
+    margin: 0 0 22px;
 
-    color:
-        rgba(255,255,255,.78);
-
-    line-height: 1.65;
-
-    font-size: 15px;
+    color: rgba(255,255,255,.78);
+    font-size: 14px;
+    line-height: 1.7;
 }
 
-
-/* =========================================================
-   VIDEO PLAYER MODAL
-========================================================= */
+/* ========================================
+   VIDEO MODAL
+======================================== */
 
 .nw-video-modal {
     position: fixed;
-
     inset: 0;
-
     z-index: 5000;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
     padding: 24px;
-
-    background:
-        rgba(0,0,0,.92);
-
-    backdrop-filter:
-        blur(8px);
+    background: rgba(0,0,0,.94);
 
     opacity: 0;
-
     visibility: hidden;
-
     pointer-events: none;
 
-    transition:
-        opacity .25s ease,
-        visibility .25s ease;
+    transition: opacity .25s, visibility .25s;
 }
 
 .nw-video-modal.active {
     opacity: 1;
-
     visibility: visible;
-
     pointer-events: auto;
 }
 
 .nw-video-shell {
     position: relative;
 
-    width:
-        min(1200px,94vw);
+    width: min(1100px,94vw);
+    aspect-ratio: 16 / 9;
 
-    aspect-ratio:
-        16 / 9;
-
+    background: black;
+    border-radius: 8px;
     overflow: hidden;
-
-    border:
-        1px solid
-        rgba(255,255,255,.12);
-
-    border-radius: 10px;
-
-    background: #000;
-
-    box-shadow:
-        0 25px 90px
-        rgba(0,0,0,.75);
 }
 
 .nw-video-shell iframe {
-    display: block;
-
     width: 100%;
     height: 100%;
-
     border: 0;
 }
 
 .nw-video-close {
     position: absolute;
-
-    top: 16px;
-    right: 18px;
-
+    top: 15px;
+    right: 20px;
     z-index: 5100;
 
-    width: 46px;
-    height: 46px;
+    width: 44px;
+    height: 44px;
 
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    border:
-        1px solid
-        rgba(255,255,255,.22);
-
+    border: 1px solid rgba(255,255,255,.3);
     border-radius: 50%;
 
-    background:
-        rgba(0,0,0,.72);
-
-    color: #ffffff;
-
-    font-size: 26px;
-
-    line-height: 1;
-
-    cursor: pointer;
-
-    transition:
-        background .2s ease,
-        border-color .2s ease,
-        transform .2s ease;
-}
-
-.nw-video-close:hover {
-    background: #c79850;
-
-    border-color: #c79850;
-
-    transform:
-        scale(1.06);
+    background: rgba(0,0,0,.8);
+    color: white;
+    font-size: 28px;
 }
 
 body.nw-video-open {
     overflow: hidden;
 }
 
-
-/* =========================================================
+/* ========================================
    FOOTER
-========================================================= */
+======================================== */
 
 .nw-footer {
-    padding:
-        50px 5vw 65px;
+    padding: 45px 5vw 65px;
 
-    border-top:
-        1px solid
-        rgba(255,255,255,.08);
+    border-top: 1px solid rgba(255,255,255,.08);
 
-    color:
-        rgba(255,255,255,.38);
-
+    color: rgba(255,255,255,.4);
     font-size: 12px;
 }
 
 .nw-footer-logo {
-    margin-bottom: 9px;
+    margin-bottom: 10px;
 
     color: white;
-
-    font-family:
-        Georgia,
-        serif;
-
-    font-size: 22px;
-
+    font-family: Georgia, serif;
+    font-size: 23px;
     letter-spacing: 4px;
 }
 
-
-/* =========================================================
+/* ========================================
    MOBILE
-========================================================= */
+======================================== */
 
-@media screen and (max-width:700px) {
+@media (max-width: 700px) {
 
     .nw-nav {
         height: 58px;
-
-        padding:
-            0 17px;
-
-        background:
-            rgba(7,7,7,.92);
+        padding: 0 16px;
     }
 
     .nw-logo {
         font-size: 18px;
-
         letter-spacing: 2px;
     }
 
@@ -1233,82 +747,53 @@ body.nw-video-open {
         display: none;
     }
 
-    .nw-hero {
-        height: 82vh;
-
-        min-height: 600px;
+    .nw-book-section {
+        padding: 74px 15px 20px;
     }
 
-    .nw-hero-content {
-        padding:
-            0 20px 58px;
+    .nw-book {
+        grid-template-columns: 105px minmax(0,1fr);
+        gap: 15px;
+        align-items: center;
     }
 
-    .nw-hero-inner {
-        width: 100%;
+    .nw-book-image img {
+        max-width: 105px;
+        max-height: 170px;
     }
 
-    .nw-eyebrow {
-        font-size: 9px;
-
-        letter-spacing: 4px;
+    .nw-book-content h1 {
+        font-size: clamp(22px,5.8vw,31px);
+        margin: 6px 0 8px;
     }
 
-    .nw-hero-title {
-        font-size:
-            clamp(
-                38px,
-                12vw,
-                55px
-            );
+    .nw-book-content .nw-kicker {
+        font-size: 8px;
+        letter-spacing: 2px;
     }
 
-    .nw-hero-subtitle {
-        font-size: 14px;
-
-        letter-spacing: 4px;
-    }
-
-    .nw-hero-description {
-        font-size: 12px;
-
+    .nw-book-content p {
+        font-size: 11px;
         line-height: 1.45;
     }
 
-    .nw-hero-meta {
-        font-size: 10px;
+    .nw-book-content .nw-buttons {
+        gap: 6px;
+        margin-top: 11px;
     }
 
     .nw-btn {
-        min-height: 40px;
-
-        padding:
-            0 14px;
-
-        font-size: 12px;
-    }
-
-    .nw-hero-arrow {
-        width: 30px;
-        height: 52px;
-
-        font-size: 22px;
-    }
-
-    .nw-hero-dots {
-        left: 20px;
-
-        bottom: 18px;
+        min-height: 36px;
+        padding: 0 10px;
+        font-size: 10px;
     }
 
     .nw-section {
-        padding:
-            22px 0;
+        padding: 18px 0 23px;
     }
 
     .nw-section-header {
-        padding:
-            0 16px 11px;
+        padding: 0 16px 12px;
     }
 
     .nw-note {
@@ -1316,24 +801,13 @@ body.nw-video-open {
     }
 
     .nw-row {
-        padding:
-            5px 16px 16px;
-
         gap: 12px;
+        padding: 5px 16px 15px;
     }
 
     .nw-card {
-        flex:
-            0 0 82vw;
-
-        max-width: 360px;
-    }
-
-    .nw-play {
-        opacity: 1;
-
-        width: 48px;
-        height: 48px;
+        flex: 0 0 78vw;
+        max-width: 350px;
     }
 
     .nw-row-arrow {
@@ -1341,126 +815,98 @@ body.nw-video-open {
     }
 
     .nw-card-title {
-        font-size: 18px;
+        font-size: 17px;
     }
 
-    .nw-card-desc {
-        font-size: 11px;
-
-        -webkit-line-clamp: 2;
+    .nw-hero {
+        height: 65vh;
+        min-height: 430px;
     }
 
-    .nw-book-section {
-        padding:
-            45px 16px 55px;
+    .nw-hero-content {
+        padding: 0 20px 60px;
     }
 
-    .nw-book {
-        grid-template-columns:
-            1fr;
-
-        gap: 28px;
+    .nw-hero-title {
+        font-size: clamp(35px,9vw,55px);
     }
 
-    .nw-book-image {
-        max-width: 360px;
-
-        margin:
-            0 auto;
+    .nw-hero-subtitle {
+        font-size: 15px;
+        letter-spacing: 3px;
     }
 
-    .nw-book-content p {
-        font-size: 13px;
+    .nw-hero-description {
+        font-size: 12px;
+        line-height: 1.5;
     }
 
-    .nw-map {
-        min-height: 68vh;
+    .nw-hero-arrow {
+        width: 30px;
+        height: 55px;
+        font-size: 25px;
     }
 
-    .nw-map::before {
-        height: 110px;
+    .nw-hero-dots {
+        left: 20px;
+        bottom: 18px;
+    }
+
+    .nw-map,
+    .nw-map-content {
+        min-height: 65vh;
     }
 
     .nw-map-content {
-        min-height: 68vh;
-
-        padding:
-            0 20px 50px;
+        padding: 60px 20px 45px;
     }
 
     .nw-map-content p {
-        font-size: 13px;
+        font-size: 12px;
     }
 
     .nw-video-modal {
         padding: 10px;
     }
 
-    .nw-video-shell {
-        width: 100%;
-
-        border-radius: 6px;
-    }
-
     .nw-video-close {
         top: 10px;
         right: 10px;
-
-        width: 40px;
-        height: 40px;
-
-        font-size: 22px;
     }
+}
 
-    .nw-footer {
-        padding:
-            40px 20px 60px;
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
     }
-
 }
 
 </style>
-
 </head>
-
 
 <body>
 
+<!-- ========================================
+     NAVIGATION
+======================================== -->
 
-<!-- =========================================================
-     NAVBAR
-========================================================= -->
+<nav class="nw-nav" id="navbar">
 
-<nav
-    class="nw-nav"
-    id="navbar"
->
-
-    <a
-        href="#home"
-        class="nw-logo"
-    >
+    <a href="#home" class="nw-logo">
         NIRWEST<span>+</span>
     </a>
 
-
     <div class="nw-nav-links">
 
-        <a href="#home">
-            Home
-        </a>
+        <a href="#home">Home</a>
 
-        <a href="#episodes">
-            Season One
-        </a>
+        <a href="#book">The Book</a>
 
-        <a href="#book">
-            The Book
-        </a>
+        <a href="#episodes">Season One</a>
 
-        <a href="#map">
-            Map
-        </a>
+        <a href="#featured">Featured</a>
+
+        <a href="#map">Map</a>
 
         <a
             href="https://www.youtube.com/@Nirwest-official"
@@ -1475,79 +921,60 @@ body.nw-video-open {
 </nav>
 
 
+<main id="home">
 
-<!-- =========================================================
-     HERO
-========================================================= -->
+<!-- ========================================
+     1. BOOK - FIRST SECTION
+======================================== -->
 
-<section
-    class="nw-hero"
-    id="home"
->
+<section class="nw-book-section" id="book">
 
+    <div class="nw-book">
 
-<!-- =========================================================
-     TRAILER
-========================================================= -->
+        <div class="nw-book-image">
 
-<div class="nw-hero-slide active">
+            <img
+                src="nirwest-book.png"
+                alt="Nirwest original novel"
+            >
 
-    <div
-        class="nw-hero-bg"
-        style="
-        background-image:
-        url('hero-trailer.png');
-        "
-    ></div>
+        </div>
 
-    <div class="nw-hero-overlay"></div>
+        <div class="nw-book-content">
 
-
-    <div class="nw-hero-content">
-
-        <div class="nw-hero-inner">
-
-            <div class="nw-eyebrow">
-                NIRWEST CHRONICLES
+            <div class="nw-kicker">
+                THE ORIGINAL NOVEL
             </div>
 
-            <h1 class="nw-hero-title">
-                Official Trailer
+            <h1>
+                Discover Nirwest on the page.
             </h1>
 
-            <div class="nw-hero-subtitle">
-                ENTER NIRWEST
-            </div>
-
-            <div class="nw-hero-meta">
-
-                <span>
-                    Fantasy
-                </span>
-
-                <span>
-                    Official Trailer
-                </span>
-
-            </div>
-
+            <p>
+                The world of Nirwest lives beyond the screen.
+                Discover the original novel and enter a world
+                of dragons, kingdoms, ancient powers,
+                mysterious symbols and forgotten legends.
+            </p>
 
             <div class="nw-buttons">
 
-                <button
-                    type="button"
+                <a
+                    href="https://mybook.to/eAgtXf"
                     class="nw-btn nw-primary"
-                    onclick="openVideo('wFhQjP9k5o4')"
+                    target="_blank"
+                    rel="noopener"
                 >
-                    ▶ Watch
-                </button>
-
+                    English Edition
+                </a>
 
                 <a
-                    href="#episodes"
+                    href="http://relinks.me/B0G4B3V9KY"
                     class="nw-btn nw-secondary"
+                    target="_blank"
+                    rel="noopener"
                 >
-                    ⓘ Episodes
+                    Italian Edition
                 </a>
 
             </div>
@@ -1556,256 +983,14 @@ body.nw-video-open {
 
     </div>
 
-</div>
-
-
-
-<!-- =========================================================
-     EPISODE 0
-========================================================= -->
-
-<div class="nw-hero-slide">
-
-    <div
-        class="nw-hero-bg"
-        style="
-        background-image:
-        url('hero-episode0.png');
-        "
-    ></div>
-
-    <div class="nw-hero-overlay"></div>
-
-
-    <div class="nw-hero-content">
-
-        <div class="nw-hero-inner">
-
-            <div class="nw-eyebrow">
-                EPISODE 0
-            </div>
-
-            <h1 class="nw-hero-title">
-                The Birth of a Black Blade
-            </h1>
-
-            <div class="nw-hero-subtitle">
-                PROLOGUE
-            </div>
-
-            <p class="nw-hero-description">
-                The prologue opens the first book and sets the stage
-                for the first of its ten episodes.
-            </p>
-
-
-            <div class="nw-buttons">
-
-                <button
-                    type="button"
-                    class="nw-btn nw-primary"
-                    onclick="openVideo('ovSthDlFMGM')"
-                >
-                    ▶ Watch
-                </button>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-
-<!-- =========================================================
-     EPISODE 1
-========================================================= -->
-
-<div class="nw-hero-slide">
-
-    <div
-        class="nw-hero-bg"
-        style="
-        background-image:
-        url('hero-episode1.png');
-        "
-    ></div>
-
-    <div class="nw-hero-overlay"></div>
-
-
-    <div class="nw-hero-content">
-
-        <div class="nw-hero-inner">
-
-            <div class="nw-eyebrow">
-                EPISODE 1
-            </div>
-
-            <h1 class="nw-hero-title">
-                Mysterious Drawings
-            </h1>
-
-            <div class="nw-hero-subtitle">
-                SEASON ONE
-            </div>
-
-            <p class="nw-hero-description">
-                Jago discovers that he is one of the Chosen.
-                A mysterious mission has appeared on his arm,
-                one that he is destined to fulfill.
-            </p>
-
-
-            <div class="nw-buttons">
-
-                <button
-                    type="button"
-                    class="nw-btn nw-primary"
-                    onclick="openVideo('WIf-MYzEQ8Y')"
-                >
-                    ▶ Watch
-                </button>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-
-<!-- =========================================================
-     EPISODE 2
-========================================================= -->
-
-<div class="nw-hero-slide">
-
-    <div
-        class="nw-hero-bg"
-        style="
-        background-image:
-        url('hero-episode2.png');
-        "
-    ></div>
-
-    <div class="nw-hero-overlay"></div>
-
-
-    <div class="nw-hero-content">
-
-        <div class="nw-hero-inner">
-
-            <div class="nw-eyebrow">
-                EPISODE 2
-            </div>
-
-            <h1 class="nw-hero-title">
-                Royal Symbols
-            </h1>
-
-            <div class="nw-hero-subtitle">
-                SEASON ONE
-            </div>
-
-            <p class="nw-hero-description">
-                The witch reveals the ancient origins of the dragons
-                and tells the story of the last Dragon Riders,
-                Hadrian and Cassius.
-            </p>
-
-
-            <div class="nw-buttons">
-
-                <button
-                    type="button"
-                    class="nw-btn nw-primary"
-                    onclick="openVideo('cyoHyvG7dSc')"
-                >
-                    ▶ Watch
-                </button>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-
-<!-- HERO ARROWS -->
-
-<button
-    class="nw-hero-arrow nw-hero-left"
-    onclick="heroPrevious()"
-    aria-label="Previous"
->
-    ‹
-</button>
-
-
-<button
-    class="nw-hero-arrow nw-hero-right"
-    onclick="heroNext()"
-    aria-label="Next"
->
-    ›
-</button>
-
-
-
-<!-- HERO DOTS -->
-
-<div class="nw-hero-dots">
-
-    <button
-        class="nw-dot active"
-        onclick="heroGo(0)"
-        aria-label="Trailer"
-    ></button>
-
-    <button
-        class="nw-dot"
-        onclick="heroGo(1)"
-        aria-label="Episode 0"
-    ></button>
-
-    <button
-        class="nw-dot"
-        onclick="heroGo(2)"
-        aria-label="Episode 1"
-    ></button>
-
-    <button
-        class="nw-dot"
-        onclick="heroGo(3)"
-        aria-label="Episode 2"
-    ></button>
-
-</div>
-
-
 </section>
 
 
+<!-- ========================================
+     2. YOUTUBE EPISODES
+======================================== -->
 
-<main>
-
-
-<!-- =========================================================
-     SEASON ONE
-========================================================= -->
-
-<section
-    class="nw-section"
-    id="episodes"
->
+<section class="nw-section" id="episodes">
 
     <div class="nw-section-header">
 
@@ -1821,7 +1006,6 @@ body.nw-video-open {
 
         </div>
 
-
         <div class="nw-note">
             Scroll to explore
         </div>
@@ -1829,9 +1013,7 @@ body.nw-video-open {
     </div>
 
 
-
     <div class="nw-row-container">
-
 
         <button
             class="nw-row-arrow nw-row-left"
@@ -1842,12 +1024,7 @@ body.nw-video-open {
         </button>
 
 
-
-        <div
-            class="nw-row"
-            id="episodeRow"
-        >
-
+        <div class="nw-row" id="episodeRow">
 
             <!-- EPISODE 0 -->
 
@@ -1865,9 +1042,7 @@ body.nw-video-open {
 
                     <div class="nw-card-overlay"></div>
 
-                    <div class="nw-play">
-                        ▶
-                    </div>
+                    <div class="nw-play">▶</div>
 
                     <div class="nw-episode-number">
                         EP. 0
@@ -1875,18 +1050,17 @@ body.nw-video-open {
 
                 </div>
 
-
                 <div class="nw-card-title">
                     The Birth of a Black Blade
                 </div>
 
-
-                <div class="nw-card-desc">
-                    The prologue opens the first book and sets the stage for the first of its ten episodes.
-                </div>
+                <p class="nw-card-desc">
+                    The prologue opens the first book
+                    and sets the stage for the first
+                    of its ten episodes.
+                </p>
 
             </article>
-
 
 
             <!-- EPISODE 1 -->
@@ -1905,9 +1079,7 @@ body.nw-video-open {
 
                     <div class="nw-card-overlay"></div>
 
-                    <div class="nw-play">
-                        ▶
-                    </div>
+                    <div class="nw-play">▶</div>
 
                     <div class="nw-episode-number">
                         EP. 1
@@ -1915,19 +1087,17 @@ body.nw-video-open {
 
                 </div>
 
-
                 <div class="nw-card-title">
                     Mysterious Drawings
                 </div>
 
-
-                <div class="nw-card-desc">
-                    Jago discovers that he is one of the Chosen.
-                    A mysterious mission has appeared on his arm.
-                </div>
+                <p class="nw-card-desc">
+                    Jago discovers that he is one
+                    of the Chosen. A mysterious mission
+                    has appeared on his arm.
+                </p>
 
             </article>
-
 
 
             <!-- EPISODE 2 -->
@@ -1946,9 +1116,7 @@ body.nw-video-open {
 
                     <div class="nw-card-overlay"></div>
 
-                    <div class="nw-play">
-                        ▶
-                    </div>
+                    <div class="nw-play">▶</div>
 
                     <div class="nw-episode-number">
                         EP. 2
@@ -1956,215 +1124,118 @@ body.nw-video-open {
 
                 </div>
 
-
                 <div class="nw-card-title">
                     Royal Symbols
                 </div>
 
-
-                <div class="nw-card-desc">
-                    The witch reveals the ancient origins of the dragons
-                    and tells the story of the last Dragon Riders,
-                    Hadrian and Cassius.
-                </div>
+                <p class="nw-card-desc">
+                    The witch reveals the ancient origins
+                    of the dragons and the story of the
+                    last Dragon Riders, Hadrian and Cassius.
+                </p>
 
             </article>
 
 
-
-            <!-- EPISODE 3 -->
+            <!-- EPISODES 3-10 -->
 
             <article class="nw-card nw-coming">
-
                 <div class="nw-card-image">
-
                     <div class="nw-coming-text">
                         Coming Soon
                     </div>
-
                     <div class="nw-episode-number">
                         EP. 3
                     </div>
-
                 </div>
-
-                <div class="nw-card-title">
-                    Episode 3
-                </div>
-
+                <div class="nw-card-title">Episode 3</div>
             </article>
 
-
-
-            <!-- EPISODE 4 -->
-
             <article class="nw-card nw-coming">
-
                 <div class="nw-card-image">
-
                     <div class="nw-coming-text">
                         Coming Soon
                     </div>
-
                     <div class="nw-episode-number">
                         EP. 4
                     </div>
-
                 </div>
-
-                <div class="nw-card-title">
-                    Episode 4
-                </div>
-
+                <div class="nw-card-title">Episode 4</div>
             </article>
 
-
-
-            <!-- EPISODE 5 -->
-
             <article class="nw-card nw-coming">
-
                 <div class="nw-card-image">
-
                     <div class="nw-coming-text">
                         Coming Soon
                     </div>
-
                     <div class="nw-episode-number">
                         EP. 5
                     </div>
-
                 </div>
-
-                <div class="nw-card-title">
-                    Episode 5
-                </div>
-
+                <div class="nw-card-title">Episode 5</div>
             </article>
 
-
-
-            <!-- EPISODE 6 -->
-
             <article class="nw-card nw-coming">
-
                 <div class="nw-card-image">
-
                     <div class="nw-coming-text">
                         Coming Soon
                     </div>
-
                     <div class="nw-episode-number">
                         EP. 6
                     </div>
-
                 </div>
-
-                <div class="nw-card-title">
-                    Episode 6
-                </div>
-
+                <div class="nw-card-title">Episode 6</div>
             </article>
 
-
-
-            <!-- EPISODE 7 -->
-
             <article class="nw-card nw-coming">
-
                 <div class="nw-card-image">
-
                     <div class="nw-coming-text">
                         Coming Soon
                     </div>
-
                     <div class="nw-episode-number">
                         EP. 7
                     </div>
-
                 </div>
-
-                <div class="nw-card-title">
-                    Episode 7
-                </div>
-
+                <div class="nw-card-title">Episode 7</div>
             </article>
 
-
-
-            <!-- EPISODE 8 -->
-
             <article class="nw-card nw-coming">
-
                 <div class="nw-card-image">
-
                     <div class="nw-coming-text">
                         Coming Soon
                     </div>
-
                     <div class="nw-episode-number">
                         EP. 8
                     </div>
-
                 </div>
-
-                <div class="nw-card-title">
-                    Episode 8
-                </div>
-
+                <div class="nw-card-title">Episode 8</div>
             </article>
 
-
-
-            <!-- EPISODE 9 -->
-
             <article class="nw-card nw-coming">
-
                 <div class="nw-card-image">
-
                     <div class="nw-coming-text">
                         Coming Soon
                     </div>
-
                     <div class="nw-episode-number">
                         EP. 9
                     </div>
-
                 </div>
-
-                <div class="nw-card-title">
-                    Episode 9
-                </div>
-
+                <div class="nw-card-title">Episode 9</div>
             </article>
 
-
-
-            <!-- EPISODE 10 -->
-
             <article class="nw-card nw-coming">
-
                 <div class="nw-card-image">
-
                     <div class="nw-coming-text">
                         Coming Soon
                     </div>
-
                     <div class="nw-episode-number">
                         EP. 10
                     </div>
-
                 </div>
-
-                <div class="nw-card-title">
-                    Episode 10
-                </div>
-
+                <div class="nw-card-title">Episode 10</div>
             </article>
 
-
         </div>
-
 
 
         <button
@@ -2175,103 +1246,286 @@ body.nw-video-open {
             ›
         </button>
 
+    </div>
+
+</section>
+
+
+<!-- ========================================
+     3. LARGE SCROLLING IMAGES
+======================================== -->
+
+<section class="nw-hero" id="featured">
+
+    <!-- OFFICIAL TRAILER -->
+
+    <div class="nw-hero-slide active">
+
+        <div
+            class="nw-hero-bg"
+            style="background-image:url('hero-trailer.png')"
+        ></div>
+
+        <div class="nw-hero-overlay"></div>
+
+        <div class="nw-hero-content">
+
+            <div class="nw-hero-inner">
+
+                <div class="nw-kicker">
+                    NIRWEST CHRONICLES
+                </div>
+
+                <h2 class="nw-hero-title">
+                    Official Trailer
+                </h2>
+
+                <div class="nw-hero-subtitle">
+                    ENTER NIRWEST
+                </div>
+
+                <p class="nw-hero-description">
+                    Enter a world of ancient kingdoms,
+                    mysterious powers and forgotten legends.
+                </p>
+
+                <div class="nw-buttons">
+
+                    <button
+                        class="nw-btn nw-primary"
+                        onclick="openVideo('wFhQjP9k5o4')"
+                    >
+                        ▶ Watch
+                    </button>
+
+                    <a
+                        href="#episodes"
+                        class="nw-btn nw-secondary"
+                    >
+                        Episodes
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- EPISODE 0 -->
+
+    <div class="nw-hero-slide">
+
+        <div
+            class="nw-hero-bg"
+            style="background-image:url('hero-episode0.png')"
+        ></div>
+
+        <div class="nw-hero-overlay"></div>
+
+        <div class="nw-hero-content">
+
+            <div class="nw-hero-inner">
+
+                <div class="nw-kicker">
+                    EPISODE 0
+                </div>
+
+                <h2 class="nw-hero-title">
+                    The Birth of a Black Blade
+                </h2>
+
+                <div class="nw-hero-subtitle">
+                    PROLOGUE
+                </div>
+
+                <p class="nw-hero-description">
+                    The prologue opens the first book
+                    and sets the stage for the first
+                    of its ten episodes.
+                </p>
+
+                <div class="nw-buttons">
+
+                    <button
+                        class="nw-btn nw-primary"
+                        onclick="openVideo('ovSthDlFMGM')"
+                    >
+                        ▶ Watch
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- EPISODE 1 -->
+
+    <div class="nw-hero-slide">
+
+        <div
+            class="nw-hero-bg"
+            style="background-image:url('hero-episode1.png')"
+        ></div>
+
+        <div class="nw-hero-overlay"></div>
+
+        <div class="nw-hero-content">
+
+            <div class="nw-hero-inner">
+
+                <div class="nw-kicker">
+                    EPISODE 1
+                </div>
+
+                <h2 class="nw-hero-title">
+                    Mysterious Drawings
+                </h2>
+
+                <div class="nw-hero-subtitle">
+                    SEASON ONE
+                </div>
+
+                <p class="nw-hero-description">
+                    Jago discovers that he is one of
+                    the Chosen. A mysterious mission
+                    has appeared on his arm,
+                    one that he is destined to fulfill.
+                </p>
+
+                <div class="nw-buttons">
+
+                    <button
+                        class="nw-btn nw-primary"
+                        onclick="openVideo('WIf-MYzEQ8Y')"
+                    >
+                        ▶ Watch
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- EPISODE 2 -->
+
+    <div class="nw-hero-slide">
+
+        <div
+            class="nw-hero-bg"
+            style="background-image:url('hero-episode2.png')"
+        ></div>
+
+        <div class="nw-hero-overlay"></div>
+
+        <div class="nw-hero-content">
+
+            <div class="nw-hero-inner">
+
+                <div class="nw-kicker">
+                    EPISODE 2
+                </div>
+
+                <h2 class="nw-hero-title">
+                    Royal Symbols
+                </h2>
+
+                <div class="nw-hero-subtitle">
+                    SEASON ONE
+                </div>
+
+                <p class="nw-hero-description">
+                    The witch reveals the ancient
+                    origins of the dragons and tells
+                    the story of the last Dragon Riders,
+                    Hadrian and Cassius.
+                </p>
+
+                <div class="nw-buttons">
+
+                    <button
+                        class="nw-btn nw-primary"
+                        onclick="openVideo('cyoHyvG7dSc')"
+                    >
+                        ▶ Watch
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- SLIDER ARROWS -->
+
+    <button
+        class="nw-hero-arrow nw-hero-left"
+        onclick="heroPrevious()"
+        aria-label="Previous slide"
+    >
+        ‹
+    </button>
+
+    <button
+        class="nw-hero-arrow nw-hero-right"
+        onclick="heroNext()"
+        aria-label="Next slide"
+    >
+        ›
+    </button>
+
+
+    <!-- DOTS -->
+
+    <div class="nw-hero-dots">
+
+        <button
+            class="nw-dot active"
+            onclick="heroGo(0)"
+            aria-label="Trailer"
+        ></button>
+
+        <button
+            class="nw-dot"
+            onclick="heroGo(1)"
+            aria-label="Episode 0"
+        ></button>
+
+        <button
+            class="nw-dot"
+            onclick="heroGo(2)"
+            aria-label="Episode 1"
+        ></button>
+
+        <button
+            class="nw-dot"
+            onclick="heroGo(3)"
+            aria-label="Episode 2"
+        ></button>
 
     </div>
 
 </section>
 
 
+<!-- ========================================
+     4. NIRWEST MAP
+======================================== -->
 
-<!-- =========================================================
-     BOOK
-========================================================= -->
-
-<section
-    class="nw-book-section"
-    id="book"
->
-
-    <div class="nw-book">
-
-
-        <div class="nw-book-image">
-
-            <img
-                src="nirwest-book.png"
-                alt="Nirwest Book"
-            >
-
-        </div>
-
-
-        <div class="nw-book-content">
-
-            <div class="nw-kicker">
-                THE ORIGINAL NOVEL
-            </div>
-
-
-            <h2>
-                Discover Nirwest on the page.
-            </h2>
-
-
-            <p>
-                The world of Nirwest lives beyond the screen.
-                Discover the original novel and enter a world
-                of dragons, kingdoms, ancient powers, mysterious
-                symbols and forgotten legends.
-            </p>
-
-
-            <p>
-                Choose your edition and discover the story
-                that inspired the world of Nirwest Chronicles.
-            </p>
-
-
-            <div class="nw-buttons">
-
-
-                <a
-                    class="nw-btn nw-primary"
-                    href="https://mybook.to/eAgtXf"
-                    target="_blank"
-                    rel="noopener"
-                >
-                    English Edition
-                </a>
-
-
-                <a
-                    class="nw-btn nw-secondary"
-                    href="http://relinks.me/B0G4B3V9KY"
-                    target="_blank"
-                    rel="noopener"
-                >
-                    Italian Edition
-                </a>
-
-
-            </div>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     MAP
-========================================================= -->
-
-<section
-    class="nw-map"
-    id="map"
->
+<section class="nw-map" id="map">
 
     <img
         class="nw-map-image"
@@ -2279,9 +1533,7 @@ body.nw-video-open {
         alt="Map of Nirwest"
     >
 
-
     <div class="nw-map-overlay"></div>
-
 
     <div class="nw-map-content">
 
@@ -2289,18 +1541,16 @@ body.nw-video-open {
             EXPLORE NIRWEST
         </div>
 
-
         <h2>
             The Eight Kingdoms
         </h2>
 
-
         <p>
-            Journey beyond the films and discover the lands of Nirwest.
-            Explore the Kingdoms of Ice, Shadow, Wind, Earth, Sun,
-            Fire, Air and Ocean.
+            Journey beyond the films and discover
+            the lands of Nirwest. Explore the
+            Kingdoms of Ice, Shadow, Wind, Earth,
+            Sun, Fire, Air and Ocean.
         </p>
-
 
         <a
             href="kingdoms.html"
@@ -2313,14 +1563,12 @@ body.nw-video-open {
 
 </section>
 
-
 </main>
 
 
-
-<!-- =========================================================
+<!-- ========================================
      VIDEO PLAYER
-========================================================= -->
+======================================== -->
 
 <div
     class="nw-video-modal"
@@ -2329,14 +1577,12 @@ body.nw-video-open {
 >
 
     <button
-        type="button"
         class="nw-video-close"
         id="videoClose"
         aria-label="Close video"
     >
         ×
     </button>
-
 
     <div
         class="nw-video-shell"
@@ -2349,12 +1595,7 @@ body.nw-video-open {
             id="videoFrame"
             src=""
             title="Nirwest video player"
-            allow="
-                autoplay;
-                encrypted-media;
-                picture-in-picture;
-                fullscreen
-            "
+            allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
             allowfullscreen
         ></iframe>
 
@@ -2363,10 +1604,9 @@ body.nw-video-open {
 </div>
 
 
-
-<!-- =========================================================
+<!-- ========================================
      FOOTER
-========================================================= -->
+======================================== -->
 
 <footer class="nw-footer">
 
@@ -2381,122 +1621,105 @@ body.nw-video-open {
 </footer>
 
 
+<!-- ========================================
+     JAVASCRIPT
+======================================== -->
 
 <script>
 
-/* =========================================================
+/* ========================================
    NAVBAR
-========================================================= */
+======================================== */
 
-var navbar =
-    document.getElementById(
-        'navbar'
+const navbar = document.getElementById('navbar');
+
+window.addEventListener('scroll', function() {
+
+    navbar.classList.toggle(
+        'scrolled',
+        window.scrollY > 40
     );
 
-
-window.addEventListener(
-    'scroll',
-    function() {
-
-        if (
-            window.scrollY > 50
-        ) {
-
-            navbar.classList.add(
-                'scrolled'
-            );
-
-        }
-
-        else {
-
-            navbar.classList.remove(
-                'scrolled'
-            );
-
-        }
-
-    }
-);
+});
 
 
+/* ========================================
+   EPISODE SCROLL
+======================================== */
 
-/* =========================================================
-   HERO SLIDER
-========================================================= */
+function scrollEpisodes(direction) {
 
-var heroIndex = 0;
+    const row = document.getElementById('episodeRow');
 
-var heroSlides =
-    document.querySelectorAll(
-        '.nw-hero-slide'
-    );
+    const card = row.querySelector('.nw-card');
 
-var heroDots =
-    document.querySelectorAll(
-        '.nw-dot'
-    );
+    if (!card) return;
 
-var heroTimer;
+    const gap =
+        parseFloat(getComputedStyle(row).gap) || 15;
+
+    const amount =
+        (card.getBoundingClientRect().width + gap) * 2;
+
+    row.scrollBy({
+        left: direction * amount,
+        behavior: 'smooth'
+    });
+
+}
+
+
+/* ========================================
+   LARGE HERO SLIDER
+======================================== */
+
+let heroIndex = 0;
+
+const heroSlides =
+    document.querySelectorAll('.nw-hero-slide');
+
+const heroDots =
+    document.querySelectorAll('.nw-dot');
+
+let heroTimer;
 
 
 function heroShow(index) {
 
-    if (
-        index < 0
-    ) {
-
-        index =
-            heroSlides.length - 1;
-
+    if (index < 0) {
+        index = heroSlides.length - 1;
     }
 
-
-    if (
-        index >= heroSlides.length
-    ) {
-
+    if (index >= heroSlides.length) {
         index = 0;
-
     }
 
+    heroIndex = index;
 
-    heroIndex =
-        index;
+    heroSlides.forEach(function(slide, i) {
 
+        slide.classList.toggle(
+            'active',
+            i === heroIndex
+        );
 
-    heroSlides.forEach(
-        function(slide,i) {
+    });
 
-            slide.classList.toggle(
-                'active',
-                i === index
-            );
+    heroDots.forEach(function(dot, i) {
 
-        }
-    );
+        dot.classList.toggle(
+            'active',
+            i === heroIndex
+        );
 
-
-    heroDots.forEach(
-        function(dot,i) {
-
-            dot.classList.toggle(
-                'active',
-                i === index
-            );
-
-        }
-    );
+    });
 
 }
 
 
 function heroNext() {
 
-    heroShow(
-        heroIndex + 1
-    );
-
+    heroShow(heroIndex + 1);
     heroRestart();
 
 }
@@ -2504,10 +1727,7 @@ function heroNext() {
 
 function heroPrevious() {
 
-    heroShow(
-        heroIndex - 1
-    );
-
+    heroShow(heroIndex - 1);
     heroRestart();
 
 }
@@ -2516,7 +1736,6 @@ function heroPrevious() {
 function heroGo(index) {
 
     heroShow(index);
-
     heroRestart();
 
 }
@@ -2524,32 +1743,18 @@ function heroGo(index) {
 
 function heroStart() {
 
-    clearInterval(
-        heroTimer
-    );
+    clearInterval(heroTimer);
 
+    heroTimer = setInterval(function() {
 
-    heroTimer =
-        setInterval(
-            function() {
+        heroShow(heroIndex + 1);
 
-                heroShow(
-                    heroIndex + 1
-                );
-
-            },
-
-            6000
-        );
+    }, 6000);
 
 }
 
 
 function heroRestart() {
-
-    clearInterval(
-        heroTimer
-    );
 
     heroStart();
 
@@ -2559,244 +1764,134 @@ function heroRestart() {
 heroStart();
 
 
+/* ========================================
+   MOBILE SWIPE
+======================================== */
 
-/* =========================================================
-   EPISODE ROW
-========================================================= */
+const hero = document.querySelector('.nw-hero');
 
-function scrollEpisodes(direction) {
+let touchStartX = 0;
 
-    var row =
-        document.getElementById(
-            'episodeRow'
-        );
+hero.addEventListener(
+    'touchstart',
+    function(event) {
 
+        touchStartX =
+            event.changedTouches[0].screenX;
 
-    if (!row) {
-        return;
-    }
+    },
+    { passive: true }
+);
 
+hero.addEventListener(
+    'touchend',
+    function(event) {
 
-    var card =
-        row.querySelector(
-            '.nw-card'
-        );
+        const touchEndX =
+            event.changedTouches[0].screenX;
 
+        const difference =
+            touchEndX - touchStartX;
 
-    if (!card) {
-        return;
-    }
+        if (Math.abs(difference) > 60) {
 
+            if (difference < 0) {
+                heroNext();
+            } else {
+                heroPrevious();
+            }
 
-    var gap =
-        parseFloat(
-            window.getComputedStyle(
-                row
-            ).gap
-        ) || 16;
+        }
 
-
-    var amount =
-        (
-            card.getBoundingClientRect().width
-            +
-            gap
-        )
-        *
-        2;
+    },
+    { passive: true }
+);
 
 
-    row.scrollBy({
-
-        left:
-            direction *
-            amount,
-
-        behavior:
-            'smooth'
-
-    });
-
-}
-
-
-
-/* =========================================================
+/* ========================================
    VIDEO PLAYER
-========================================================= */
+======================================== */
 
-var videoModal =
-    document.getElementById(
-        'videoModal'
-    );
+const videoModal =
+    document.getElementById('videoModal');
 
+const videoFrame =
+    document.getElementById('videoFrame');
 
-var videoFrame =
-    document.getElementById(
-        'videoFrame'
-    );
-
-
-var videoClose =
-    document.getElementById(
-        'videoClose'
-    );
+const videoClose =
+    document.getElementById('videoClose');
 
 
 function openVideo(videoId) {
 
-    if (
-        !videoModal ||
-        !videoFrame
-    ) {
-        return;
-    }
-
-
-    /*
-       Carichiamo il player YouTube incorporato.
-       autoplay=1 fa partire il video.
-       rel=0 limita i video correlati.
-    */
-
     videoFrame.src =
-        'https://www.youtube.com/embed/'
-        +
-        videoId
-        +
-        '?autoplay=1&rel=0&modestbranding=1';
+        'https://www.youtube.com/embed/' +
+        videoId +
+        '?autoplay=1&rel=0';
 
-
-    videoModal.classList.add(
-        'active'
-    );
-
+    videoModal.classList.add('active');
 
     videoModal.setAttribute(
         'aria-hidden',
         'false'
     );
 
-
     document.body.classList.add(
         'nw-video-open'
     );
 
-
-    /*
-       Fermiamo lo slider mentre
-       l'utente guarda il video.
-    */
-
-    clearInterval(
-        heroTimer
-    );
+    clearInterval(heroTimer);
 
 }
 
 
 function closeVideo() {
 
-    if (
-        !videoModal ||
-        !videoFrame
-    ) {
-        return;
-    }
-
-
-    videoModal.classList.remove(
-        'active'
-    );
-
+    videoModal.classList.remove('active');
 
     videoModal.setAttribute(
         'aria-hidden',
         'true'
     );
 
-
-    /*
-       Togliendo src il video si ferma
-       completamente quando chiudiamo.
-    */
-
     videoFrame.src = '';
-
 
     document.body.classList.remove(
         'nw-video-open'
     );
-
-
-    /*
-       Riavviamo lo slider.
-    */
 
     heroStart();
 
 }
 
 
-
-/* X */
-
-if (
-    videoClose
-) {
-
-    videoClose.addEventListener(
-        'click',
-        closeVideo
-    );
-
-}
+videoClose.addEventListener(
+    'click',
+    closeVideo
+);
 
 
+videoModal.addEventListener(
+    'click',
+    function(event) {
 
-/* CLICK FUORI DAL VIDEO */
-
-if (
-    videoModal
-) {
-
-    videoModal.addEventListener(
-        'click',
-        function(event) {
-
-            if (
-                event.target === videoModal
-            ) {
-
-                closeVideo();
-
-            }
-
+        if (event.target === videoModal) {
+            closeVideo();
         }
-    );
 
-}
+    }
+);
 
-
-
-/* ESC */
 
 document.addEventListener(
     'keydown',
     function(event) {
 
         if (
-            event.key === 'Escape'
-            &&
-            videoModal
-            &&
-            videoModal.classList.contains(
-                'active'
-            )
+            event.key === 'Escape' &&
+            videoModal.classList.contains('active')
         ) {
-
             closeVideo();
-
         }
 
     }
@@ -2804,7 +1899,5 @@ document.addEventListener(
 
 </script>
 
-
 </body>
-
 </html>
