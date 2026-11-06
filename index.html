@@ -25,7 +25,7 @@ html {
 body {
     margin: 0;
     background: #070707;
-    color: white;
+    color: #ffffff;
     font-family: Arial, Helvetica, sans-serif;
     overflow-x: hidden;
 }
@@ -47,6 +47,12 @@ section {
     scroll-margin-top: 75px;
 }
 
+:root {
+    --gold: #c79850;
+    --gold-light: #f0c77d;
+    --black: #070707;
+}
+
 /* ========================================
    NAVIGATION
 ======================================== */
@@ -66,7 +72,7 @@ section {
     padding: 0 4vw;
 
     background: rgba(7,7,7,.94);
-    border-bottom: 1px solid rgba(255,255,255,.07);
+    border-bottom: 1px solid rgba(199,152,80,.15);
     backdrop-filter: blur(12px);
 }
 
@@ -78,7 +84,7 @@ section {
 }
 
 .nw-logo span {
-    color: #c79850;
+    color: var(--gold);
 }
 
 .nw-nav-links {
@@ -90,19 +96,19 @@ section {
 .nw-nav-links a {
     font-size: 12px;
     color: rgba(255,255,255,.75);
-    transition: color .2s;
+    transition: color .25s;
 }
 
 .nw-nav-links a:hover {
-    color: #c79850;
+    color: var(--gold-light);
 }
 
 /* ========================================
-   COMMON
+   COMMON ELEMENTS
 ======================================== */
 
 .nw-kicker {
-    color: #c79850;
+    color: var(--gold);
     font-size: 10px;
     font-weight: bold;
     letter-spacing: 4px;
@@ -122,23 +128,27 @@ section {
 
     font-size: 12px;
     font-weight: bold;
-    text-decoration: none;
 
-    transition: transform .2s, background .2s;
+    transition:
+        transform .25s,
+        background .25s,
+        box-shadow .25s;
 }
 
 .nw-btn:hover {
-    transform: scale(1.04);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(199,152,80,.2);
 }
 
 .nw-primary {
-    background: white;
+    background: #ffffff;
     color: #080808;
 }
 
 .nw-secondary {
-    background: rgba(110,110,110,.45);
-    color: white;
+    background: rgba(80,80,80,.55);
+    color: #ffffff;
+    border: 1px solid rgba(255,255,255,.15);
 }
 
 .nw-buttons {
@@ -148,80 +158,251 @@ section {
     margin-top: 19px;
 }
 
+.nw-flag {
+    display: inline-block;
+    font-size: 18px;
+    line-height: 1;
+    margin-right: 8px;
+}
+
 /* ========================================
-   1. BOOK - ENLARGED COVER
+   GOLD DIVIDER
+======================================== */
+
+.nw-divider {
+    position: relative;
+    height: 1px;
+    width: 90%;
+    margin: 0 auto;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(199,152,80,.65),
+        transparent
+    );
+}
+
+/* ========================================
+   1. BOOK SECTION
+   WITH DRAGON BACKGROUND
 ======================================== */
 
 .nw-book-section {
-    padding: 85px 5vw 25px;
+    position: relative;
+    isolation: isolate;
 
-    background:
-        radial-gradient(
-            ellipse at 25% 35%,
-            rgba(199,152,80,.09),
-            transparent 55%
-        ),
-        #080808;
+    padding: 88px 5vw 35px;
+
+    overflow: hidden;
+
+    background: #080808;
 }
 
+/* DRAGON BACKGROUND */
+
+.nw-dragon-background {
+    position: absolute;
+    z-index: -2;
+
+    top: -12%;
+    right: -5%;
+
+    width: 72%;
+    height: 125%;
+
+    background-image: url("xxxx.png");
+    background-size: contain;
+    background-position: center right;
+    background-repeat: no-repeat;
+
+    opacity: .38;
+
+    filter:
+        brightness(.78)
+        contrast(1.18);
+
+    pointer-events: none;
+
+    will-change: transform;
+
+    animation:
+        nwDragonAppear 2s ease-out both;
+}
+
+/* DARK GRADIENT OVER DRAGON */
+
+.nw-book-section::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    z-index: -1;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(7,7,7,.97) 0%,
+            rgba(7,7,7,.88) 35%,
+            rgba(7,7,7,.38) 75%,
+            rgba(7,7,7,.35) 100%
+        ),
+        linear-gradient(
+            0deg,
+            #070707,
+            transparent 35%
+        );
+
+    pointer-events: none;
+}
+
+/* BOOK LAYOUT */
+
 .nw-book {
+    position: relative;
+    z-index: 2;
+
     width: 100%;
     max-width: 1150px;
     margin: 0 auto;
 
     display: grid;
-    grid-template-columns: 240px minmax(0,1fr);
+    grid-template-columns: 205px minmax(0,1fr);
     align-items: center;
-    gap: 40px;
+    gap: 36px;
 }
+
+/* BOOK IMAGE */
 
 .nw-book-image {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .nw-book-image img {
+    display: block;
+
     width: 100%;
-    max-width: 240px;
-    max-height: 340px;
+    max-width: 205px;
+    max-height: 300px;
+
     object-fit: contain;
 
     border-radius: 5px;
 
     filter:
-        drop-shadow(0 12px 22px rgba(0,0,0,.75));
+        drop-shadow(
+            0 15px 28px rgba(0,0,0,.8)
+        );
+
+    transition:
+        transform .45s ease,
+        filter .45s ease;
 }
 
+.nw-book-image img:hover {
+    transform: scale(1.04);
+
+    filter:
+        drop-shadow(
+            0 15px 30px rgba(199,152,80,.2)
+        );
+}
+
+/* BOOK TEXT */
+
 .nw-book-content {
-    max-width: 760px;
+    max-width: 690px;
 }
 
 .nw-book-content h1 {
-    margin: 8px 0 12px;
+    margin: 9px 0 12px;
 
     font-family: Georgia, serif;
+    font-size: clamp(31px,3.5vw,49px);
     font-weight: normal;
-    font-size: clamp(30px, 3.4vw, 48px);
-    line-height: 1.05;
+    line-height: 1.08;
+
+    text-shadow:
+        0 4px 18px rgba(0,0,0,.8);
 }
 
 .nw-book-content p {
     margin: 0;
-    max-width: 650px;
+    max-width: 610px;
 
-    color: rgba(255,255,255,.72);
+    color: rgba(255,255,255,.8);
+
     font-size: 13px;
-    line-height: 1.65;
+    line-height: 1.7;
+
+    text-shadow:
+        0 2px 10px rgba(0,0,0,.7);
 }
 
-/* FLAGS INSIDE BOOK BUTTONS */
+/* ========================================
+   DRAGON ANIMATIONS
+======================================== */
 
-.nw-flag {
-    font-size: 18px;
-    line-height: 1;
-    margin-right: 8px;
-    display: inline-block;
-    vertical-align: middle;
+@keyframes nwDragonAppear {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(45px)
+            scale(1.06);
+    }
+
+    to {
+        opacity: .38;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+/* GOLD ATMOSPHERE */
+
+.nw-book-section::before {
+    content: "";
+
+    position: absolute;
+
+    width: 650px;
+    height: 650px;
+
+    right: -200px;
+    top: -220px;
+
+    z-index: -1;
+
+    background: radial-gradient(
+        circle,
+        rgba(199,152,80,.10),
+        transparent 65%
+    );
+
+    pointer-events: none;
+
+    animation:
+        nwGoldGlow 7s ease-in-out infinite alternate;
+}
+
+@keyframes nwGoldGlow {
+
+    from {
+        opacity: .35;
+        transform: scale(.9);
+    }
+
+    to {
+        opacity: .85;
+        transform: scale(1.12);
+    }
+
 }
 
 /* ========================================
@@ -229,16 +410,20 @@ section {
 ======================================== */
 
 .nw-section {
-    padding: 25px 0 30px;
+    position: relative;
+
+    padding: 30px 0 35px;
+
     background: #070707;
 }
 
 .nw-section-header {
-    padding: 0 4vw 14px;
+    padding: 0 4vw 15px;
 
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+
     gap: 15px;
 }
 
@@ -246,12 +431,12 @@ section {
     margin: 6px 0 0;
 
     font-family: Georgia, serif;
-    font-size: clamp(26px,3vw,39px);
+    font-size: clamp(27px,3vw,40px);
     font-weight: normal;
 }
 
 .nw-note {
-    color: rgba(255,255,255,.40);
+    color: rgba(255,255,255,.4);
     font-size: 11px;
 }
 
@@ -266,10 +451,11 @@ section {
     padding: 8px 4vw 22px;
 
     overflow-x: auto;
+
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
-    scrollbar-width: none;
 
+    scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
 }
 
@@ -277,41 +463,64 @@ section {
     display: none;
 }
 
+/* EPISODE CARDS */
+
 .nw-card {
     flex: 0 0 clamp(250px,28vw,385px);
     min-width: 0;
 
     scroll-snap-align: start;
+
     cursor: pointer;
 
-    transition: transform .3s;
+    transition:
+        transform .35s ease;
 }
 
 .nw-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-6px);
 }
 
 .nw-card-image {
     position: relative;
+
     width: 100%;
     aspect-ratio: 16 / 9;
 
     overflow: hidden;
+
     border-radius: 7px;
+
     background: #151515;
+
+    border:
+        1px solid rgba(199,152,80,.12);
+
+    transition:
+        border-color .3s,
+        box-shadow .3s;
+}
+
+.nw-card:hover .nw-card-image {
+    border-color: rgba(199,152,80,.65);
+
+    box-shadow:
+        0 0 24px rgba(199,152,80,.15);
 }
 
 .nw-card-image img {
     display: block;
+
     width: 100%;
     height: 100%;
+
     object-fit: cover;
 
-    transition: transform .4s;
+    transition: transform .45s;
 }
 
 .nw-card:hover img {
-    transform: scale(1.05);
+    transform: scale(1.06);
 }
 
 .nw-card-overlay {
@@ -320,15 +529,17 @@ section {
 
     background: linear-gradient(
         to top,
-        rgba(0,0,0,.60),
-        transparent 60%
+        rgba(0,0,0,.67),
+        transparent 65%
     );
 }
 
 .nw-play {
     position: absolute;
+
     left: 50%;
     top: 50%;
+
     transform: translate(-50%,-50%);
 
     width: 52px;
@@ -342,16 +553,30 @@ section {
     border-radius: 50%;
 
     background: rgba(0,0,0,.65);
+
     font-size: 18px;
+
+    transition:
+        background .25s,
+        border-color .25s;
+}
+
+.nw-card:hover .nw-play {
+    background: rgba(199,152,80,.8);
+    border-color: var(--gold-light);
 }
 
 .nw-episode-number {
     position: absolute;
+
     bottom: 10px;
     left: 10px;
 
     padding: 5px 9px;
+
     background: rgba(0,0,0,.85);
+
+    color: var(--gold-light);
 
     font-size: 10px;
     font-weight: bold;
@@ -359,6 +584,7 @@ section {
 
 .nw-card-title {
     margin: 11px 0 5px;
+
     font-family: Georgia, serif;
     font-size: 19px;
 }
@@ -366,10 +592,13 @@ section {
 .nw-card-desc {
     margin: 0;
 
-    color: rgba(255,255,255,.60);
+    color: rgba(255,255,255,.6);
+
     font-size: 12px;
     line-height: 1.5;
 }
+
+/* COMING SOON */
 
 .nw-coming {
     cursor: default;
@@ -377,30 +606,40 @@ section {
 
 .nw-coming .nw-card-image {
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 
-    background: linear-gradient(135deg,#1b1b1b,#090909);
-    border: 1px solid rgba(255,255,255,.08);
+    background:
+        linear-gradient(
+            135deg,
+            #1b1b1b,
+            #090909
+        );
 }
 
 .nw-coming-text {
     color: rgba(255,255,255,.35);
+
     font-size: 15px;
     font-weight: bold;
     letter-spacing: 3px;
 }
 
+/* EPISODE ARROWS */
+
 .nw-row-arrow {
     position: absolute;
     top: 35%;
+
     transform: translateY(-50%);
+
     z-index: 20;
 
     width: 42px;
     height: 75px;
 
     border: 0;
+
     background: rgba(0,0,0,.68);
 
     color: white;
@@ -421,11 +660,13 @@ section {
 
 .nw-hero {
     position: relative;
+
     width: 100%;
     height: 78vh;
     min-height: 500px;
 
     overflow: hidden;
+
     background: #000;
 }
 
@@ -437,7 +678,9 @@ section {
     visibility: hidden;
     pointer-events: none;
 
-    transition: opacity .8s ease, visibility .8s;
+    transition:
+        opacity .8s ease,
+        visibility .8s;
 }
 
 .nw-hero-slide.active {
@@ -455,6 +698,14 @@ section {
 
     background-size: cover;
     background-position: center;
+
+    transform: scale(1.04);
+
+    transition: transform 8s ease;
+}
+
+.nw-hero-slide.active .nw-hero-bg {
+    transform: scale(1);
 }
 
 .nw-hero-overlay {
@@ -495,17 +746,21 @@ section {
     margin: 12px 0 0;
 
     font-family: Georgia, serif;
+
     font-size: clamp(42px,6vw,85px);
+
     text-transform: uppercase;
     line-height: 1;
 
-    text-shadow: 0 5px 25px rgba(0,0,0,.85);
+    text-shadow:
+        0 5px 25px rgba(0,0,0,.85);
 }
 
 .nw-hero-subtitle {
     margin-top: 12px;
 
-    color: #c79850;
+    color: var(--gold);
+
     font-family: Georgia, serif;
     font-size: clamp(17px,2vw,26px);
     letter-spacing: 5px;
@@ -513,24 +768,29 @@ section {
 
 .nw-hero-description {
     max-width: 560px;
+
     margin: 16px 0 0;
 
     color: rgba(255,255,255,.85);
+
     font-size: 14px;
     line-height: 1.6;
 }
 
 .nw-hero-arrow {
     position: absolute;
+
     top: 50%;
     transform: translateY(-50%);
+
     z-index: 20;
 
     width: 45px;
     height: 75px;
 
     border: 0;
-    background: rgba(0,0,0,.50);
+
+    background: rgba(0,0,0,.5);
 
     color: white;
     font-size: 34px;
@@ -550,7 +810,9 @@ section {
 
 .nw-hero-dots {
     position: absolute;
+
     z-index: 30;
+
     bottom: 25px;
     left: 6vw;
 
@@ -563,6 +825,7 @@ section {
     height: 10px;
 
     padding: 0;
+
     border: 0;
     border-radius: 50%;
 
@@ -570,17 +833,19 @@ section {
 }
 
 .nw-dot.active {
-    background: #c79850;
+    background: var(--gold);
 }
 
 /* ========================================
-   4. MAP
+   4. NIRWEST MAP
 ======================================== */
 
 .nw-map {
     position: relative;
+
     width: 100%;
     min-height: 75vh;
+
     overflow: hidden;
 
     background: #090806;
@@ -636,14 +901,17 @@ section {
 
     font-family: Georgia, serif;
     font-weight: normal;
+
     font-size: clamp(40px,6vw,75px);
 }
 
 .nw-map-content p {
     max-width: 570px;
+
     margin: 0 0 22px;
 
     color: rgba(255,255,255,.78);
+
     font-size: 14px;
     line-height: 1.7;
 }
@@ -655,6 +923,7 @@ section {
 .nw-video-modal {
     position: fixed;
     inset: 0;
+
     z-index: 5000;
 
     display: flex;
@@ -662,13 +931,16 @@ section {
     justify-content: center;
 
     padding: 24px;
+
     background: rgba(0,0,0,.94);
 
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
 
-    transition: opacity .25s, visibility .25s;
+    transition:
+        opacity .25s,
+        visibility .25s;
 }
 
 .nw-video-modal.active {
@@ -684,6 +956,7 @@ section {
     aspect-ratio: 16 / 9;
 
     background: black;
+
     border-radius: 8px;
     overflow: hidden;
 }
@@ -696,17 +969,22 @@ section {
 
 .nw-video-close {
     position: absolute;
+
     top: 15px;
     right: 20px;
+
     z-index: 5100;
 
     width: 44px;
     height: 44px;
 
-    border: 1px solid rgba(255,255,255,.3);
+    border:
+        1px solid rgba(255,255,255,.3);
+
     border-radius: 50%;
 
     background: rgba(0,0,0,.8);
+
     color: white;
     font-size: 28px;
 }
@@ -716,13 +994,33 @@ body.nw-video-open {
 }
 
 /* ========================================
+   SCROLL REVEAL
+======================================== */
+
+.nw-reveal {
+    opacity: 0;
+
+    transform: translateY(28px);
+
+    transition:
+        opacity .9s ease,
+        transform .9s ease;
+}
+
+.nw-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ========================================
    FOOTER
 ======================================== */
 
 .nw-footer {
     padding: 45px 5vw 65px;
 
-    border-top: 1px solid rgba(255,255,255,.08);
+    border-top:
+        1px solid rgba(199,152,80,.15);
 
     color: rgba(255,255,255,.4);
     font-size: 12px;
@@ -732,6 +1030,7 @@ body.nw-video-open {
     margin-bottom: 10px;
 
     color: white;
+
     font-family: Georgia, serif;
     font-size: 23px;
     letter-spacing: 4px;
@@ -757,23 +1056,27 @@ body.nw-video-open {
         display: none;
     }
 
+    /* BOOK */
+
     .nw-book-section {
-        padding: 74px 15px 20px;
+        padding: 74px 15px 24px;
     }
 
     .nw-book {
-        grid-template-columns: 135px minmax(0,1fr);
-        gap: 16px;
+        grid-template-columns:
+            115px minmax(0,1fr);
+
+        gap: 15px;
         align-items: center;
     }
 
     .nw-book-image img {
-        max-width: 135px;
-        max-height: 210px;
+        max-width: 115px;
+        max-height: 185px;
     }
 
     .nw-book-content h1 {
-        font-size: clamp(22px,5.8vw,31px);
+        font-size: clamp(21px,5.5vw,29px);
         margin: 6px 0 8px;
     }
 
@@ -783,8 +1086,8 @@ body.nw-video-open {
     }
 
     .nw-book-content p {
-        font-size: 11px;
-        line-height: 1.45;
+        font-size: 10px;
+        line-height: 1.5;
     }
 
     .nw-book-content .nw-buttons {
@@ -794,7 +1097,7 @@ body.nw-video-open {
 
     .nw-btn {
         min-height: 36px;
-        padding: 0 10px;
+        padding: 0 9px;
         font-size: 10px;
     }
 
@@ -802,6 +1105,32 @@ body.nw-video-open {
         font-size: 15px;
         margin-right: 5px;
     }
+
+    /* DRAGON BACKGROUND MOBILE */
+
+    .nw-dragon-background {
+        width: 100%;
+        height: 100%;
+
+        top: 0;
+        right: -25%;
+
+        opacity: .20;
+
+        background-position: center right;
+    }
+
+    .nw-book-section::after {
+        background:
+            linear-gradient(
+                90deg,
+                rgba(7,7,7,.94),
+                rgba(7,7,7,.72) 55%,
+                rgba(7,7,7,.50)
+            );
+    }
+
+    /* EPISODES */
 
     .nw-section {
         padding: 18px 0 23px;
@@ -832,6 +1161,8 @@ body.nw-video-open {
     .nw-card-title {
         font-size: 17px;
     }
+
+    /* HERO */
 
     .nw-hero {
         height: 65vh;
@@ -867,6 +1198,8 @@ body.nw-video-open {
         bottom: 18px;
     }
 
+    /* MAP */
+
     .nw-map,
     .nw-map-content {
         min-height: 65vh;
@@ -880,6 +1213,8 @@ body.nw-video-open {
         font-size: 12px;
     }
 
+    /* VIDEO */
+
     .nw-video-modal {
         padding: 10px;
     }
@@ -890,36 +1225,64 @@ body.nw-video-open {
     }
 }
 
-/* EXTRA SMALL SCREENS */
+/* ========================================
+   EXTRA SMALL SCREENS
+======================================== */
 
 @media (max-width: 380px) {
 
     .nw-book {
-        grid-template-columns: 115px minmax(0,1fr);
-        gap: 12px;
+        grid-template-columns:
+            100px minmax(0,1fr);
+
+        gap: 10px;
     }
 
     .nw-book-image img {
-        max-width: 115px;
+        max-width: 100px;
     }
 
     .nw-book-content h1 {
-        font-size: 21px;
+        font-size: 20px;
     }
 
     .nw-book-content p {
-        font-size: 10px;
+        font-size: 9px;
     }
 
     .nw-book-content .nw-btn {
-        padding: 0 8px;
+        padding: 0 7px;
         font-size: 9px;
     }
 }
 
+/* ========================================
+   ACCESSIBILITY
+======================================== */
+
 @media (prefers-reduced-motion: reduce) {
+
     html {
         scroll-behavior: auto;
+    }
+
+    .nw-reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .nw-dragon-background {
+        animation: none;
+    }
+
+    .nw-book-section::before {
+        animation: none;
+    }
+
+    .nw-hero-bg {
+        transition: none;
+        transform: none;
     }
 }
 
@@ -962,10 +1325,19 @@ body.nw-video-open {
 <main id="home">
 
 <!-- ========================================
-     1. BOOK
+     1. BOOK WITH DRAGON BACKGROUND
 ======================================== -->
 
 <section class="nw-book-section" id="book">
+
+    <!-- REALISTIC DRAGON BACKGROUND -->
+
+    <div
+        class="nw-dragon-background"
+        id="dragonBackground"
+        aria-hidden="true"
+    ></div>
+
 
     <div class="nw-book">
 
@@ -977,6 +1349,7 @@ body.nw-video-open {
             >
 
         </div>
+
 
         <div class="nw-book-content">
 
@@ -995,7 +1368,6 @@ body.nw-video-open {
                 mysterious symbols and forgotten legends.
             </p>
 
-            <!-- BOOK BUTTONS WITH FLAGS -->
 
             <div class="nw-buttons">
 
@@ -1026,6 +1398,9 @@ body.nw-video-open {
     </div>
 
 </section>
+
+
+<div class="nw-divider"></div>
 
 
 <!-- ========================================
@@ -1176,7 +1551,7 @@ body.nw-video-open {
             </article>
 
 
-            <!-- EPISODES 3-10 -->
+            <!-- COMING SOON EPISODES -->
 
             <article class="nw-card nw-coming">
                 <div class="nw-card-image">
@@ -1508,7 +1883,7 @@ body.nw-video-open {
     </div>
 
 
-    <!-- SLIDER ARROWS -->
+    <!-- HERO ARROWS -->
 
     <button
         class="nw-hero-arrow nw-hero-left"
@@ -1527,7 +1902,7 @@ body.nw-video-open {
     </button>
 
 
-    <!-- DOTS -->
+    <!-- HERO DOTS -->
 
     <div class="nw-hero-dots">
 
@@ -1574,7 +1949,7 @@ body.nw-video-open {
 
     <div class="nw-map-overlay"></div>
 
-    <div class="nw-map-content">
+    <div class="nw-map-content nw-reveal">
 
         <div class="nw-kicker">
             EXPLORE NIRWEST
@@ -1670,7 +2045,8 @@ body.nw-video-open {
    NAVBAR
 ======================================== */
 
-const navbar = document.getElementById('navbar');
+const navbar =
+    document.getElementById('navbar');
 
 window.addEventListener('scroll', function() {
 
@@ -1688,9 +2064,11 @@ window.addEventListener('scroll', function() {
 
 function scrollEpisodes(direction) {
 
-    const row = document.getElementById('episodeRow');
+    const row =
+        document.getElementById('episodeRow');
 
-    const card = row.querySelector('.nw-card');
+    const card =
+        row.querySelector('.nw-card');
 
     if (!card) return;
 
@@ -1721,6 +2099,11 @@ const heroDots =
     document.querySelectorAll('.nw-dot');
 
 let heroTimer;
+
+const reduceMotion =
+    window.matchMedia(
+        '(prefers-reduced-motion: reduce)'
+    ).matches;
 
 
 function heroShow(index) {
@@ -1784,6 +2167,8 @@ function heroStart() {
 
     clearInterval(heroTimer);
 
+    if (reduceMotion) return;
+
     heroTimer = setInterval(function() {
 
         heroShow(heroIndex + 1);
@@ -1799,7 +2184,6 @@ function heroRestart() {
 
 }
 
-
 heroStart();
 
 
@@ -1807,7 +2191,8 @@ heroStart();
    MOBILE SWIPE
 ======================================== */
 
-const hero = document.querySelector('.nw-hero');
+const hero =
+    document.querySelector('.nw-hero');
 
 let touchStartX = 0;
 
@@ -1845,6 +2230,126 @@ hero.addEventListener(
     },
     { passive: true }
 );
+
+
+/* ========================================
+   DRAGON SCROLL EFFECT
+======================================== */
+
+const dragon =
+    document.getElementById('dragonBackground');
+
+const bookSection =
+    document.getElementById('book');
+
+let scrollScheduled = false;
+
+function updateDragonPosition() {
+
+    scrollScheduled = false;
+
+    if (!dragon || !bookSection || reduceMotion) {
+        return;
+    }
+
+    const rect =
+        bookSection.getBoundingClientRect();
+
+    const windowHeight =
+        window.innerHeight;
+
+    if (
+        rect.bottom < 0 ||
+        rect.top > windowHeight
+    ) {
+        return;
+    }
+
+    const scrollProgress =
+        -rect.top / windowHeight;
+
+    const movement =
+        scrollProgress * 35;
+
+    dragon.style.transform =
+        'translateY(' + movement + 'px)';
+
+}
+
+window.addEventListener(
+    'scroll',
+    function() {
+
+        if (!scrollScheduled) {
+
+            scrollScheduled = true;
+
+            requestAnimationFrame(
+                updateDragonPosition
+            );
+
+        }
+
+    },
+    { passive: true }
+);
+
+updateDragonPosition();
+
+
+/* ========================================
+   SCROLL REVEAL
+======================================== */
+
+const revealItems =
+    document.querySelectorAll('.nw-reveal');
+
+if (
+    'IntersectionObserver' in window &&
+    !reduceMotion
+) {
+
+    const revealObserver =
+        new IntersectionObserver(
+            function(entries, observer) {
+
+                entries.forEach(function(entry) {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add(
+                            'visible'
+                        );
+
+                        observer.unobserve(
+                            entry.target
+                        );
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.12
+            }
+        );
+
+    revealItems.forEach(function(item) {
+
+        revealObserver.observe(item);
+
+    });
+
+} else {
+
+    revealItems.forEach(function(item) {
+
+        item.classList.add('visible');
+
+    });
+
+}
 
 
 /* ========================================
